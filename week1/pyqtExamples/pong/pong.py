@@ -1,6 +1,7 @@
 # Dr. Kaputa
 # pyqt pong example
 
+import os
 import sys
 from PyQt4 import QtGui, QtCore
 
@@ -58,8 +59,7 @@ class Pong(QtGui.QMainWindow):
     self.showMaximized()
     self.show()
     
-	# Hardcoded file path of stylesheet
-    styleFile ="C:\Users\zdw7287\styleSheet.txt"
+    styleFile = "{}/styleSheet.txt".format(os.getcwd())
     with open(styleFile,"r") as fh:
       self.setStyleSheet(fh.read())
     
