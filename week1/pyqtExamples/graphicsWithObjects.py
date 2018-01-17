@@ -27,6 +27,7 @@ class Viewer(QtGui.QGraphicsView):
     self.myBall2 = Ball(self)
     self.myBall3 = Ball(self)
     self.myBall1.setPos(1000,0)
+    self.myBall3.setPos(500, 0)
     self.scene.addItem(self.myBall1)
     self.scene.addItem(self.myBall2)
     self.scene.addItem(self.myBall3)
@@ -47,7 +48,7 @@ class Viewer(QtGui.QGraphicsView):
     self.myBall1.moveBy(-20,20)
     self.myBall2.moveBy(20,20)
     self.myBall3.moveBy(0,20)
-    if (self.myBall1.collidesWithItem(self.myBall2)) or (self.myBall1.collidesWithItem(self.myBall3)):
+    if (self.myBall1.collidesWithItem(self.myBall2)) or (self.myBall1.collidesWithItem(self.myBall3)) or (self.myBall2.collidesWithItem(self.myBall3)):
       print "collision"
     
 class MainWindow(QtGui.QMainWindow):
