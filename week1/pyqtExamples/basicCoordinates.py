@@ -32,6 +32,7 @@ class Grid(QtGui.QGraphicsView):
         myFrame = self.scene.addRect(0, 0, self.gridWidth, self.gridHeight)
 
         self.scene.addRect(0, 0, .1, .2)
+        self.scene.addEllipse(.5, .5, .1, .1).setBrush(QtGui.QBrush(QtCore.Qt.green, style = QtCore.Qt.SolidPattern))
 
     def resizeEvent(self, event):
         super(Grid, self).resizeEvent(event)
