@@ -11,11 +11,15 @@ class Ball(QtGui.QGraphicsItem):
         self.parent = parent
 
     def boundingRect(self):
-        return QtCore.QRectF(0, 0, 100, 100)
+        #return QtCore.QRectF(0, 0, 100, 100)
+        # -50 so we can rotate around the center (0 will make the rotate method rotate around 0,0)
+        return QtCore.QRectF(-50, -50, 100, 100)
 
     def paint(self, painter, option, widget):
         painter.setBrush(QtGui.QColor(0, 0, 255))
-        painter.drawEllipse(0, 0, 100, 100)
+        #painter.drawRect(50, 50, 100, 100)
+        # -50 so we can rotate around the center (0 will make the rotate method rotate around 0,0)
+        painter.drawRect(-50, -50, 100, 100)
 
 
 class Viewer(QtGui.QGraphicsView):
@@ -36,7 +40,7 @@ class Viewer(QtGui.QGraphicsView):
 
         # timer code
         self.timer = QtCore.QBasicTimer()
-        self.timer.start(100, self)
+        self.timer.start(500, self)
 
         self.boardWidth = 1000
         self.boardHeight = 1000
@@ -49,6 +53,7 @@ class Viewer(QtGui.QGraphicsView):
     def timerEvent(self, event):
         self.myBall1.moveBy(-20, 20)
         self.myBall2.moveBy(20, 20)
+        self.myBall1.rotate(5.0)
         self.myBall3.moveBy(0, 20)
         if (self.myBall1.collidesWithItem(self.myBall2)) or (self.myBall1.collidesWithItem(self.myBall3)) or (
         self.myBall2.collidesWithItem(self.myBall3)):
