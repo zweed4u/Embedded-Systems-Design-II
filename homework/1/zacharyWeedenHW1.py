@@ -1,7 +1,10 @@
 #!/usr/bin/python
 # Zachary Weeden Homework 1
+# January 17, 2018 Rev 1
+# TODO: include docstrings, pretty boiler plate stuff, basic refactoring
 
 import sys
+import random
 from PyQt4 import QtGui, QtCore
 
 
@@ -9,7 +12,7 @@ class Bounce(QtGui.QMainWindow):
 
     def __init__(self):
         super(Bounce, self).__init__()
-        self.statusBar().showMessage('Ready')
+        self.statusBar().showMessage('Welcome to Bounce by Zachary Weeden 2018')
 
         exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)
         exitAction.setShortcut('Ctrl+Q')
@@ -21,7 +24,13 @@ class Bounce(QtGui.QMainWindow):
         fileMenu.addAction(exitAction)
 
         self.hLayout = QtGui.QHBoxLayout()
-        self.startButton = QtGui.QPushButton("Start")
+
+        self.colorButton = QtGui.QPushButton("Change to random Color")
+        self.accelerateButton = QtGui.QPushButton("Accelerate")
+        self.decelerateButton = QtGui.QPushButton("Decelerate")
+        self.hLayout.addWidget(self.colorButton)
+        self.hLayout.addWidget(self.accelerateButton)
+        self.hLayout.addWidget(self.decelerateButton)
 
         self.dockFrame = QtGui.QFrame()
         self.dockFrame.setLayout(self.hLayout)
@@ -29,7 +38,6 @@ class Bounce(QtGui.QMainWindow):
         self.dock = QtGui.QDockWidget(self)
         self.dock.setWidget(self.dockFrame)
         self.addDockWidget(QtCore.Qt.DockWidgetArea(4), self.dock)
-        self.dock.setWindowTitle("Controls")
 
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
 
@@ -45,6 +53,9 @@ class Bounce(QtGui.QMainWindow):
         self.showMaximized()
         self.show()
 
+        self.colorButton.clicked.connect(lambda: self.board.ball.changeColor())
+        self.accelerateButton.clicked.connect(lambda: self.board.accelerate())
+        self.decelerateButton.clicked.connect(lambda: self.board.decelerate())
 
 class Bounds(QtGui.QGraphicsItem):
     def __init__(self, boardWidth, boardHeight):
@@ -63,7 +74,7 @@ class Bounds(QtGui.QGraphicsItem):
 class Ball(QtGui.QGraphicsItem):
     def __init__(self, parent, boardWidth, boardHeight):
         super(Ball, self).__init__()
-        self.color = QtGui.QColor(0, 0, 255)
+        self.color = QtGui.QColor(255, 255, 255)
         self.xVel = 10
         self.yVel = 5
         self.ballWidth = 20
@@ -78,6 +89,11 @@ class Ball(QtGui.QGraphicsItem):
     def paint(self, painter, option, widget):
         painter.setBrush(self.color)
         painter.drawEllipse(-self.ballWidth / 2, -self.ballHeight / 2, self.ballWidth, self.ballHeight)
+
+    def changeColor(self):
+        rand_color_tuple = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+        print "Changing to color {}".format(rand_color_tuple)
+        self.color = QtGui.QColor(rand_color_tuple[0], rand_color_tuple[1], rand_color_tuple[2])
 
     def reflectX(self):
         self.xVel = self.xVel * -1
@@ -96,22 +112,22 @@ class Ball(QtGui.QGraphicsItem):
         if (self.y() >= self.boardHeight - self.ballHeight / 2):
             self.reflectY()
             self.parent.bounces += 1
-            print self.parent.bounces
+            print "Bounces: {}".format(self.parent.bounces)
 
         elif (self.y() <= self.ballHeight / 2):
             self.reflectY()
             self.parent.bounces += 1
-            print self.parent.bounces
+            print "Bounces: {}".format(self.parent.bounces)
 
         if self.collidesWithItem(self.parent.leftBound):
             self.reflectX()
             self.parent.bounces += 1
-            print self.parent.bounces
+            print "Bounces: {}".format(self.parent.bounces)
 
         if self.collidesWithItem(self.parent.rightBound):
             self.reflectX()
             self.parent.bounces += 1
-            print self.parent.bounces
+            print "Bounces: {}".format(self.parent.bounces)
 
         return 0
 
@@ -119,6 +135,7 @@ class Ball(QtGui.QGraphicsItem):
 class Board(QtGui.QGraphicsView):
     def __init__(self, parent):
         super(Board, self).__init__()
+        self.timer_init = 20.0
         self.bounces = 0
         self.parent = parent
         self.scene = QtGui.QGraphicsScene(self)
@@ -145,7 +162,19 @@ class Board(QtGui.QGraphicsView):
     def startGame(self):
         self.status = 0
         self.ball.setPos(500, 500)
-        self.timer.start(17, self)
+        self.timer.start(self.timer_init, self)
+
+    def accelerate(self):
+        print "Accelerating by 2x"
+        self.timer.stop()
+        self.timer_init/=2.0
+        self.timer.start(self.timer_init, self)
+
+    def decelerate(self):
+        print "Decelerating by 2x"
+        self.timer.stop()
+        self.timer_init*=2.0
+        self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
         if (self.status == 0):
