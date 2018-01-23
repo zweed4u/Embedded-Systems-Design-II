@@ -1,0 +1,139 @@
+ESD II
+Jan 23, 2018
+
+Heterogeneous Computing
+SoC (System on Chip) = CPU + FPGA
+
+
+Connectivity/protocols (MPU can use both)
+* I2C - 2 wires clock and data
+* SPI - serial peripheral interface - 4 wires
+* CAN - Controller area network (automotive)
+* UART - RS232/RS485/RS422 (different voltage)
+=============================================
+ISA - 
+PCI/e - High end (big data movers eg. to RAM, HDD)
+
+
+Most serial to parallel
+Microcontroller - Peripheral bus - has integrated memory onboard small (ALL IN ONE PACKAGE)
+1MHZ - 300MHZ
+easy to layout on board
+Breadboard support up to 4MHZ then ground bounce wil occur - frequencies go up impedance issues
+Output can not be hooked up to anything with power - need BJT/transistor output
+
+Microprocessor difference - microprocessor has its own memory (NEED TO ALSO LAY DOWN DDR BOARD) - very difficult
+DDR external
+~>3GHZ
+
+Digital Signal Processor
+high throughput
+specialized application - hardware acceleration
+may become obsolete as micriprocessors are getting fast
+(processor - program counter goes through instructions and executes (single core = single program counter))
+
+FPGA - Field programmable gate array
+"write hardware onto it"
+massively parallel
+programmable hardware
+problem - expensive, power sequencing (5, 3, 1.8, 2.7, 1.25 all must come up at the same time) "clap trap"
+don't need external memory
+~400 pins
+program in VHDL/Verilog
+faster and lower power than GPU can spawn more threads than GPU
+Max 100MHZ clock push to 200MHZ - need to constain
+
+CPLD - complex programmable logic device
+(FPGA's smaller cousin)
+eg. convert UART to I2C
+not many rails, slow
+
+ASIC - application specific integrated circuit - on matter of GHZ
+create an analog design (design transistors) worry about impedance and rise times
+silicon is cheap - creating = expensive
+not trivial
+Test on FPGA - get RTL view and then map to silicon to receive ASIC (10x faster than it was on FPGA test) 
+
+GPU - graphics processing unit
+high bandwidth/throughput
+parallel - many program counters
+use over FPGA when programming in C++/Kooda
+"little tiny DSPs"
+
+SoC - system on chip
+PSoC
+Cypress PSoC = DSP + CPLD (ARM controller/processor, handful of parallel logic eg. convert protocol, RGB lighting)
+FPGA Zynq = Microprocessor + FPGA (DDR)
+
+
+
+
+Slides
+SoC compartmentalization
+FPGA = encryption/video/control (fine grain and parallel)
+CPU = OS, IOT, matlab (single cores)
+
+SoC FPGA architecture
+Fully featured ARM processor
+Programmable Logic fabric
+
+SoC to...
+reduce board space and development time
+increase system flexibility
+configurable FPGA/CPU interconnect
+Integrated development tool flow
+open source software ecosystem
+
+Advances extensible interface - AXI
+How CPU talks to FPGA
+AXI4 - address followed by up to 256 data words
+AXI-lite - single address, single word
+AXI-stream - unlimited burt transfers (non-memory mapped)
+
+communicating between fpga and cpu
+CPU
+bare metal - c code (main, while loop) fpga registers accessible via global memory map
+linux - fpga refisters accesible via /dev/mem
+FPGA
+processor values accessible via registers
+
+speedgrade = silicon purity (speed)
+
+Algorithm partitions
+ARM processor 		high execution speed 		moderate determinism		C
+Soft Processor 		moderate execution speed 	moderate/high determinism 	C
+HDL state-machine	very high execution speed 	very high determinism 		HDL
+
+soft processor is processor written in HDL
+
+Considerations
+processor has faster compile time than fpga
+floating/fixed point implementaion (floating point needs 32 bits) - DSP slices used for floating point multiplies
+algorithm sizing - loading algorithm into memory
+verification methods - modelsim, chipscope or qemu, gdb
+expandability
+serveral companies offer intellectual property for SoC FPGAs
+
+kHZ loops -> CPU
+MHz Loops -> FPGA
+
+Rover example
+PWM - 1kHZ update, 1% resolution
+smallest possible is 99% low for 1ms and high for 1%
+so smallest high = 1ms*.01 = 10microseconds
+This is not possible in the processor - you will get jitter
+Needs to go in the FPGA
+data into PWM is 1ms (1000 kHZ)
+
+*avoid laying out board for GPU, FPGA and Microprocessor
+*microprocessor needed for programming in python
+
+Microchip.com
+8-bit MCU cannot do 16bit*16bit calculation - data and instructions saved in 8bit register cant do floating point (16/32 needed)
+
+stm32f722/3xx
+
+
+
+eg. single channel motor controller put into microcontroller
+eg. 10 axis motor controller/4k video feed (PARALLEL) put into FPGA or GPU depends on algorithm to choose target system
