@@ -168,35 +168,30 @@ class Rover(QtGui.QGraphicsItem):
         left_encoder = self.parent.parent.encoders['left']
         right_encoder = self.parent.parent.encoders['right']
         if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
-            left_data, right_data = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
-            if left_data == right_data:
-                # move foward
-                # parse different values move in scaled way eg. 0,0  1,1  2,2
-                print "Foward"
+            left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
+            if left_ticks == right_ticks:
+                if left_ticks == 0:
+                    print "Received both 0s not moving"
+                else:
+                    print "Moving foward by scale of {}".format(left_ticks)
             else:
-                # different values for each encoder - parse
-                if (left_data, right_data) == (0, 1):
+                # Different values for each encoder - parse
+                # I'm so sorry - this is awful
+                if (left_ticks, right_ticks) == (0, 1):
                     print "45 to the left"
-                elif(left_data, right_data) == (0, 2):
+                elif (left_ticks, right_ticks) == (0, 2):
                     print "90 to the left"
-                elif (left_data, right_data) == (1, 0):
+                elif (left_ticks, right_ticks) == (1, 0):
                     print "45 to the right"
-                elif (left_data, right_data) == (1, 2):
+                elif (left_ticks, right_ticks) == (1, 2):
                     print "45 to the left"
-                elif (left_data, right_data) == (2, 0):
+                elif (left_ticks, right_ticks) == (2, 0):
                     print "90 to the right"
-                elif (left_data, right_data) == (2, 1):
+                elif (left_ticks, right_ticks) == (2, 1):
                     print "45 to the right"
             self.instruction_step += 1
         else:
             print "Encoder text file fully traversed"
-        return 0
-
-    def advanced_move(self):
-        print "L_dir: {}".format(self.parent.parent.encoders['l_dir'])
-        print "Left: {}".format(self.parent.parent.encoders['left'])
-        print "R_dir: {}".format(self.parent.parent.encoders['r_dir'])
-        print "Right: {}".format(self.parent.parent.encoders['right'])
         return 0
 
 
@@ -207,8 +202,6 @@ if __name__ == '__main__':
     left = parsed_encoders['left']
     right_dir = parsed_encoders['r_dir']
     right = parsed_encoders['right']
-    #for l, r in zip(left, right):
-    #    print "{} {}".format(l, r)
 
     app = QtGui.QApplication(sys.argv)
     app.setFont(QtGui.QFont("Helvetica", 10))
