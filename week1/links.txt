@@ -1,8 +1,0 @@
-https://www.anaconda.com/download/
-
-conda install pyqtgraph
-
-import pyqtgraph.examples
-pyqtgraph.examples.run()
-
-http://www.pyqtgraph.org/documentation/introduction.html
