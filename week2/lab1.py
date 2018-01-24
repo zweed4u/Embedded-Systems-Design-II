@@ -63,36 +63,35 @@ class Encoders:
         elif self.hw_flag == 1:
             return 0
 
+
 class Board(QtGui.QGraphicsView):
     def __init__(self, parent):
         super(Board, self).__init__()
         self.timer_init = 20.0
-        self.bounces = 0
         self.parent = parent
         self.scene = QtGui.QGraphicsScene(self)
         self.setScene(self.scene)
 
         # Should be able to dynamically grab board dimensions based on machine
-        self.boardWidth = 1000
-        self.boardHeight = 1000
+        self.board_width = 1000
+        self.board_height = 1000
 
         # effectively sets the logical scene coordinates from 0,0 to 1000,1000
-        self.scene.addRect(0, 0, self.boardWidth, self.boardHeight)
+        self.scene.addRect(0, 0, self.board_width, self.board_height)
 
-        #self.rover = Rover(self, self.boardWidth, self.boardHeight)
-        #self.scene.addItem(self.rover)
+        self.rover = Rover(self, self.board_width, self.board_height)
+        self.scene.addItem(self.rover)
         self.timer = QtCore.QBasicTimer()
-        #self.rover.setPos(500, 500)
+        self.rover.setPos(500, 500)
 
     def startGame(self):
         self.status = 0
-        #self.rover.setPos(500, 500)
+        self.rover.setPos(500, 500)
         self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
         if self.status == 0:
-            #self.status = self.ball.move()
-            pass
+            self.status = self.rover.move()
         else:
             self.timer.stop()
 
@@ -147,6 +146,29 @@ class LabOne(QtGui.QMainWindow):
 
         #self.basic_implementation_button.clicked.connect(lambda: self.board.rover.decelerate())
         #self.backwards_implementation_button.clicked.connect(lambda: self.board.rover.accelerate())
+
+
+class Rover(QtGui.QGraphicsItem):
+    def __init__(self, parent, board_width, board_height):
+        super(Rover, self).__init__()
+        self.color = QtGui.QColor(255, 255, 255)
+        self.xVel = 10
+        self.yVel = 5
+        self.rover_width = 20
+        self.rover_height = 20
+        self.board_width = board_width
+        self.board_height = board_height
+        self.parent = parent
+
+    def boundingRect(self):
+        return QtCore.QRectF(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
+
+    def paint(self, painter, option, widget):
+        painter.setBrush(self.color)
+        painter.drawRect(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
+
+    def move(self):
+        raise NotImplementedError
 
 
 if __name__ == '__main__':
