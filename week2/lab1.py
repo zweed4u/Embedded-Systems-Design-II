@@ -17,23 +17,24 @@ class Encoders:
         """Parse the actual encoder text"""
         if self.contents is None:
             self.get_encoders()
-        print self.contents
+        # assumes format of l_dir\tleft\tr_dir\tright as the first row - data starts 2nd row
+        headers = self.contents.split('\n')[0].split()
         control_bits = self.contents.split('\n')[1:]
         l_dir = []
-        l = []
+        left = []
         r_dir = []
-        r = []
+        right = []
         encoder_map = {}
         for row in control_bits:  # ensure that the line from the file was not empty
             if row.strip():
                 l_dir.append(int(row[0]))
-                l.append(int(row[2]))
+                left.append(int(row[2]))
                 r_dir.append(int(row[4]))
-                r.append(int(row[6]))
-        encoder_map['l_dir'] = l_dir
-        encoder_map['l'] = l
-        encoder_map['r_dir'] = r_dir
-        encoder_map['r'] = r
+                right.append(int(row[6]))
+        encoder_map[headers[0]] = l_dir
+        encoder_map[headers[1]] = left
+        encoder_map[headers[2]] = r_dir
+        encoder_map[headers[3]] = right
         return encoder_map
 
 
