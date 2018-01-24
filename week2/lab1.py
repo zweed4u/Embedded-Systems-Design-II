@@ -2,13 +2,14 @@
 import os
 import json
 
+
 class Encoders:
     def __init__(self):
         self.contents = None
 
     def get_encoders(self):
         """Opens the encoders text file and stores it into class attribute"""
-        with open(os.getcwd()+'/encoders.txt', 'r') as f:
+        with open(os.getcwd() + '/encoders.txt', 'r') as f:
             self.contents = f.read()
         return self.contents
 
