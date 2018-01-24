@@ -90,8 +90,10 @@ class Board(QtGui.QGraphicsView):
         self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
-        if self.status == 0:
-            self.status = self.rover.move()
+        if self.status == 0:  # determine press
+            #self.status = self.rover.basic_move()
+            #self.status = self.rover.advanced_move()
+            pass
         else:
             self.timer.stop()
 
@@ -140,22 +142,22 @@ class LabOne(QtGui.QMainWindow):
         self.frame.setLayout(self.vLayout)
 
         self.setCentralWidget(self.frame)
-        self.setWindowTitle("Bounce")
+        self.setWindowTitle("Lab 1")
         self.showMaximized()
         self.show()
 
-        #self.basic_implementation_button.clicked.connect(lambda: self.board.rover.decelerate())
-        #self.backwards_implementation_button.clicked.connect(lambda: self.board.rover.accelerate())
+        self.basic_implementation_button.clicked.connect(lambda: self.board.rover.basic_move())
+        self.backwards_implementation_button.clicked.connect(lambda: self.board.rover.advanced_move())
 
 
 class Rover(QtGui.QGraphicsItem):
     def __init__(self, parent, board_width, board_height):
         super(Rover, self).__init__()
-        self.color = QtGui.QColor(255, 255, 255)
+        self.color = QtGui.QColor(0, 0, 255)
         self.xVel = 10
         self.yVel = 5
-        self.rover_width = 20
-        self.rover_height = 20
+        self.rover_width = 100
+        self.rover_height = 50
         self.board_width = board_width
         self.board_height = board_height
         self.parent = parent
@@ -163,12 +165,22 @@ class Rover(QtGui.QGraphicsItem):
     def boundingRect(self):
         return QtCore.QRectF(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
 
+    def set_color(self, color_tuple):
+        self.color = QtGui.QColor(color_tuple[0], color_tuple[1], color_tuple[2])
+
     def paint(self, painter, option, widget):
         painter.setBrush(self.color)
         painter.drawRect(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
 
-    def move(self):
-        raise NotImplementedError
+    def basic_move(self):
+        print "Left: {}".format(self.parent.parent.encoders['left'])
+        print "Right: {}".format(self.parent.parent.encoders['right'])
+
+    def advanced_move(self):
+        print "L_dir: {}".format(self.parent.parent.encoders['l_dir'])
+        print "Left: {}".format(self.parent.parent.encoders['left'])
+        print "R_dir: {}".format(self.parent.parent.encoders['r_dir'])
+        print "Right: {}".format(self.parent.parent.encoders['right'])
 
 
 if __name__ == '__main__':
