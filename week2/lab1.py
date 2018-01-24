@@ -4,6 +4,9 @@ Zachary Weeden
 CPET-563 Lab 1
 January 23, 2018
 """
+# TODO add more descriptive docstrings,
+# add 1st and 3rd column functionality in movement,
+# clear front graphic/pixmap graphic
 import os
 import sys
 import math
@@ -67,7 +70,7 @@ class Board(QtGui.QGraphicsView):
     def __init__(self, parent):
         super(Board, self).__init__()
         # Timer update to be between 2 and 4 seconds
-        self.timer_init = 3000.0
+        self.timer_init = 2000.0
         self.parent = parent
         self.scene = QtGui.QGraphicsScene(self)
         self.setScene(self.scene)
@@ -153,23 +156,45 @@ class Rover(QtGui.QGraphicsItem):
         self.parent = parent
 
     def boundingRect(self):
+        """
+        Bounds of the rover object
+        :return: QtCore.QRectF object
+        """
         return QtCore.QRectF(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
 
     def set_color(self, color_tuple):
+        """
+        Set the color of the rover rectangle
+        :param color_tuple: tuple of RGB vals
+        :return:
+        """
         self.color = QtGui.QColor(color_tuple[0], color_tuple[1], color_tuple[2])
 
     def paint(self, painter, option, widget):
+        """
+        Draw the rover object rectangle
+        :param painter:
+        :param option:
+        :param widget:
+        :return:
+        """
         painter.setBrush(self.color)
         painter.drawRect(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
 
     def basic_move(self):
+        """
+        Determines the next coordinates based of encoder arrays
+        :return: 0
+        """
         left_encoder = self.parent.parent.encoders['left']
         right_encoder = self.parent.parent.encoders['right']
         if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
             left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
+            print "Left ticks: {} Right ticks: {}".format(left_ticks, right_ticks)
             if left_ticks != right_ticks:
                 # Different values for each encoder - parse
                 # I'm so sorry - this is awful
+                print "Rotating"
                 if (left_ticks, right_ticks) == (0, 1):
                     self.angle -= 45
                     self.rotate(-45.0)
@@ -189,7 +214,6 @@ class Rover(QtGui.QGraphicsItem):
                     self.angle += 45
                     self.rotate(45.0)
             else:
-                print "Moving {} {}".format(left_ticks, right_ticks)
                 self.forwardX = left_ticks * math.cos(self.angle * (math.pi / 180))
                 self.forwardY = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
                 self.setX(self.x() + self.forwardX)
