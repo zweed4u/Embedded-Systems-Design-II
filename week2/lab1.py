@@ -147,7 +147,7 @@ class Rover(QtGui.QGraphicsItem):
         self.angle = 0
         self.color = QtGui.QColor(0, 0, 255)
         self.rover_width = 4
-        self.rover_height = 3
+        self.rover_height = 2
         self.board_width = board_width
         self.board_height = board_height
         self.parent = parent
@@ -191,7 +191,7 @@ class Rover(QtGui.QGraphicsItem):
             else:
                 print "Moving {} {}".format(left_ticks, right_ticks)
                 self.forwardX = left_ticks * math.cos(self.angle * (math.pi / 180))
-                self.forwardY = -1 * (right_ticks * math.sin(-1*self.angle * (math.pi / 180)))
+                self.forwardY = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
                 self.setX(self.x() + self.forwardX)
                 self.setY(self.y() + self.forwardY)
             self.instruction_step += 1
