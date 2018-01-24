@@ -5,7 +5,10 @@ CPET-563 Lab 1
 January 23, 2018
 """
 import os
+import sys
 import json
+from PyQt4 import QtGui, QtCore
+
 
 hw_flag = 0  # 0 = read from file
 
@@ -60,13 +63,103 @@ class Encoders:
         elif self.hw_flag == 1:
             return 0
 
+class Board(QtGui.QGraphicsView):
+    def __init__(self, parent):
+        super(Board, self).__init__()
+        self.timer_init = 20.0
+        self.bounces = 0
+        self.parent = parent
+        self.scene = QtGui.QGraphicsScene(self)
+        self.setScene(self.scene)
 
-parsed_encoders = Encoders(hw_flag).parse_file()
-print json.dumps(parsed_encoders, indent=4)
-# Works for when hw_flag = 0, read from file as headers (1st line) is used as keys
-left_dir = parsed_encoders['l_dir']
-left = parsed_encoders['left']
-right_dir = parsed_encoders['r_dir']
-right = parsed_encoders['right']
-for l, r in zip(left, right):
-    print "{} {}".format(l, r)
+        # Should be able to dynamically grab board dimensions based on machine
+        self.boardWidth = 1000
+        self.boardHeight = 1000
+
+        # effectively sets the logical scene coordinates from 0,0 to 1000,1000
+        self.scene.addRect(0, 0, self.boardWidth, self.boardHeight)
+
+        #self.rover = Rover(self, self.boardWidth, self.boardHeight)
+        #self.scene.addItem(self.rover)
+        self.timer = QtCore.QBasicTimer()
+        #self.rover.setPos(500, 500)
+
+    def startGame(self):
+        self.status = 0
+        #self.rover.setPos(500, 500)
+        self.timer.start(self.timer_init, self)
+
+    def timerEvent(self, event):
+        if self.status == 0:
+            #self.status = self.ball.move()
+            pass
+        else:
+            self.timer.stop()
+
+    def resizeEvent(self, event):
+        super(Board, self).resizeEvent(event)
+        self.fitInView(self.scene.sceneRect(), QtCore.Qt.KeepAspectRatio)
+
+
+class LabOne(QtGui.QMainWindow):
+    def __init__(self, parsed_encoders):
+        super(LabOne, self).__init__()
+        self.encoders = parsed_encoders
+        self.statusBar().showMessage('CPET-563 Lab 1 :: Zachary Weeden 2018')
+
+        exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.setStatusTip('Exit application')
+        exitAction.triggered.connect(QtGui.qApp.quit)
+
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('&File')
+        fileMenu.addAction(exitAction)
+
+        self.hLayout = QtGui.QHBoxLayout()
+
+        self.basic_implementation_button = QtGui.QPushButton("Basic (L/R)")  # L and R
+        self.backwards_implementation_button = QtGui.QPushButton("Backwards (L_dir/L/R_dir/R)")  # L_dir and R_dir as well
+        self.hLayout.addWidget(self.basic_implementation_button)
+        self.hLayout.addWidget(self.basic_implementation_button)
+        self.hLayout.addWidget(self.backwards_implementation_button)
+
+        self.dockFrame = QtGui.QFrame()
+        self.dockFrame.setLayout(self.hLayout)
+
+        self.dock = QtGui.QDockWidget(self)
+        self.dock.setWidget(self.dockFrame)
+        self.addDockWidget(QtCore.Qt.DockWidgetArea(4), self.dock)
+
+        self.setFocusPolicy(QtCore.Qt.StrongFocus)
+
+        self.board = Board(self)
+        self.vLayout = QtGui.QVBoxLayout()
+        self.vLayout.addWidget(self.board)
+
+        self.frame = QtGui.QFrame(self)
+        self.frame.setLayout(self.vLayout)
+
+        self.setCentralWidget(self.frame)
+        self.setWindowTitle("Bounce")
+        self.showMaximized()
+        self.show()
+
+        #self.basic_implementation_button.clicked.connect(lambda: self.board.rover.decelerate())
+        #self.backwards_implementation_button.clicked.connect(lambda: self.board.rover.accelerate())
+
+
+if __name__ == '__main__':
+    parsed_encoders = Encoders(hw_flag).parse_file()
+    # Works for when hw_flag = 0, read from file as headers (1st line) is used as keys
+    left_dir = parsed_encoders['l_dir']
+    left = parsed_encoders['left']
+    right_dir = parsed_encoders['r_dir']
+    right = parsed_encoders['right']
+    for l, r in zip(left, right):
+        print "{} {}".format(l, r)
+
+    app = QtGui.QApplication(sys.argv)
+    app.setFont(QtGui.QFont("Helvetica", 10))
+    LabOne(parsed_encoders).board.startGame()
+    sys.exit(app.exec_())
