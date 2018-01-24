@@ -9,7 +9,6 @@ import sys
 import json
 from PyQt4 import QtGui, QtCore
 
-
 hw_flag = 0  # 0 = read from file
 
 
@@ -67,7 +66,8 @@ class Encoders:
 class Board(QtGui.QGraphicsView):
     def __init__(self, parent):
         super(Board, self).__init__()
-        self.timer_init = 20.0
+        # Timer update to be between 2 and 4 seconds
+        self.timer_init = 3000.0
         self.parent = parent
         self.scene = QtGui.QGraphicsScene(self)
         self.setScene(self.scene)
@@ -91,9 +91,8 @@ class Board(QtGui.QGraphicsView):
 
     def timerEvent(self, event):
         if self.status == 0:  # determine press
-            #self.status = self.rover.basic_move()
-            #self.status = self.rover.advanced_move()
-            pass
+            self.status = self.rover.basic_move()
+            # self.status = self.rover.advanced_move()
         else:
             self.timer.stop()
 
@@ -119,8 +118,8 @@ class LabOne(QtGui.QMainWindow):
 
         self.hLayout = QtGui.QHBoxLayout()
 
-        self.basic_implementation_button = QtGui.QPushButton("Basic (L/R)")  # L and R
-        self.backwards_implementation_button = QtGui.QPushButton("Backwards (L_dir/L/R_dir/R)")  # L_dir and R_dir as well
+        self.basic_implementation_button = QtGui.QPushButton("Basic (L/R)")
+        self.backwards_implementation_button = QtGui.QPushButton("Backwards (L_dir/L/R_dir/R)")
         self.hLayout.addWidget(self.basic_implementation_button)
         self.hLayout.addWidget(self.basic_implementation_button)
         self.hLayout.addWidget(self.backwards_implementation_button)
@@ -175,12 +174,14 @@ class Rover(QtGui.QGraphicsItem):
     def basic_move(self):
         print "Left: {}".format(self.parent.parent.encoders['left'])
         print "Right: {}".format(self.parent.parent.encoders['right'])
+        return 0
 
     def advanced_move(self):
         print "L_dir: {}".format(self.parent.parent.encoders['l_dir'])
         print "Left: {}".format(self.parent.parent.encoders['left'])
         print "R_dir: {}".format(self.parent.parent.encoders['r_dir'])
         print "Right: {}".format(self.parent.parent.encoders['right'])
+        return 0
 
 
 if __name__ == '__main__':
