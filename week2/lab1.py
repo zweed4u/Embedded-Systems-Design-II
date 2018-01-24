@@ -91,6 +91,7 @@ class Board(QtGui.QGraphicsView):
 
     def timerEvent(self, event):
         if self.status == 0:  # determine press
+            print "Waiting on timer {}".format(self.timer_init)
             self.status = self.rover.basic_move()
             # self.status = self.rover.advanced_move()
         else:
@@ -118,12 +119,6 @@ class LabOne(QtGui.QMainWindow):
 
         self.hLayout = QtGui.QHBoxLayout()
 
-        self.basic_implementation_button = QtGui.QPushButton("Basic (L/R)")
-        self.backwards_implementation_button = QtGui.QPushButton("Backwards (L_dir/L/R_dir/R)")
-        self.hLayout.addWidget(self.basic_implementation_button)
-        self.hLayout.addWidget(self.basic_implementation_button)
-        self.hLayout.addWidget(self.backwards_implementation_button)
-
         self.dockFrame = QtGui.QFrame()
         self.dockFrame.setLayout(self.hLayout)
 
@@ -145,13 +140,11 @@ class LabOne(QtGui.QMainWindow):
         self.showMaximized()
         self.show()
 
-        self.basic_implementation_button.clicked.connect(lambda: self.board.rover.basic_move())
-        self.backwards_implementation_button.clicked.connect(lambda: self.board.rover.advanced_move())
-
 
 class Rover(QtGui.QGraphicsItem):
     def __init__(self, parent, board_width, board_height):
         super(Rover, self).__init__()
+        self.instruction_step = 0
         self.color = QtGui.QColor(0, 0, 255)
         self.xVel = 10
         self.yVel = 5
@@ -172,8 +165,31 @@ class Rover(QtGui.QGraphicsItem):
         painter.drawRect(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
 
     def basic_move(self):
-        print "Left: {}".format(self.parent.parent.encoders['left'])
-        print "Right: {}".format(self.parent.parent.encoders['right'])
+        left_encoder = self.parent.parent.encoders['left']
+        right_encoder = self.parent.parent.encoders['right']
+        if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
+            left_data, right_data = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
+            if left_data == right_data:
+                # move foward
+                # parse different values move in scaled way eg. 0,0  1,1  2,2
+                print "Foward"
+            else:
+                # different values for each encoder - parse
+                if (left_data, right_data) == (0, 1):
+                    print "45 to the left"
+                elif(left_data, right_data) == (0, 2):
+                    print "90 to the left"
+                elif (left_data, right_data) == (1, 0):
+                    print "45 to the right"
+                elif (left_data, right_data) == (1, 2):
+                    print "45 to the left"
+                elif (left_data, right_data) == (2, 0):
+                    print "90 to the right"
+                elif (left_data, right_data) == (2, 1):
+                    print "45 to the right"
+            self.instruction_step += 1
+        else:
+            print "Encoder text file fully traversed"
         return 0
 
     def advanced_move(self):
@@ -191,8 +207,8 @@ if __name__ == '__main__':
     left = parsed_encoders['left']
     right_dir = parsed_encoders['r_dir']
     right = parsed_encoders['right']
-    for l, r in zip(left, right):
-        print "{} {}".format(l, r)
+    #for l, r in zip(left, right):
+    #    print "{} {}".format(l, r)
 
     app = QtGui.QApplication(sys.argv)
     app.setFont(QtGui.QFont("Helvetica", 10))
