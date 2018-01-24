@@ -1,20 +1,33 @@
 #!/usr/bin/python
+"""
+Zachary Weeden
+CPET-563 Lab 1
+January 23, 2018
+"""
 import os
 import json
 
 
 class Encoders:
     def __init__(self):
+        """Constructor for Encoder class"""
         self.contents = None
 
     def get_encoders(self):
-        """Opens the encoders text file and stores it into class attribute"""
+        """
+        Opens the encoders text file and stores it into class attribute
+        Assumes that the encoders txt file is named appropriately and in the same directory as invocation
+        :return: str - the contents of the encoders.txt file
+        """
         with open(os.getcwd() + '/encoders.txt', 'r') as f:
             self.contents = f.read()
         return self.contents
 
     def parse_file(self):
-        """Parse the actual encoder text"""
+        """
+        Parse the actual encoder text into usable data structure
+        :return: dict - {'header_from_1st_row': [array_of_values_for_given_column]}
+        """
         if self.contents is None:
             self.get_encoders()
         # assumes format of l_dir\tleft\tr_dir\tright as the first row - data starts 2nd row
@@ -38,4 +51,5 @@ class Encoders:
         return encoder_map
 
 
-print json.dumps(Encoders().parse_file(), indent=4)
+parsed_encoders = Encoders().parse_file()
+print json.dumps(parsed_encoders, indent=4)
