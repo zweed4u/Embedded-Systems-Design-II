@@ -53,3 +53,9 @@ class Encoders:
 
 parsed_encoders = Encoders().parse_file()
 print json.dumps(parsed_encoders, indent=4)
+left_dir = parsed_encoders['l_dir']
+left = parsed_encoders['left']
+right_dir = parsed_encoders['r_dir']
+right = parsed_encoders['right']
+for l, r in zip(left, right):
+    print "{} {}".format(l, r)
