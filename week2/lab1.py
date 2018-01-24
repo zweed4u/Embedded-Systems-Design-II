@@ -6,7 +6,7 @@ January 23, 2018
 """
 import os
 import sys
-import json
+import math
 from PyQt4 import QtGui, QtCore
 
 hw_flag = 0  # 0 = read from file
@@ -73,8 +73,8 @@ class Board(QtGui.QGraphicsView):
         self.setScene(self.scene)
 
         # Should be able to dynamically grab board dimensions based on machine
-        self.board_width = 1000
-        self.board_height = 1000
+        self.board_width = 50
+        self.board_height = 50
 
         # effectively sets the logical scene coordinates from 0,0 to 1000,1000
         self.scene.addRect(0, 0, self.board_width, self.board_height)
@@ -82,16 +82,15 @@ class Board(QtGui.QGraphicsView):
         self.rover = Rover(self, self.board_width, self.board_height)
         self.scene.addItem(self.rover)
         self.timer = QtCore.QBasicTimer()
-        self.rover.setPos(500, 500)
+        self.rover.setPos(25, 25)
 
     def startGame(self):
         self.status = 0
-        self.rover.setPos(500, 500)
+        self.rover.setPos(25, 25)
         self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
         if self.status == 0:  # determine press
-            print "Waiting on timer {}".format(self.timer_init)
             self.status = self.rover.basic_move()
             # self.status = self.rover.advanced_move()
         else:
@@ -145,11 +144,10 @@ class Rover(QtGui.QGraphicsItem):
     def __init__(self, parent, board_width, board_height):
         super(Rover, self).__init__()
         self.instruction_step = 0
+        self.angle = 0
         self.color = QtGui.QColor(0, 0, 255)
-        self.xVel = 10
-        self.yVel = 5
-        self.rover_width = 100
-        self.rover_height = 50
+        self.rover_width = 4
+        self.rover_height = 3
         self.board_width = board_width
         self.board_height = board_height
         self.parent = parent
@@ -169,26 +167,31 @@ class Rover(QtGui.QGraphicsItem):
         right_encoder = self.parent.parent.encoders['right']
         if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
             left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
+            print "{} {}".format(left_ticks, right_ticks)
             if left_ticks == right_ticks:
-                if left_ticks == 0:
+                if left_ticks == 0 or right_ticks == 0:
                     print "Received both 0s not moving"
-                else:
-                    print "Moving foward by scale of {}".format(left_ticks)
             else:
                 # Different values for each encoder - parse
                 # I'm so sorry - this is awful
+                print "Rotating"
                 if (left_ticks, right_ticks) == (0, 1):
-                    print "45 to the left"
+                    self.angle += 45
                 elif (left_ticks, right_ticks) == (0, 2):
-                    print "90 to the left"
+                    self.angle += 90
                 elif (left_ticks, right_ticks) == (1, 0):
-                    print "45 to the right"
+                    self.angle -= 45
                 elif (left_ticks, right_ticks) == (1, 2):
-                    print "45 to the left"
+                    self.angle += 45
                 elif (left_ticks, right_ticks) == (2, 0):
-                    print "90 to the right"
+                    self.angle -= 90
                 elif (left_ticks, right_ticks) == (2, 1):
-                    print "45 to the right"
+                    self.angle -= 45
+                self.rotate(float(self.angle))
+            self.forwardX = left_ticks * math.cos(self.angle * (math.pi / 180))
+            self.forwardY = -1 * (right_ticks * math.sin(self.angle * (math.pi / 180)))
+            self.setX(self.x() + self.forwardX)
+            self.setY(self.y() + self.forwardY)
             self.instruction_step += 1
         else:
             print "Encoder text file fully traversed"
