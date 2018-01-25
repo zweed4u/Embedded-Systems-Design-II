@@ -5,8 +5,7 @@ CPET-563 Lab 1
 January 23, 2018
 """
 # TODO add more descriptive docstrings,
-# add 1st and 3rd column functionality in movement,
-# clear front graphic/pixmap graphic
+# add 1st and 3rd column functionality in movement
 import os
 import sys
 import math
@@ -149,8 +148,8 @@ class Rover(QtGui.QGraphicsItem):
         self.instruction_step = 0
         self.angle = 0
         self.color = QtGui.QColor(0, 0, 255)
-        self.rover_width = 4
-        self.rover_height = 2
+        self.rover_width = 8
+        self.rover_height = 6
         self.board_width = board_width
         self.board_height = board_height
         self.parent = parent
@@ -178,8 +177,9 @@ class Rover(QtGui.QGraphicsItem):
         :param widget:
         :return:
         """
-        painter.setBrush(self.color)
-        painter.drawRect(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
+        #painter.setBrush(self.color)
+        #painter.drawRect(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height))
+        painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"), QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
 
     def basic_move(self):
         """
