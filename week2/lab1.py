@@ -4,8 +4,7 @@ Zachary Weeden
 CPET-563 Lab 1
 January 23, 2018
 """
-# TODO add more descriptive docstrings,
-# add 1st and 3rd column functionality in movement
+# TODO add more descriptive docstrings, add 1st and 3rd column functionality in movement
 import os
 import sys
 import math
@@ -92,9 +91,8 @@ class Board(QtGui.QGraphicsView):
         self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
-        if self.status == 0:  # determine press
+        if self.status == 0:
             self.status = self.rover.basic_move()
-            # self.status = self.rover.advanced_move()
         else:
             self.timer.stop()
 
@@ -177,8 +175,6 @@ class Rover(QtGui.QGraphicsItem):
         :param widget:
         :return:
         """
-        #painter.setBrush(self.color)
-        #painter.drawRect(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height))
         painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"), QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
 
     def basic_move(self):
@@ -214,10 +210,10 @@ class Rover(QtGui.QGraphicsItem):
                     self.angle += 45
                     self.rotate(45.0)
             else:
-                self.forwardX = left_ticks * math.cos(self.angle * (math.pi / 180))
-                self.forwardY = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
-                self.setX(self.x() + self.forwardX)
-                self.setY(self.y() + self.forwardY)
+                forward_x = (left_ticks or right_ticks) * math.cos(self.angle * (math.pi / 180))
+                forward_y = -1 * ((left_ticks or right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
+                self.setX(self.x() + forward_x)
+                self.setY(self.y() + forward_y)
             self.instruction_step += 1
         else:
             print "Encoder text file fully traversed"
@@ -226,12 +222,6 @@ class Rover(QtGui.QGraphicsItem):
 
 if __name__ == '__main__':
     parsed_encoders = Encoders(hw_flag).parse_file()
-    # Works for when hw_flag = 0, read from file as headers (1st line) is used as keys
-    left_dir = parsed_encoders['l_dir']
-    left = parsed_encoders['left']
-    right_dir = parsed_encoders['r_dir']
-    right = parsed_encoders['right']
-
     app = QtGui.QApplication(sys.argv)
     app.setFont(QtGui.QFont("Helvetica", 10))
     LabOne(parsed_encoders).board.startGame()

@@ -188,7 +188,8 @@ class Rover(QtGui.QGraphicsItem):
         right_dir_encoder = self.parent.parent.encoders['r_dir']
         if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
             left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
-            left_backwards, right_backwards = left_dir_encoder[self.instruction_step], right_dir_encoder[self.instruction_step]
+            left_backwards, right_backwards = left_dir_encoder[self.instruction_step], right_dir_encoder[
+                self.instruction_step]
             print "Left ticks: {} Right ticks: {}".format(left_ticks, right_ticks)
             # l_dir and r_dir both 1 both are moving forward
             if left_backwards == 1 and right_backwards == 1:
@@ -219,7 +220,7 @@ class Rover(QtGui.QGraphicsItem):
                     self.forwardY = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
                     self.setX(self.x() + self.forwardX)
                     self.setY(self.y() + self.forwardY)
-            # l_dir and r_dir combos -1,-1  -1,1  1,-1        
+            # l_dir and r_dir combos -1,-1  -1,1  1,-1
             self.instruction_step += 1
         else:
             print "Encoder text file fully traversed"
