@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/zweeden/Desktop/Embedded-Systems-Design-II/week2/lab1.py</OriginalElement>
+  <nodes>
+    <node x="119.5" y="7820.0">PyQt4.QtGui.QFrame.QFrame</node>
+    <node x="1845.5" y="0.0">week2.lab1.Encoders</node>
+    <node x="473.5" y="7508.0">PyQt4.QtGui.QMainWindow.QMainWindow</node>
+    <node x="256.75" y="1138.0">PyQt4.QtGui.QWidget.QWidget</node>
+    <node x="1131.5" y="0.0">PyQt4.QtGui.QGraphicsItem.QGraphicsItem</node>
+    <node x="147.75" y="216.0">PyQt4.QtGui.QPaintDevice.QPaintDevice</node>
+    <node x="1271.0" y="5554.0">week2.lab1.Rover</node>
+    <node x="76.0" y="8958.0">PyQt4.QtGui.QAbstractScrollArea.QAbstractScrollArea</node>
+    <node x="536.75" y="0.0">PyQt4.QtCore.QObject.QObject</node>
+    <node x="0.0" y="9903.0">PyQt4.QtGui.QGraphicsView.QGraphicsView</node>
+    <node x="647.0" y="9293.5">week2.lab1.LabOne</node>
+    <node x="178.0" y="12361.0">week2.lab1.Board</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="PyQt4.QtGui.QGraphicsView.QGraphicsView" target="PyQt4.QtGui.QAbstractScrollArea.QAbstractScrollArea">
+      <point x="0.0" y="-1204.0" />
+      <point x="0.0" y="447.5" />
+    </edge>
+    <edge source="PyQt4.QtGui.QWidget.QWidget" target="PyQt4.QtCore.QObject.QObject">
+      <point x="138.25" y="-3160.0" />
+      <point x="671.5" y="1113.0" />
+      <point x="734.25" y="1113.0" />
+      <point x="0.0" y="544.0" />
+    </edge>
+    <edge source="PyQt4.QtGui.QAbstractScrollArea.QAbstractScrollArea" target="PyQt4.QtGui.QFrame.QFrame">
+      <point x="0.0" y="-447.5" />
+      <point x="0.0" y="388.0" />
+    </edge>
+    <edge source="week2.lab1.Rover" target="PyQt4.QtGui.QGraphicsItem.QGraphicsItem">
+      <point x="0.0" y="-172.0" />
+      <point x="0.0" y="2752.0" />
+    </edge>
+    <edge source="PyQt4.QtGui.QWidget.QWidget" target="PyQt4.QtGui.QPaintDevice.QPaintDevice">
+      <point x="-138.25" y="-3160.0" />
+      <point x="395.0" y="1113.0" />
+      <point x="332.25" y="1113.0" />
+      <point x="0.0" y="328.0" />
+    </edge>
+    <edge source="PyQt4.QtGui.QMainWindow.QMainWindow" target="PyQt4.QtGui.QWidget.QWidget">
+      <point x="0.0" y="-700.0" />
+      <point x="780.0" y="7483.0" />
+      <point x="671.5" y="7483.0" />
+      <point x="138.25" y="3160.0" />
+    </edge>
+    <edge source="PyQt4.QtGui.QFrame.QFrame" target="PyQt4.QtGui.QWidget.QWidget">
+      <point x="0.0" y="-388.0" />
+      <point x="286.5" y="7483.0" />
+      <point x="395.0" y="7483.0" />
+      <point x="-138.25" y="3160.0" />
+    </edge>
+    <edge source="week2.lab1.Board" target="PyQt4.QtGui.QGraphicsView.QGraphicsView">
+      <point x="0.0" y="-160.0" />
+      <point x="0.0" y="1204.0" />
+    </edge>
+    <edge source="week2.lab1.LabOne" target="PyQt4.QtGui.QMainWindow.QMainWindow">
+      <point x="0.0" y="-112.0" />
+      <point x="0.0" y="700.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6102773246329528" x="610.129377171879" y="277.16920609462704" />
+  <SelectedNodes>
+    <node>PyQt4.QtGui.QWidget.QWidget</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+
