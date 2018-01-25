@@ -57,6 +57,7 @@ class Bounce(QtGui.QMainWindow):
         self.accelerateButton.clicked.connect(lambda: self.board.ball.accelerate())
         self.decelerateButton.clicked.connect(lambda: self.board.ball.decelerate())
 
+
 class Bounds(QtGui.QGraphicsItem):
     def __init__(self, boardWidth, boardHeight):
         super(Bounds, self).__init__()
@@ -70,6 +71,7 @@ class Bounds(QtGui.QGraphicsItem):
     def paint(self, painter, option, widget):
         painter.setBrush(self.color)
         painter.drawRect(0, 0, 20, self.boardHeight)
+
 
 class Ball(QtGui.QGraphicsItem):
     def __init__(self, parent, boardWidth, boardHeight):
@@ -101,7 +103,7 @@ class Ball(QtGui.QGraphicsItem):
         print "Decelerating {}, {}".format(self.xVel, self.yVel)
 
     def changeColor(self):
-        rand_color_tuple = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+        rand_color_tuple = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         print "Changing to color {}".format(rand_color_tuple)
         self.color = QtGui.QColor(rand_color_tuple[0], rand_color_tuple[1], rand_color_tuple[2])
 
@@ -181,11 +183,13 @@ class Board(QtGui.QGraphicsView):
         super(Board, self).resizeEvent(event)
         self.fitInView(self.scene.sceneRect(), QtCore.Qt.KeepAspectRatio)
 
+
 def main():
     app = QtGui.QApplication(sys.argv)
     app.setFont(QtGui.QFont("Helvetica", 10))
     Bounce().board.startGame()
     sys.exit(app.exec_())
+
 
 if __name__ == '__main__':
     main()

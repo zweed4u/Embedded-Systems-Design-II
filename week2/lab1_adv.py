@@ -25,7 +25,7 @@ class Encoders:
         Assumes that the encoders txt file is named appropriately and in the same directory as invocation
         :return: str - the contents of the encoders.txt file
         """
-        with open(os.getcwd() + '/encoders.txt', 'r') as f:
+        with open(os.getcwd() + '/dir_encoders.txt', 'r') as f:
             self.contents = f.read()
         return self.contents
 
@@ -188,8 +188,7 @@ class Rover(QtGui.QGraphicsItem):
         right_dir_encoder = self.parent.parent.encoders['r_dir']
         if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
             left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
-            left_backwards, right_backwards = left_dir_encoder[self.instruction_step], right_dir_encoder[
-                self.instruction_step]
+            left_backwards, right_backwards = left_dir_encoder[self.instruction_step], right_dir_encoder[self.instruction_step]
             print "Left ticks: {} Right ticks: {}".format(left_ticks, right_ticks)
             # l_dir and r_dir both 1 both are moving forward
             if left_backwards == 1 and right_backwards == 1:
@@ -221,6 +220,34 @@ class Rover(QtGui.QGraphicsItem):
                     self.setX(self.x() + self.forwardX)
                     self.setY(self.y() + self.forwardY)
             # l_dir and r_dir combos -1,-1  -1,1  1,-1
+            elif left_backwards == 0 and right_backwards == 0:
+                if left_ticks != right_ticks:
+                    # Different values for each encoder - parse
+                    # I'm so sorry - this is awful
+                    print "Rotating"
+                    if (left_ticks, right_ticks) == (0, 1):
+                        self.angle += 45
+                        self.rotate(45.0)
+                    elif (left_ticks, right_ticks) == (0, 2):
+                        self.angle += 90
+                        self.rotate(90.0)
+                    elif (left_ticks, right_ticks) == (1, 0):
+                        self.angle -= 45
+                        self.rotate(-45.0)
+                    elif (left_ticks, right_ticks) == (1, 2):
+                        self.angle += 45
+                        self.rotate(45.0)
+                    elif (left_ticks, right_ticks) == (2, 0):
+                        self.angle -= 90
+                        self.rotate(-90.0)
+                    elif (left_ticks, right_ticks) == (2, 1):
+                        self.angle -= 45
+                        self.rotate(-45.0)
+                else:
+                    self.forwardX = left_ticks * math.cos(self.angle * (math.pi / 180))
+                    self.forwardY = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
+                    self.setX(self.x() - self.forwardX)
+                    self.setY(self.y() - self.forwardY)
             self.instruction_step += 1
         else:
             print "Encoder text file fully traversed"

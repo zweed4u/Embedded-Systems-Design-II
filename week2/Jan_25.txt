@@ -1,0 +1,42 @@
+PCB design
+
+EAGLE
+https://www.autodesk.com/products/eagle/free-download
+
+Process
+
+1) Pick parts (most important processing) - split into active (power needed, processor, amplifier) and passive (resistors, discretes, diodes, caps) components
+
+2) how they connect together (create schematic)
+
+3) layout/simulate/test schematic in PSPICE, Multisim - THERMAL ANALYSIS - No 90 degree angles! - Voltage will "bounce" back from where it originated from - all about getting the electrons from spot to another - wiggles needed in high frequency designs so that trace lengths are of same length, same propogation delay to get to the same component at the same time (eg. in DDR4 - matter of picoseconds)
+
+4) send off to FAB (gerber file - (~6) layer/s of boards)
+
+*Rat's nest direct premilinary connections from component to component
+
+In EAGLE - 
+RAM has MANY pins look for this for microprocessor
+
+
+Video - 
+EAGLE tuscon sync - fusion 360
+
+
+
+====
+Rules to design by:
+- Select the right task to do is more important than doing the wrong task right (system engineer - what task needs to be done)
+- design twice, code once
+- develop and verify in a modular fashion (pong speed methods - reduce top level - modular way: give ball its own timer to update)
+- burn down risk before it burns you (schedule 'riskier' tasks first)
+- isolation of variables is a must (modularize)
+- baseline your work (run basic setup)
+- save milestones as they will save you (version control)
+- find your style. listen to the experts dont duplicate them
+- say 'hello world' or 'blink the LED'
+- select tasks for the minimum winning game (minimum effort - be lazy)
+- make it work (demo), make it right (peers), make it fast (optimization)
+
+
+Model Sim and EAGLE software
