@@ -1,0 +1,5 @@
+TODO
+
+Use difference of left_ticks and right_ticks instead of matching 0, 1 or 2. eg. self.left_ticks > self.right_ticks -> rotate to the right 
+Multiply encoder ticks by 45 for rotation (don't constrain text value in parse) - self.rotate(45*lef_ticks) or self.rotate(45*right_ticks)
+Make rotate_x_degrees_l and rotate_x_degrees_r for 45 and 90

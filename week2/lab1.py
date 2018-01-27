@@ -4,7 +4,6 @@ Zachary Weeden
 CPET-563 Lab 1
 January 23, 2018
 """
-# TODO add more descriptive docstrings, add 1st and 3rd column functionality in movement
 import os
 import sys
 import math
@@ -191,24 +190,18 @@ class Rover(QtGui.QGraphicsItem):
                 # Different values for each encoder - parse
                 # I'm so sorry - this is awful
                 print "Rotating"
-                if (left_ticks, right_ticks) == (0, 1):
+                if left_ticks + 1 == right_ticks:
                     self.angle -= 45
                     self.rotate(-45.0)
-                elif (left_ticks, right_ticks) == (0, 2):
+                elif left_ticks + 2 == right_ticks:
                     self.angle -= 90
                     self.rotate(-90.0)
-                elif (left_ticks, right_ticks) == (1, 0):
+                elif left_ticks == right_ticks + 1:
                     self.angle += 45
                     self.rotate(45.0)
-                elif (left_ticks, right_ticks) == (1, 2):
-                    self.angle -= 45
-                    self.rotate(-45.0)
-                elif (left_ticks, right_ticks) == (2, 0):
+                elif left_ticks == right_ticks + 2:
                     self.angle += 90
                     self.rotate(90.0)
-                elif (left_ticks, right_ticks) == (2, 1):
-                    self.angle += 45
-                    self.rotate(45.0)
             else:
                 forward_x = (left_ticks or right_ticks) * math.cos(self.angle * (math.pi / 180))
                 forward_y = -1 * ((left_ticks or right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))

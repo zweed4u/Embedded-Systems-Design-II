@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """
 Zachary Weeden
-CPET-563 Lab 1 (l_dir, r_dir)
+CPET-563 Lab 1 (with l_dir, r_dir)
 January 23, 2018
 """
 import os
@@ -91,8 +91,7 @@ class Board(QtGui.QGraphicsView):
 
     def timerEvent(self, event):
         if self.status == 0:  # determine press
-            self.status = self.rover.basic_move()
-            # self.status = self.rover.advanced_move()
+            self.status = self.rover.advanced_move()
         else:
             self.timer.stop()
 
@@ -177,7 +176,7 @@ class Rover(QtGui.QGraphicsItem):
         """
         painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"), QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
 
-    def basic_move(self):
+    def advanced_move(self):
         """
         Determines the next coordinates based of encoder arrays
         :return: 0
@@ -188,66 +187,53 @@ class Rover(QtGui.QGraphicsItem):
         right_dir_encoder = self.parent.parent.encoders['r_dir']
         if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
             left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
-            left_backwards, right_backwards = left_dir_encoder[self.instruction_step], right_dir_encoder[self.instruction_step]
+            # 0 backwards, 1 forward
+            left_dir, right_dir = left_dir_encoder[self.instruction_step], right_dir_encoder[self.instruction_step]
             print "Left ticks: {} Right ticks: {}".format(left_ticks, right_ticks)
             # l_dir and r_dir both 1 both are moving forward
-            if left_backwards == 1 and right_backwards == 1:
+            if left_dir == 1 and right_dir == 1:
                 if left_ticks != right_ticks:
                     # Different values for each encoder - parse
                     # I'm so sorry - this is awful
                     print "Rotating"
-                    if (left_ticks, right_ticks) == (0, 1):
+                    if left_ticks + 1 == right_ticks:
                         self.angle -= 45
                         self.rotate(-45.0)
-                    elif (left_ticks, right_ticks) == (0, 2):
+                    elif left_ticks + 2 == right_ticks:
                         self.angle -= 90
                         self.rotate(-90.0)
-                    elif (left_ticks, right_ticks) == (1, 0):
+                    elif left_ticks == right_ticks + 1:
                         self.angle += 45
                         self.rotate(45.0)
-                    elif (left_ticks, right_ticks) == (1, 2):
-                        self.angle -= 45
-                        self.rotate(-45.0)
-                    elif (left_ticks, right_ticks) == (2, 0):
+                    elif left_ticks == right_ticks + 2:
                         self.angle += 90
                         self.rotate(90.0)
-                    elif (left_ticks, right_ticks) == (2, 1):
-                        self.angle += 45
-                        self.rotate(45.0)
                 else:
-                    self.forwardX = left_ticks * math.cos(self.angle * (math.pi / 180))
-                    self.forwardY = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
-                    self.setX(self.x() + self.forwardX)
-                    self.setY(self.y() + self.forwardY)
-            # l_dir and r_dir combos -1,-1  -1,1  1,-1
-            elif left_backwards == 0 and right_backwards == 0:
+                    forward_x = left_ticks * math.cos(self.angle * (math.pi / 180))
+                    forward_y = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
+                    self.setX(self.x() + forward_x)
+                    self.setY(self.y() + forward_y)
+
+            elif left_dir == 0 and right_dir == 0:
                 if left_ticks != right_ticks:
-                    # Different values for each encoder - parse
-                    # I'm so sorry - this is awful
                     print "Rotating"
-                    if (left_ticks, right_ticks) == (0, 1):
+                    if left_ticks + 1 == right_ticks:
                         self.angle += 45
                         self.rotate(45.0)
-                    elif (left_ticks, right_ticks) == (0, 2):
+                    elif left_ticks + 2 == right_ticks:
                         self.angle += 90
                         self.rotate(90.0)
-                    elif (left_ticks, right_ticks) == (1, 0):
+                    elif left_ticks == right_ticks + 1:
                         self.angle -= 45
                         self.rotate(-45.0)
-                    elif (left_ticks, right_ticks) == (1, 2):
-                        self.angle += 45
-                        self.rotate(45.0)
-                    elif (left_ticks, right_ticks) == (2, 0):
+                    elif left_ticks == right_ticks + 2:
                         self.angle -= 90
                         self.rotate(-90.0)
-                    elif (left_ticks, right_ticks) == (2, 1):
-                        self.angle -= 45
-                        self.rotate(-45.0)
                 else:
-                    self.forwardX = left_ticks * math.cos(self.angle * (math.pi / 180))
-                    self.forwardY = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
-                    self.setX(self.x() - self.forwardX)
-                    self.setY(self.y() - self.forwardY)
+                    forward_x = left_ticks * math.cos(self.angle * (math.pi / 180))
+                    forward_y = -1 * (right_ticks * math.sin(-1 * self.angle * (math.pi / 180)))
+                    self.setX(self.x() - forward_x)
+                    self.setY(self.y() - forward_y)
             self.instruction_step += 1
         else:
             print "Encoder text file fully traversed"
@@ -257,11 +243,6 @@ class Rover(QtGui.QGraphicsItem):
 if __name__ == '__main__':
     parsed_encoders = Encoders(hw_flag).parse_file()
     # Works for when hw_flag = 0, read from file as headers (1st line) is used as keys
-    left_dir = parsed_encoders['l_dir']
-    left = parsed_encoders['left']
-    right_dir = parsed_encoders['r_dir']
-    right = parsed_encoders['right']
-
     app = QtGui.QApplication(sys.argv)
     app.setFont(QtGui.QFont("Helvetica", 10))
     LabOne(parsed_encoders).board.startGame()
