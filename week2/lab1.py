@@ -203,8 +203,8 @@ class Rover(QtGui.QGraphicsItem):
                     self.angle += 90
                     self.rotate(90.0)
             else:
-                forward_x = (left_ticks or right_ticks) * math.cos(self.angle * (math.pi / 180))
-                forward_y = -1 * ((left_ticks or right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
+                forward_x = max(left_ticks, right_ticks) * math.cos(self.angle * (math.pi / 180))
+                forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
                 self.setX(self.x() + forward_x)
                 self.setY(self.y() + forward_y)
             self.instruction_step += 1
