@@ -187,10 +187,9 @@ class Rover(QtGui.QGraphicsItem):
         right_dir_encoder = self.parent.parent.encoders['r_dir']
         if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
             left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
-            # 0 backwards, 1 forward
             left_dir, right_dir = left_dir_encoder[self.instruction_step], right_dir_encoder[self.instruction_step]
             print "Left ticks: {} Right ticks: {}".format(left_ticks, right_ticks)
-            # l_dir and r_dir both 1 both are moving forward
+            # Left wheels forward, right wheels forward
             if left_dir == 1 and right_dir == 1:
                 if left_ticks != right_ticks:
                     # Different values for each encoder - parse
@@ -213,7 +212,7 @@ class Rover(QtGui.QGraphicsItem):
                     forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
                     self.setX(self.x() + forward_x)
                     self.setY(self.y() + forward_y)
-
+            # Left wheels backward, right wheels backward
             elif left_dir == 0 and right_dir == 0:
                 if left_ticks != right_ticks:
                     print "Rotating"
@@ -234,6 +233,50 @@ class Rover(QtGui.QGraphicsItem):
                     forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
                     self.setX(self.x() - forward_x)
                     self.setY(self.y() - forward_y)
+            # Left wheels forward, right wheels backward
+            elif left_dir == 1 and right_dir == 0:
+                if left_ticks != right_ticks:
+                    print "Rotating"
+                    if (left_ticks, right_ticks) == (0, 1):
+                        self.angle += 45
+                        self.rotate(45.0)
+                    elif (left_ticks, right_ticks) == (0, 2):
+                        self.angle += 90
+                        self.rotate(90.0)
+                    elif (left_ticks, right_ticks) == (1, 0):
+                        self.angle += 45
+                        self.rotate(45.0)
+                    elif (left_ticks, right_ticks) == (1, 2):
+                        self.angle += 45
+                        self.rotate(45.0)
+                    elif (left_ticks, right_ticks) == (2, 0):
+                        self.angle += 90
+                        self.rotate(90.0)
+                    elif (left_ticks, right_ticks) == (2, 1):
+                        self.angle += 45
+                        self.rotate(45.0)
+                else:
+                    # Left wheel forward and right wheel backward same encoder ticks - offset - stationary
+                    pass
+            # Left wheels backward, right wheels forward
+            elif left_dir == 0 and right_dir == 1:
+                if left_ticks != right_ticks:
+                    print "Rotating"
+                    if left_ticks + 1 == right_ticks:
+                        self.angle -= 45
+                        self.rotate(-45.0)
+                    elif left_ticks + 2 == right_ticks:
+                        self.angle -= 90
+                        self.rotate(-90.0)
+                    elif left_ticks == right_ticks + 1:
+                        self.angle -= 45
+                        self.rotate(-45.0)
+                    elif left_ticks == right_ticks + 2:
+                        self.angle -= 90
+                        self.rotate(-90.0)
+                else:
+                    # Left wheel backward and right wheel forward same encoder ticks - offset - stationary
+                    pass
             self.instruction_step += 1
         else:
             print "Encoder text file fully traversed"
