@@ -203,18 +203,9 @@ class Rover(QtGui.QGraphicsItem):
                     # Different values for each encoder - parse
                     # I'm so sorry - this is awful
                     print "Rotating"
-                    if left_ticks + 1 == right_ticks:
-                        self.angle -= 45
-                        self.rotate(-45.0)
-                    elif left_ticks + 2 == right_ticks:
-                        self.angle -= 90
-                        self.rotate(-90.0)
-                    elif left_ticks == right_ticks + 1:
-                        self.angle += 45
-                        self.rotate(45.0)
-                    elif left_ticks == right_ticks + 2:
-                        self.angle += 90
-                        self.rotate(90.0)
+                    angle = (left_ticks - right_ticks) * 45
+                    self.angle += angle
+                    self.rotate(angle)
                 else:
                     forward_x = max(left_ticks, right_ticks) * math.cos(
                         self.angle * (math.pi / 180))
@@ -226,18 +217,9 @@ class Rover(QtGui.QGraphicsItem):
             elif left_dir == 0 and right_dir == 0:
                 if left_ticks != right_ticks:
                     print "Rotating"
-                    if left_ticks + 1 == right_ticks:
-                        self.angle += 45
-                        self.rotate(45.0)
-                    elif left_ticks + 2 == right_ticks:
-                        self.angle += 90
-                        self.rotate(90.0)
-                    elif left_ticks == right_ticks + 1:
-                        self.angle -= 45
-                        self.rotate(-45.0)
-                    elif left_ticks == right_ticks + 2:
-                        self.angle -= 90
-                        self.rotate(-90.0)
+                    angle = (left_ticks - right_ticks) * -45
+                    self.angle += angle
+                    self.rotate(angle)
                 else:
                     forward_x = max(left_ticks, right_ticks) * math.cos(
                         self.angle * (math.pi / 180))
