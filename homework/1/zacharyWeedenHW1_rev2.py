@@ -12,7 +12,8 @@ class Bounce(QtGui.QMainWindow):
 
     def __init__(self):
         super(Bounce, self).__init__()
-        self.statusBar().showMessage('Welcome to Bounce by Zachary Weeden 2018')
+        self.statusBar().showMessage(
+            'Welcome to Bounce by Zachary Weeden 2018')
 
         exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)
         exitAction.setShortcut('Ctrl+Q')
@@ -54,8 +55,10 @@ class Bounce(QtGui.QMainWindow):
         self.show()
 
         self.colorButton.clicked.connect(lambda: self.board.ball.changeColor())
-        self.accelerateButton.clicked.connect(lambda: self.board.ball.accelerate())
-        self.decelerateButton.clicked.connect(lambda: self.board.ball.decelerate())
+        self.accelerateButton.clicked.connect(
+            lambda: self.board.ball.accelerate())
+        self.decelerateButton.clicked.connect(
+            lambda: self.board.ball.decelerate())
 
 
 class Bounds(QtGui.QGraphicsItem):
@@ -86,11 +89,13 @@ class Ball(QtGui.QGraphicsItem):
         self.parent = parent
 
     def boundingRect(self):
-        return QtCore.QRectF(-self.ballWidth / 2, -self.ballHeight / 2, self.ballWidth, self.ballHeight)
+        return QtCore.QRectF(-self.ballWidth / 2, -self.ballHeight / 2,
+                             self.ballWidth, self.ballHeight)
 
     def paint(self, painter, option, widget):
         painter.setBrush(self.color)
-        painter.drawEllipse(-self.ballWidth / 2, -self.ballHeight / 2, self.ballWidth, self.ballHeight)
+        painter.drawEllipse(-self.ballWidth / 2, -self.ballHeight / 2,
+                            self.ballWidth, self.ballHeight)
 
     def accelerate(self):
         self.xVel *= 2.0
@@ -103,9 +108,11 @@ class Ball(QtGui.QGraphicsItem):
         print "Decelerating {}, {}".format(self.xVel, self.yVel)
 
     def changeColor(self):
-        rand_color_tuple = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        rand_color_tuple = (
+        random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         print "Changing to color {}".format(rand_color_tuple)
-        self.color = QtGui.QColor(rand_color_tuple[0], rand_color_tuple[1], rand_color_tuple[2])
+        self.color = QtGui.QColor(rand_color_tuple[0], rand_color_tuple[1],
+                                  rand_color_tuple[2])
 
     def reflectX(self):
         self.xVel *= -1

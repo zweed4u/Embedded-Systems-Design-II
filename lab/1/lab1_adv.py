@@ -22,7 +22,8 @@ class Encoders:
     def get_encoders(self):
         """
         Opens the encoders text file and stores it into class attribute
-        Assumes that the encoders txt file is named appropriately and in the same directory as invocation
+        Assumes that the encoders txt file is named appropriately and in the
+        same directory as invocation
         :return: str - the contents of the encoders.txt file
         """
         with open(os.getcwd() + '/dir_encoders.txt', 'r') as f:
@@ -90,7 +91,7 @@ class Board(QtGui.QGraphicsView):
         self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
-        if self.status == 0:  # determine press
+        if self.status == 0:
             self.status = self.rover.advanced_move()
         else:
             self.timer.stop()
@@ -156,7 +157,8 @@ class Rover(QtGui.QGraphicsItem):
         Bounds of the rover object
         :return: QtCore.QRectF object
         """
-        return QtCore.QRectF(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
+        return QtCore.QRectF(-self.rover_width / 2, -self.rover_height / 2,
+                             self.rover_width, self.rover_height)
 
     def set_color(self, color_tuple):
         """
@@ -164,7 +166,8 @@ class Rover(QtGui.QGraphicsItem):
         :param color_tuple: tuple of RGB vals
         :return:
         """
-        self.color = QtGui.QColor(color_tuple[0], color_tuple[1], color_tuple[2])
+        self.color = QtGui.QColor(color_tuple[0], color_tuple[1],
+                                  color_tuple[2])
 
     def paint(self, painter, option, widget):
         """
@@ -174,7 +177,8 @@ class Rover(QtGui.QGraphicsItem):
         :param widget:
         :return:
         """
-        painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"), QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
+        painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"),
+                           QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
 
     def advanced_move(self):
         """
@@ -185,10 +189,14 @@ class Rover(QtGui.QGraphicsItem):
         right_encoder = self.parent.parent.encoders['right']
         left_dir_encoder = self.parent.parent.encoders['l_dir']
         right_dir_encoder = self.parent.parent.encoders['r_dir']
-        if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
-            left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
-            left_dir, right_dir = left_dir_encoder[self.instruction_step], right_dir_encoder[self.instruction_step]
-            print "Left ticks: {} Right ticks: {}".format(left_ticks, right_ticks)
+        if self.instruction_step < len(
+                left_encoder) or self.instruction_step < len(right_encoder):
+            left_ticks, right_ticks = left_encoder[self.instruction_step], \
+                                      right_encoder[self.instruction_step]
+            left_dir, right_dir = left_dir_encoder[self.instruction_step], \
+                                  right_dir_encoder[self.instruction_step]
+            print "Left ticks: {} Right ticks: {}".format(left_ticks,
+                                                          right_ticks)
             # Left wheels forward, right wheels forward
             if left_dir == 1 and right_dir == 1:
                 if left_ticks != right_ticks:
@@ -208,8 +216,10 @@ class Rover(QtGui.QGraphicsItem):
                         self.angle += 90
                         self.rotate(90.0)
                 else:
-                    forward_x = max(left_ticks, right_ticks) * math.cos(self.angle * (math.pi / 180))
-                    forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
+                    forward_x = max(left_ticks, right_ticks) * math.cos(
+                        self.angle * (math.pi / 180))
+                    forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(
+                        -1 * self.angle * (math.pi / 180)))
                     self.setX(self.x() + forward_x)
                     self.setY(self.y() + forward_y)
             # Left wheels backward, right wheels backward
@@ -229,8 +239,10 @@ class Rover(QtGui.QGraphicsItem):
                         self.angle -= 90
                         self.rotate(-90.0)
                 else:
-                    forward_x = max(left_ticks, right_ticks) * math.cos(self.angle * (math.pi / 180))
-                    forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
+                    forward_x = max(left_ticks, right_ticks) * math.cos(
+                        self.angle * (math.pi / 180))
+                    forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(
+                        -1 * self.angle * (math.pi / 180)))
                     self.setX(self.x() - forward_x)
                     self.setY(self.y() - forward_y)
             # Left wheels forward, right wheels backward

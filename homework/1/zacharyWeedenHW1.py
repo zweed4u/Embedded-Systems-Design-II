@@ -12,7 +12,8 @@ class Bounce(QtGui.QMainWindow):
 
     def __init__(self):
         super(Bounce, self).__init__()
-        self.statusBar().showMessage('Welcome to Bounce by Zachary Weeden 2018')
+        self.statusBar().showMessage(
+            'Welcome to Bounce by Zachary Weeden 2018')
 
         exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)
         exitAction.setShortcut('Ctrl+Q')
@@ -57,6 +58,7 @@ class Bounce(QtGui.QMainWindow):
         self.accelerateButton.clicked.connect(lambda: self.board.accelerate())
         self.decelerateButton.clicked.connect(lambda: self.board.decelerate())
 
+
 class Bounds(QtGui.QGraphicsItem):
     def __init__(self, boardWidth, boardHeight):
         super(Bounds, self).__init__()
@@ -71,6 +73,7 @@ class Bounds(QtGui.QGraphicsItem):
         painter.setBrush(self.color)
         painter.drawRect(0, 0, 20, self.boardHeight)
 
+
 class Ball(QtGui.QGraphicsItem):
     def __init__(self, parent, boardWidth, boardHeight):
         super(Ball, self).__init__()
@@ -84,16 +87,20 @@ class Ball(QtGui.QGraphicsItem):
         self.parent = parent
 
     def boundingRect(self):
-        return QtCore.QRectF(-self.ballWidth / 2, -self.ballHeight / 2, self.ballWidth, self.ballHeight)
+        return QtCore.QRectF(-self.ballWidth / 2, -self.ballHeight / 2,
+                             self.ballWidth, self.ballHeight)
 
     def paint(self, painter, option, widget):
         painter.setBrush(self.color)
-        painter.drawEllipse(-self.ballWidth / 2, -self.ballHeight / 2, self.ballWidth, self.ballHeight)
+        painter.drawEllipse(-self.ballWidth / 2, -self.ballHeight / 2,
+                            self.ballWidth, self.ballHeight)
 
     def changeColor(self):
-        rand_color_tuple = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+        rand_color_tuple = (
+        random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         print "Changing to color {}".format(rand_color_tuple)
-        self.color = QtGui.QColor(rand_color_tuple[0], rand_color_tuple[1], rand_color_tuple[2])
+        self.color = QtGui.QColor(rand_color_tuple[0], rand_color_tuple[1],
+                                  rand_color_tuple[2])
 
     def reflectX(self):
         self.xVel = self.xVel * -1
@@ -167,13 +174,13 @@ class Board(QtGui.QGraphicsView):
     def accelerate(self):
         print "Accelerating by 2x"
         self.timer.stop()
-        self.timer_init/=2.0
+        self.timer_init /= 2.0
         self.timer.start(self.timer_init, self)
 
     def decelerate(self):
         print "Decelerating by 2x"
         self.timer.stop()
-        self.timer_init*=2.0
+        self.timer_init *= 2.0
         self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
@@ -186,11 +193,13 @@ class Board(QtGui.QGraphicsView):
         super(Board, self).resizeEvent(event)
         self.fitInView(self.scene.sceneRect(), QtCore.Qt.KeepAspectRatio)
 
+
 def main():
     app = QtGui.QApplication(sys.argv)
     app.setFont(QtGui.QFont("Helvetica", 10))
     Bounce().board.startGame()
     sys.exit(app.exec_())
+
 
 if __name__ == '__main__':
     main()

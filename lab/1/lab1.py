@@ -156,7 +156,8 @@ class Rover(QtGui.QGraphicsItem):
         Bounds of the rover object
         :return: QtCore.QRectF object
         """
-        return QtCore.QRectF(-self.rover_width / 2, -self.rover_height / 2, self.rover_width, self.rover_height)
+        return QtCore.QRectF(-self.rover_width / 2, -self.rover_height / 2,
+                             self.rover_width, self.rover_height)
 
     def set_color(self, color_tuple):
         """
@@ -164,7 +165,8 @@ class Rover(QtGui.QGraphicsItem):
         :param color_tuple: tuple of RGB vals
         :return:
         """
-        self.color = QtGui.QColor(color_tuple[0], color_tuple[1], color_tuple[2])
+        self.color = QtGui.QColor(color_tuple[0], color_tuple[1],
+                                  color_tuple[2])
 
     def paint(self, painter, option, widget):
         """
@@ -174,7 +176,8 @@ class Rover(QtGui.QGraphicsItem):
         :param widget:
         :return:
         """
-        painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"), QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
+        painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"),
+                           QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
 
     def basic_move(self):
         """
@@ -183,9 +186,12 @@ class Rover(QtGui.QGraphicsItem):
         """
         left_encoder = self.parent.parent.encoders['left']
         right_encoder = self.parent.parent.encoders['right']
-        if self.instruction_step < len(left_encoder) or self.instruction_step < len(right_encoder):
-            left_ticks, right_ticks = left_encoder[self.instruction_step], right_encoder[self.instruction_step]
-            print "Left ticks: {} Right ticks: {}".format(left_ticks, right_ticks)
+        if self.instruction_step < len(
+                left_encoder) or self.instruction_step < len(right_encoder):
+            left_ticks, right_ticks = left_encoder[self.instruction_step], \
+                                      right_encoder[self.instruction_step]
+            print "Left ticks: {} Right ticks: {}".format(left_ticks,
+                                                          right_ticks)
             if left_ticks != right_ticks:
                 # Different values for each encoder - parse
                 # I'm so sorry - this is awful
@@ -203,8 +209,10 @@ class Rover(QtGui.QGraphicsItem):
                     self.angle += 90
                     self.rotate(90.0)
             else:
-                forward_x = max(left_ticks, right_ticks) * math.cos(self.angle * (math.pi / 180))
-                forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(-1 * self.angle * (math.pi / 180)))
+                forward_x = max(left_ticks, right_ticks) * math.cos(
+                    self.angle * (math.pi / 180))
+                forward_y = -1 * (max(left_ticks, right_ticks) * math.sin(
+                    -1 * self.angle * (math.pi / 180)))
                 self.setX(self.x() + forward_x)
                 self.setY(self.y() + forward_y)
             self.instruction_step += 1
