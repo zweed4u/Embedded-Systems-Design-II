@@ -1,0 +1,38 @@
+Bringing a product to market
+
+MARKET RESEARCH!!! (Formal, prescribed way)
+Listen to experts but come up with own idea
+But people don't know what they want in that the future is not clear cut
+
+
+Rules in making product:
+Do not listen to customers
+
+
+Market research
+(Can it make money/Is it possible) - time, money, space
+Tech+project baselining - cost/schedule - requirements
+Prototype
+
+Types of Costs- 
+NRE - nonrecurring engineering
+unit 
+
+make a product - concept design
+
+VCRM - vreify cross reference matrix
+
+mbp - minimum bible product
+
+pdr - preliminary design review (do we move forward) - pitch to investors
+
+final design - v+v plan (verification vs. validation) - http://softwaretestingfundamentals.com/verification-vs-validation/
+
+cdr - critical design review
+
+design verification - qual procedure (prove design) and acceptance procedure (subset of qual procedure - prove manufacturing)
+
+qualification - qual report
+
+
+production - acceptance report ("here's how well it did in our tests")
