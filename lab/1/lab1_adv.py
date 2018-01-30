@@ -217,7 +217,7 @@ class Rover(QtGui.QGraphicsItem):
             elif left_dir == 0 and right_dir == 0:
                 if left_ticks != right_ticks:
                     print "Rotating"
-                    angle = (left_ticks - right_ticks) * -45
+                    angle = (right_ticks - left_ticks) * 45
                     self.angle += angle
                     self.rotate(angle)
                 else:
