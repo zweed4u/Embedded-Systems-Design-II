@@ -9,12 +9,16 @@ import sys
 import math
 from PyQt4 import QtGui, QtCore
 
-hw_flag = 0  # 0 = read from file
+# 0 to read from file, 1 to read back 0s
+hw_flag = 0
 
 
 class Encoders:
     def __init__(self, hw_flag):
-        """Constructor for Encoder class"""
+        """
+        Constructor for Encoder class
+        :param hw_flag: int - 0 reads from encoder txt file, 1 reads 0s back
+        """
         self.hw_flag = hw_flag
         self.contents = None
         self.number_of_instructions = 0
@@ -39,7 +43,7 @@ class Encoders:
         if self.hw_flag == 0:
             if self.contents is None:
                 self.get_encoders()
-            # assumes format of l_dir\tleft\tr_dir\tright as the first row - data starts 2nd row
+            # assumes format of l_dir\tleft\tr_dir\tright as the first row
             headers = self.contents.split('\n')[0].split()
             control_bits = self.contents.split('\n')[1:]
             l_dir = []
@@ -48,7 +52,8 @@ class Encoders:
             right = []
             encoder_map = {}
 
-            for row in control_bits:  # ensure that the line from the file was not empty
+            # ensure that the line from the file was not empty
+            for row in control_bits:
                 if row.strip():
                     l_dir.append(int(row[0]))
                     left.append(int(row[2]))
@@ -66,6 +71,10 @@ class Encoders:
 
 class Board(QtGui.QGraphicsView):
     def __init__(self, parent):
+        """
+        Constructor for the Board object
+        :param parent: the parent in which the rover is instantiated from
+        """
         super(Board, self).__init__()
         # Timer update to be between 2 and 4 seconds
         self.timer_init = 2000.0
@@ -86,23 +95,36 @@ class Board(QtGui.QGraphicsView):
         self.rover.setPos(25, 25)
 
     def startGame(self):
+        """Method to start the timer and set up initial rover position"""
         self.status = 0
         self.rover.setPos(25, 25)
         self.timer.start(self.timer_init, self)
 
     def timerEvent(self, event):
+        """
+        Action on timer
+        :param event:
+        """
         if self.status == 0:
             self.status = self.rover.advanced_move()
         else:
             self.timer.stop()
 
     def resizeEvent(self, event):
+        """
+        Resize board method
+        :param event:
+        """
         super(Board, self).resizeEvent(event)
         self.fitInView(self.scene.sceneRect(), QtCore.Qt.KeepAspectRatio)
 
 
 class LabOne(QtGui.QMainWindow):
     def __init__(self, parsed_encoders):
+        """
+        Main window constructor
+        :param parsed_encoders:  dictionary of arrays - encoders
+        """
         super(LabOne, self).__init__()
         self.encoders = parsed_encoders
         self.statusBar().showMessage('CPET-563 Lab 1 :: Zachary Weeden 2018')
@@ -142,6 +164,12 @@ class LabOne(QtGui.QMainWindow):
 
 class Rover(QtGui.QGraphicsItem):
     def __init__(self, parent, board_width, board_height):
+        """
+        Rover constructor
+        :param parent: the parent in which the rover is instantiated from
+        :param board_width: int - the width of the board
+        :param board_height: int - the height of the board
+        """
         super(Rover, self).__init__()
         self.instruction_step = 0
         self.angle = 0
@@ -164,7 +192,6 @@ class Rover(QtGui.QGraphicsItem):
         """
         Set the color of the rover rectangle
         :param color_tuple: tuple of RGB vals
-        :return:
         """
         self.color = QtGui.QColor(color_tuple[0], color_tuple[1],
                                   color_tuple[2])
@@ -175,14 +202,13 @@ class Rover(QtGui.QGraphicsItem):
         :param painter:
         :param option:
         :param widget:
-        :return:
         """
         painter.drawPixmap(self.boundingRect(), QtGui.QPixmap("rover.svg"),
                            QtCore.QRectF(0.0, 0.0, 640.0, 480.0))
 
     def advanced_move(self):
         """
-        Determines the next coordinates based of encoder arrays
+        Determines the next coordinates and angle based on encoder arrays
         :return: 0
         """
         left_encoder = self.parent.parent.encoders['left']
@@ -200,8 +226,6 @@ class Rover(QtGui.QGraphicsItem):
             # Left wheels forward, right wheels forward
             if left_dir == 1 and right_dir == 1:
                 if left_ticks != right_ticks:
-                    # Different values for each encoder - parse
-                    # I'm so sorry - this is awful
                     print "Rotating"
                     angle = (left_ticks - right_ticks) * 45
                     self.angle += angle
@@ -213,6 +237,7 @@ class Rover(QtGui.QGraphicsItem):
                         -1 * self.angle * (math.pi / 180)))
                     self.setX(self.x() + forward_x)
                     self.setY(self.y() + forward_y)
+
             # Left wheels backward, right wheels backward
             elif left_dir == 0 and right_dir == 0:
                 if left_ticks != right_ticks:
@@ -227,12 +252,14 @@ class Rover(QtGui.QGraphicsItem):
                         -1 * self.angle * (math.pi / 180)))
                     self.setX(self.x() - forward_x)
                     self.setY(self.y() - forward_y)
+
             # Left wheels forward, right wheels backward
             elif left_dir == 1 and right_dir == 0:
                 print "Rotating"
                 angle = (left_ticks + right_ticks) * 45
                 self.angle += angle
                 self.rotate(angle)
+
             # Left wheels backward, right wheels forward
             elif left_dir == 0 and right_dir == 1:
                 print "Rotating"
@@ -247,7 +274,6 @@ class Rover(QtGui.QGraphicsItem):
 
 if __name__ == '__main__':
     parsed_encoders = Encoders(hw_flag).parse_file()
-    # Works for when hw_flag = 0, read from file as headers (1st line) is used as keys
     app = QtGui.QApplication(sys.argv)
     app.setFont(QtGui.QFont("Helvetica", 10))
     LabOne(parsed_encoders).board.startGame()
