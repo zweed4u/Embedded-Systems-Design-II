@@ -229,11 +229,13 @@ class Rover(QtGui.QGraphicsItem):
                     self.setY(self.y() - forward_y)
             # Left wheels forward, right wheels backward
             elif left_dir == 1 and right_dir == 0:
+                print "Rotating"
                 angle = (left_ticks + right_ticks) * 45
                 self.angle += angle
                 self.rotate(angle)
             # Left wheels backward, right wheels forward
             elif left_dir == 0 and right_dir == 1:
+                print "Rotating"
                 angle = (left_ticks + right_ticks) * -45
                 self.angle += angle
                 self.rotate(angle)
