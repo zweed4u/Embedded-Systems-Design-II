@@ -1,0 +1,32 @@
+Vivado:xilinx - altera:quartus
+
+vivado command
+create project in quickstart
+RTL - Register Transfer Logic
+Default part:
+Boards > snickerdoodle development (DEV)
+
+flow nav > ip integrator > create block design 
+quick tips ctrl-q rids of flow nav
+
+connect clock to gpio
+run automation hooks up ddr and fixed io
+
+getting to blink
+tools and create new package ip
+package a specified directory
+package ip - top > review and package > package
+
+
+
+
+Processor Architecture (of the Zynq)
+advantage of DMA - direct 1 program counter in processor - DMA can transport memory around chip without bogging down processor
+
+L1 cache linked into processor - on chip memory - very small
+L2 cache same as L1 but shared betwen processors - useful with threads - AMP and SMP ways to run Linux - both processors visible to linux - OS can access all CPUs
+On chip Memory (OCM) - accessible/links directly to L2 or FPGA - think of scratchpad  - not cached
+
+Deteministic tasks on bare metal core - not on Linux OS CPU  (Hard real time C code)
+
+DDR memory ~1GB read into L1 cache and can start executing - if next instruction not in cache - cache miss - need to fetch page from DDR
