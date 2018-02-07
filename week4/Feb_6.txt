@@ -1,0 +1,23 @@
+Lab2
+VHDL modelsim
+variables: period (std_logic_vector), duty_cycle, enable
+
+Lab3
+program lab 2 on snickerdoodle & verify with scope
+
+Lab4
+GUI of the program on snickerdoodle with option to adjust variables (period, duty cycle and enable)
+
+Check polarity out of snickerdoodle
+0 out could be 0V OR 12V
+
+
+PWM update rate within bandwidth of motor results in quick "jitter", outside of motor's bandwidth results in the average voltage
+Moto will see 6V in 12V input with PWM 50% duty cycle
+
+thursday task
+get tasks figured out/hours
+
+
+fpga vs processor tasks
+C or python?
