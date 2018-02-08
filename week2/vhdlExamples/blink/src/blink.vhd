@@ -35,5 +35,5 @@ process(clk,reset)
       end if; 
     end if;
   end process;
-  output <= output_sig;
+  output <= output_sig; -- & enable
 end beh;

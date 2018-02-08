@@ -1,0 +1,81 @@
+50 mhz clk update 1khz signal with generic counter
+
+
+50MHZ clk - 50 million persecon
+
+1khz pwm - 1000 per second
+2khz encoder
+
+
+50000 in generic counter results in single clk pulse every 1ms - 1khz - enable
+
+if reset
+	# do something - async reset
+elsif clk # rising edge clk
+	if enable
+		# only runs at 1khz because coming from counter
+
+
+rising_edge_sunchronizer - debounce -> double flopping with clks
+
+async     50mhz
+--[]--[]--
+
+needed in ultrasonic echo - avoid metastability and in every encoder
+
+trigger to ultrasonic - then certain time later get echo back - determine distance - echo - trigger
+
+logic for rising edge sync - delay third time with xor - finding rising edge
+
+         |--------|
+--[]--[]--[]--XOR--AND
+         |___|
+
+generic counter - syncronization
+blink
+rising edge synchronizer - sync all data coming off chip
+
+
+1khz period
+with 100Mhz clk
+100000 period -> 1Mhz/100000 = 1k
+
+
+
+log2(100000000)  -- 1 second
+
+if x = period
+	out = not out
+
+duty must be less than period
+
+duty 50000
+period 100000
+duty cycle = duty/period
+
+if clk:
+	if enable
+		# do
+
+
+fixed clk (100MHZ)
+variables needed:
+duty
+period
+
+
+document in tech memo of which units are used and other various information
+
+
+
+
+
+if reset
+	clk <=0
+elsif clk
+	if enable_edge
+		count<=0
+	elsif en
+		#math
+
+
