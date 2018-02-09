@@ -25,6 +25,7 @@ signal count_sig    : integer range 0 to max_count := 0;
 signal output_sig   : std_logic;
 signal pulse_sig    : std_logic_vector;
 signal duty_sig     : std_logic_vector;
+signal enable_sig   : std_logic;
 
 begin
 process(clk,reset)
