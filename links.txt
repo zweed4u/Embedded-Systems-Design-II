@@ -6,3 +6,5 @@ import pyqtgraph.examples
 pyqtgraph.examples.run()
 
 http://www.pyqtgraph.org/documentation/introduction.html
+
+https://stackoverflow.com/questions/22737838/raspberry-pi-server-client-socket-in-python
