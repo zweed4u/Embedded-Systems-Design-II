@@ -56,7 +56,7 @@ uut1: blink
   
 uut2: blink  
   generic map (
-    max_count => 19
+    max_count => 19 -- 1=40, 2=60, .., 4=100 ((n+1)*20) 50% with this as ns high
   )
   port map(
     clk       => clk,
