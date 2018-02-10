@@ -13,9 +13,9 @@ entity lab2 is
     clk             : in  std_logic; 
     reset           : in  std_logic;
     enable          : in  std_logic;
-    pulse           : in  std_logic_vector(26 DOWNTO 0);
+    period          : in  std_logic_vector(26 DOWNTO 0);
     duty            : in  std_logic_vector(26 DOWNTO 0);
-    output          : out std_logic
+    output          : out std_logic  -- pulse train
   );  
 end lab2;  
 
@@ -23,7 +23,7 @@ architecture beh of lab2  is
 
 signal count_sig    : integer range 0 to max_count := 0;
 signal output_sig   : std_logic;
-signal pulse_sig    : std_logic_vector;
+signal period_sig    : std_logic_vector;
 signal duty_sig     : std_logic_vector;
 signal enable_sig   : std_logic;
 
@@ -45,7 +45,7 @@ process(clk,reset)
       end if;
     end if;
   end process;
-  pulse_sig <= pulse;
+  period_sig <= period;
   duty_sig <= duty;
   enable_sig <= enable;
   output <= output_sig; -- & enable

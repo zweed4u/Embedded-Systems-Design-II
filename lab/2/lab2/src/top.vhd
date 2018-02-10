@@ -23,7 +23,7 @@ component lab2 is
     clk              : in  std_logic; 
     reset            : in  std_logic;
     enable           : in  std_logic;
-    pulse            : in  std_logic_vector(26 DOWNTO 0);
+    period           : in  std_logic_vector(26 DOWNTO 0);
     duty             : in  std_logic_vector(26 DOWNTO 0);
     output           : out std_logic
   );  
@@ -39,7 +39,7 @@ uut: lab2
     clk       => clk,
     reset     => reset,
     enable    => enable,
-    pulse     => pulse,
+    period    => period,
     duty      => duty,
     output    => output
   );

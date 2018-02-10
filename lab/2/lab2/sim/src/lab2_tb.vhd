@@ -18,18 +18,18 @@ component lab2 is
     clk             : in  std_logic;
     reset           : in  std_logic;
     enable          : in  std_logic;
-    pulse           : in  std_logic_vector(26 DOWNTO 0);
+    period          : in  std_logic_vector(26 DOWNTO 0);
     duty            : in  std_logic_vector(26 DOWNTO 0);
     output          : out std_logic
   );  
 end component;  
 
-constant period     : time := 20ns;
+constant tb_period  : time := 20ns;
 
 signal clk          : std_logic := '0';
 signal reset        : std_logic := '1';
 signal enable       : std_logic := '0';
-signal pulse        : std_logic_vector(26 DOWNTO 0) := (OTHERS => '0');  -- zeroed out
+signal period       : std_logic_vector(26 DOWNTO 0) := (OTHERS => '0');  -- zeroed out
 signal duty         : std_logic_vector(26 DOWNTO 0) := (OTHERS => '0');  -- zeroed out
 signal sync         : std_logic;
 
@@ -39,13 +39,13 @@ begin
 clock: process
   begin
     clk <= not clk;
-    wait for period/2;
+    wait for tb_period/2;
 end process; 
  
 -- reset process
 async_reset: process
   begin
-    wait for 2 * period;
+    wait for 2 * tb_period;
     reset <= '0';
     wait;
 end process; 
@@ -53,7 +53,7 @@ end process;
 -- enable process
 enable: process
   begin
-    wait for period/2;
+    wait for tb_period/2;
     enable <= not enable;
 end process; 
 
@@ -66,7 +66,7 @@ uut1: lab2
     clk       => clk,
     reset     => reset,
     enable    => enable,
-    pulse     => pulse,
+    period    => period,
     duty      => duty,
     output    => sync
   );
