@@ -12,9 +12,9 @@ entity lab2 is
   port (
     clk             : in  std_logic; 
     reset           : in  std_logic;
-    enable           : in  std_logic;
-    pulse            : in  std_logic_vector(26 DOWNTO 0);
-    duty             : in  std_logic_vector(26 DOWNTO 0);
+    enable          : in  std_logic;
+    pulse           : in  std_logic_vector(26 DOWNTO 0);
+    duty            : in  std_logic_vector(26 DOWNTO 0);
     output          : out std_logic
   );  
 end lab2;  
@@ -34,13 +34,19 @@ process(clk,reset)
       count_sig <= 0;
       output_sig <= '0';
     elsif (clk'event and clk = '1') then
-      if (count_sig = max_count) then
-        count_sig <= 0;
-        output_sig <= not output_sig;
-      else
-        count_sig <= count_sig + 1;
-      end if; 
+      if (enable_sig = '1') then
+        -- math here
+        if (count_sig = max_count) then
+          count_sig <= 0;
+          output_sig <= not output_sig;
+        else
+          count_sig <= count_sig + 1;
+        end if; 
+      end if;
     end if;
   end process;
+  pulse_sig <= pulse;
+  duty_sig <= duty;
+  enable_sig <= enable;
   output <= output_sig; -- & enable
 end beh;

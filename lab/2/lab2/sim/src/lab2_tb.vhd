@@ -15,17 +15,23 @@ component lab2 is
     max_count       : integer range 0 to 100000000 := 3
   );
   port (
-    clk             : in  std_logic; 
+    clk             : in  std_logic;
     reset           : in  std_logic;
+    enable          : in  std_logic;
+    pulse           : in  std_logic_vector(26 DOWNTO 0);
+    duty            : in  std_logic_vector(26 DOWNTO 0);
     output          : out std_logic
   );  
 end component;  
 
-signal sync1        : std_logic;
-signal sync2        : std_logic;
-constant period     : time := 20ns;                                              
+constant period     : time := 20ns;
+
 signal clk          : std_logic := '0';
 signal reset        : std_logic := '1';
+signal enable       : std_logic := '0';
+signal pulse        : std_logic_vector(26 DOWNTO 0) := (OTHERS => '0');  -- zeroed out
+signal duty         : std_logic_vector(26 DOWNTO 0) := (OTHERS => '0');  -- zeroed out
+signal sync         : std_logic;
 
 begin
 
@@ -44,23 +50,24 @@ async_reset: process
     wait;
 end process; 
 
+-- enable process
+enable: process
+  begin
+    wait for period/2;
+    enable <= not enable;
+end process; 
+
+-- Adjust duty cycle and period (PWM testing)
 uut1: lab2  
-  generic map (
-    max_count => 25000000
-  )
-  port map(
-    clk       => clk,
-    reset     => reset,
-    output    => sync1
-  );
-  
-uut2: lab2  
   generic map (
     max_count => 19 -- 1=40, 2=60, .., 4=100 ((n+1)*20) 50% with this as ns high
   )
   port map(
     clk       => clk,
     reset     => reset,
-    output    => sync2
+    enable    => enable,
+    pulse     => pulse,
+    duty      => duty,
+    output    => sync
   );
 end arch;

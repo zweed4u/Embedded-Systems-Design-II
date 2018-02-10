@@ -1,7 +1,6 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /lab2_tb/sync1
-add wave -noupdate /lab2_tb/sync2
+add wave -noupdate /lab2_tb/sync
 add wave -noupdate /lab2_tb/clk
 add wave -noupdate /lab2_tb/reset
 TreeUpdate [SetDefaultTree]
