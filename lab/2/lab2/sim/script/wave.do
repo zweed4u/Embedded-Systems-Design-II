@@ -2,6 +2,7 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /lab2_tb/sync
 add wave -noupdate /lab2_tb/clk
+add wave -noupdate /lab2_tb/enable
 add wave -noupdate /lab2_tb/reset
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {50 ns} 0}
