@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
--- Dr. Kaputa
--- generic counter test bench
+-- Zachary Weeden
+-- Lab2
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -11,9 +11,6 @@ end lab2_tb;
 architecture arch of lab2_tb is
 
 component lab2 is
-  generic (
-    max_count       : integer range 0 to 100000000 := 3
-  );
   port (
     clk             : in  std_logic;
     reset           : in  std_logic;
@@ -22,13 +19,11 @@ component lab2 is
   );  
 end component;  
 
-constant tb_period  : time := 20ns;
+constant tb_period  : time := 10ns;  -- 100MHz clock
 
 signal clk          : std_logic := '0';
 signal reset        : std_logic := '1';
-signal enable       : std_logic := '0';
-signal period       : std_logic_vector(26 DOWNTO 0) := (OTHERS => '0');  -- zeroed out
-signal duty         : std_logic_vector(26 DOWNTO 0) := (OTHERS => '0');  -- zeroed out
+signal enable_sig   : std_logic := '0';
 signal sync         : std_logic;
 
 begin
@@ -52,18 +47,15 @@ end process;
 enable: process
   begin
     wait for tb_period/2;
-    enable <= not enable;
+    enable_sig <= '1';
 end process; 
 
 -- Adjust duty cycle and period (PWM testing)
 uut1: lab2  
-  generic map (
-    max_count => 19 -- 1=40, 2=60, .., 4=100 ((n+1)*20) 50% with this as ns high
-  )
   port map(
     clk       => clk,
     reset     => reset,
-    enable    => enable,
+    enable    => enable_sig,
     output    => sync
   );
 end arch;

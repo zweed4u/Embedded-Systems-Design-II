@@ -1,0 +1,90 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/lab/2/lab2/sim/script
+Elab2
+Z1 w1518376898
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8../../src/lab2.vhd
+Z6 F../../src/lab2.vhd
+l0
+L9
+VcH5dCPcd:`dAiL6=kP`PA1
+!s100 @>o7BLZAgLn;AY4`IbRI[0
+Z7 OL;C;10.5b;63
+31
+Z8 !s110 1518376934
+!i10b 1
+Z9 !s108 1518376934.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|../../src/lab2.vhd|
+Z11 !s107 ../../src/lab2.vhd|
+!i113 0
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abeh
+R2
+R3
+R4
+DEx4 work 4 lab2 0 22 cH5dCPcd:`dAiL6=kP`PA1
+31
+R8
+l27
+L18
+VWkj>S=:Fd9Wkc=[=@S89S0
+!s100 aMk3NiHLg?fe]`cYcFY6S3
+R7
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Elab2_tb
+Z14 w1518376911
+R3
+R4
+R0
+Z15 8../src/lab2_tb.vhd
+Z16 F../src/lab2_tb.vhd
+l0
+L8
+V=YC9WTDG`Jg=YCWjCE4Vz3
+!s100 5Gbc^Q0caGba[?k[CGYhD2
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|../src/lab2_tb.vhd|
+Z18 !s107 ../src/lab2_tb.vhd|
+!i113 0
+R12
+R13
+Aarch
+R3
+R4
+DEx4 work 7 lab2_tb 0 22 =YC9WTDG`Jg=YCWjCE4Vz3
+31
+R8
+l29
+L11
+V6`OQiB_J@J_<M1@zO=_Xa3
+!s100 ]g[RD5L_hk2n2j_PaZW9Q0
+R7
+!i10b 1
+R9
+R17
+R18
+!i113 0
+R12
+R13
