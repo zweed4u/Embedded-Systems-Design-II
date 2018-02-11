@@ -31,35 +31,35 @@ process(clk,reset)
   --variable duty       : std_logic_vector(26 DOWNTO 0) := "000000000000000001111101000";  -- 1KHz 100%
   --variable duty       : std_logic_vector(26 DOWNTO 0) := (others => '0');  -- 0Hz 0%
   variable duty       : std_logic_vector(26 DOWNTO 0) := "000000000000000000001100100"; -- 100Hz 10%
-
+  constant zero_duty : std_logic_vector(duty'range) := (others => '0');
   variable period_ticks      : integer := clk_freq/to_integer(unsigned(period));  -- how many tick counts needed at clock frequency to yield the desired period
-
-  variable duty_ticks : integer := period_ticks/(to_integer(unsigned(period))/to_integer(unsigned(duty)));  -- how many counts needed at the clock frequency to yield the desired duty
 
   begin
     if (reset = '1') then 
       count_sig <= 0;
       output_sig <= '0';
-
     elsif (clk'event and clk = '1') then
       if (enable_sig = '1') then
-
-        -- Set output high while within the duty
-        if (count_sig <= duty_ticks) then  -- ticks are within the duty
+        if (period = duty) then
           output_sig <= '1';
-        else
+        elsif (duty = zero_duty) then
           output_sig <= '0';
-        end if;
-
-        -- Period ticks have been hit - flip and restart pulse
-        if (count_sig = period_ticks) then
-          count_sig <= 0;
-          -- Need conditional for 0% and 100% edge cases
-          output_sig <= not output_sig;
         else
-          count_sig <= count_sig + 1;
+            -- Set output high while within the duty
+            if (count_sig <= (period_ticks/(to_integer(unsigned(period))/to_integer(unsigned(duty))))) then  -- ticks are within the number of ticks for the duty (duty_ticks)
+              output_sig <= '1';
+            else
+              output_sig <= '0';
+            end if;
+            -- Period ticks have been hit - flip and restart pulse
+            if (count_sig = period_ticks) then
+              count_sig <= 0;
+              -- Need conditional for 0% and 100% edge cases
+              output_sig <= not output_sig;
+            else
+              count_sig <= count_sig + 1;
+            end if;
         end if;
-
       end if;
     end if;
   end process;
