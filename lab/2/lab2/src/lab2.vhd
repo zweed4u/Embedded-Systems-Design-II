@@ -45,20 +45,20 @@ process(clk,reset)
         elsif (duty = zero_duty) then
           output_sig <= '0';
         else
-            -- Set output high while within the duty
-            if (count_sig <= (period_ticks/(to_integer(unsigned(period))/to_integer(unsigned(duty))))) then  -- ticks are within the number of ticks for the duty (duty_ticks)
-              output_sig <= '1';
-            else
-              output_sig <= '0';
-            end if;
-            -- Period ticks have been hit - flip and restart pulse
-            if (count_sig = period_ticks) then
-              count_sig <= 0;
-              -- Need conditional for 0% and 100% edge cases
-              output_sig <= not output_sig;
-            else
-              count_sig <= count_sig + 1;
-            end if;
+          -- Set output high while within the duty
+          if (count_sig <= (period_ticks/(to_integer(unsigned(period))/to_integer(unsigned(duty))))) then  -- ticks are within the number of ticks for the duty (duty_ticks)
+            output_sig <= '1';
+          else
+            output_sig <= '0';
+          end if;
+          -- Period ticks have been hit - flip and restart pulse
+          if (count_sig = period_ticks) then
+            count_sig <= 0;
+            -- Need conditional for 0% and 100% edge cases
+            output_sig <= not output_sig;
+          else
+            count_sig <= count_sig + 1;
+          end if;
         end if;
       end if;
     end if;
