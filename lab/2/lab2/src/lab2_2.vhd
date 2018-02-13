@@ -11,8 +11,8 @@ entity lab2_2 is
     clk             : in  std_logic; 
     reset           : in  std_logic;
     enable          : in  std_logic;
-    period          : in  std_logic_vector(26 DOWNTO 0);
-    duty            : in  std_logic_vector(26 DOWNTO 0);
+    period          : in  std_logic_vector(26 DOWNTO 0) := "000000000000000001111101000";
+    duty            : in  std_logic_vector(26 DOWNTO 0) := "000000000000000000001100100";
     output          : out std_logic  -- pulse train
   );
 end lab2_2;
@@ -22,14 +22,11 @@ architecture beh of lab2_2  is
 constant clk_freq   : integer := 100000000;  -- 100MHz
 constant clk_period : time := 10 ns;
 
-signal period_sig   : std_logic_vector(26 DOWNTO 0);
-signal duty_sig     : std_logic_vector(26 DOWNTO 0);
 signal count_sig    : integer range 0 to clk_freq := 0;  --up to one second (clk_freq/1sec = clk_freq)
 signal output_sig   : std_logic;
 signal enable_sig   : std_logic;
-
-duty_sig <= duty;
-period_sig <= period;
+signal period_sig   : std_logic_vector(26 DOWNTO 0) := period;
+signal duty_sig     : std_logic_vector(26 DOWNTO 0) := duty;
 
 begin
 process(clk,reset)

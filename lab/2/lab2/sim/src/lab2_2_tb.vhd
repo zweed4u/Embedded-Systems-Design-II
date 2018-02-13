@@ -27,6 +27,8 @@ signal clk          : std_logic := '0';
 signal reset        : std_logic := '1';
 signal enable_sig   : std_logic := '0';
 signal sync         : std_logic;
+signal period_sig   : std_logic_vector(26 DOWNTO 0);
+signal duty_sig     : std_logic_vector(26 DOWNTO 0);
 
 begin
 
@@ -58,8 +60,8 @@ uut1: lab2_2
     clk       => clk,
     reset     => reset,
     enable    => enable_sig,
-    period    => "000000000000000001111101000",  -- 1000 (1KHz)
-    duty      => "000000000000000000001100100",  -- 100Hz 10%
+    period    => period_sig,
+    duty      => duty_sig,
     output    => sync
   );
 end arch;
