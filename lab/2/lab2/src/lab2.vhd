@@ -26,13 +26,13 @@ signal enable_sig   : std_logic;
 
 begin
 process(clk,reset)
-  variable period     : std_logic_vector(26 DOWNTO 0) := "000000000000000001111101000";  -- 1000 (1KHz)
-  --variable duty       : std_logic_vector(26 DOWNTO 0) := "000000000000000000111110100";  -- must be less than, equal to period (500 HZ) 50%
-  --variable duty       : std_logic_vector(26 DOWNTO 0) := "000000000000000001111101000";  -- 1KHz 100%
-  --variable duty       : std_logic_vector(26 DOWNTO 0) := (others => '0');  -- 0Hz 0%
-  variable duty       : std_logic_vector(26 DOWNTO 0) := "000000000000000000001100100"; -- 100Hz 10%
-  constant zero_duty : std_logic_vector(duty'range) := (others => '0');
-  variable period_ticks      : integer := clk_freq/to_integer(unsigned(period));  -- how many tick counts needed at clock frequency to yield the desired period
+  variable period       : std_logic_vector(26 DOWNTO 0) := "000000000000000001111101000";  -- 1000 (1KHz)
+  --variable duty         : std_logic_vector(26 DOWNTO 0) := "000000000000000000111110100";  -- must be less than, equal to period (500 HZ) 50%
+  --variable duty         : std_logic_vector(26 DOWNTO 0) := "000000000000000001111101000";  -- 1KHz 100%
+  --variable duty         : std_logic_vector(26 DOWNTO 0) := (others => '0');  -- 0Hz 0%
+  variable duty         : std_logic_vector(26 DOWNTO 0) := "000000000000000000001100100"; -- 100Hz 10%
+  constant zero_duty    : std_logic_vector(duty'range) := (others => '0');
+  variable period_ticks : integer := clk_freq/to_integer(unsigned(period));  -- how many tick counts needed at clock frequency to yield the desired period
 
   begin
     if (reset = '1') then 

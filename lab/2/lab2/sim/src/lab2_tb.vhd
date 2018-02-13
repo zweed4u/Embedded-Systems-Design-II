@@ -50,7 +50,7 @@ enable: process
     enable_sig <= '1';
 end process; 
 
--- Adjust duty cycle and period (PWM testing)
+-- port map the unit under test
 uut1: lab2  
   port map(
     clk       => clk,
