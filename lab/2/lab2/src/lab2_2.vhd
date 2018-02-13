@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 USE ieee.numeric_std.ALL;
 
-entity lab2 is
+entity lab2_2 is
   port (
     clk             : in  std_logic; 
     reset           : in  std_logic;
@@ -15,9 +15,9 @@ entity lab2 is
     duty            : in  std_logic_vector(26 DOWNTO 0);
     output          : out std_logic  -- pulse train
   );
-end lab2;
+end lab2_2;
 
-architecture beh of lab2  is
+architecture beh of lab2_2  is
 
 constant clk_freq   : integer := 100000000;  -- 100MHz
 constant clk_period : time := 10 ns;

@@ -18,7 +18,7 @@ end top;
 
 architecture beh of top is
 
-component lab2 is
+component lab2_2 is
   port (
     clk              : in  std_logic; 
     reset            : in  std_logic;
@@ -31,7 +31,7 @@ end component;
 
 begin
 
-uut: lab2
+uut: lab2_2
   port map(
     clk       => clk,
     reset     => reset,
