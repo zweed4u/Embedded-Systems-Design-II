@@ -1,0 +1,34 @@
+# do /home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script/sim_2.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:36:50 on Feb 13,2018
+# vcom -reportprogress 300 -93 -work work ../../src/lab2_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lab2_2
+# -- Compiling architecture beh of lab2_2
+# ** Warning: ../../src/lab2_2.vhd(34): (vcom-1013) Initial value of "period_ticks" depends on value of signal "period_sig".
+# ** Warning: ../../src/lab2_2.vhd(28): (vcom-1013) Initial value of "period_sig" depends on value of signal "period".
+# ** Warning: ../../src/lab2_2.vhd(29): (vcom-1013) Initial value of "duty_sig" depends on value of signal "duty".
+# End time: 16:36:50 on Feb 13,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:36:50 on Feb 13,2018
+# vcom -reportprogress 300 -93 -work work ../src/lab2_2_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lab2_2_tb
+# -- Compiling architecture arch of lab2_2_tb
+# ** Warning: ../src/lab2_2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 16:36:50 on Feb 13,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vsim -novopt lab2_2_tb 
+# Start time: 16:36:50 on Feb 13,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.lab2_2_tb(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.lab2_2(beh)
