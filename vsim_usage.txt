@@ -1,3 +1,6 @@
+~/intelFPGA_pro/17.1/modelsim_ase/bin/vsim -help
+
+
 Usage: vsim [options] [[<library>.]<primary>[(<secondary>)]]...
    -default_radix radix|radix_flag[,radix_flag...] Set default radix and radix flags.
                            Specifying just a radix will clear all radix flags. Specifying
