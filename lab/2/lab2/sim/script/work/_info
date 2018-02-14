@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script
 Elab2_2
-Z1 w1518582838
+Z1 w1518583403
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -22,9 +22,9 @@ VkC`OLCb5_[3HV3dRGB=NW3
 !s100 ]kBR?>nTOb8CB1OMaTd2:0
 Z7 OV;C;10.5c;63
 31
-Z8 !s110 1518582864
+Z8 !s110 1518628606
 !i10b 1
-Z9 !s108 1518582864.000000
+Z9 !s108 1518628606.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|../../src/lab2_2.vhd|
 Z11 !s107 ../../src/lab2_2.vhd|
 !i113 1
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Elab2_2_tb
-Z14 w1518582855
+Z14 w1518628586
 R3
 R4
 R0
@@ -74,10 +74,10 @@ Aarch
 R3
 R4
 Z19 DEx4 work 9 lab2_2_tb 0 22 RcEWQjl:V4`S5j4B<AM:L3
-l31
+l39
 L11
-VHN=BN=2A6]:0YDhFbcbAj0
-!s100 b4S:kFBz8`_4NW6jhAiPh2
+Z20 VR=hTzFbN6oF`YINnKYXVz2
+Z21 !s100 kdzQmi]Fal2elXkKlVncj0
 R7
 31
 R8

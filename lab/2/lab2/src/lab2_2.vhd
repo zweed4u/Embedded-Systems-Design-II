@@ -50,7 +50,6 @@ process(clk,reset)
           -- Period ticks have been hit - flip and restart pulse
           if (count_sig = period_ticks) then
             count_sig <= 0;
-            -- Need conditional for 0% and 100% edge cases
             output_sig <= not output_sig;
           else
             count_sig <= count_sig + 1;

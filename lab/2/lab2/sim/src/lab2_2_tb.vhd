@@ -23,10 +23,18 @@ end component;
 
 constant tb_period  : time := 10ns;  -- 100MHz clock
 
-signal clk          : std_logic := '0';
-signal reset        : std_logic := '1';
-signal enable_sig   : std_logic := '0';
-signal sync         : std_logic;
+signal clk            : std_logic := '0';
+signal reset          : std_logic := '1';
+signal enable_sig     : std_logic := '0';
+
+signal zero_per        : std_logic;
+signal one_per         : std_logic;
+signal ten_per         : std_logic;
+signal twentyfive_per  : std_logic;
+signal fifty_per       : std_logic;
+signal seventyfive_per : std_logic;
+signal ninetynine_per  : std_logic;
+signal hundred_per     : std_logic;
 
 begin
 -- clock process
@@ -52,13 +60,81 @@ enable: process
 end process; 
 
 -- port map the unit under test
+uut0: lab2_2  
+  port map(
+    clk       => clk,
+    reset     => reset,
+    enable    => enable_sig,
+    period    => "000000000000000001111101000",  --1000
+    duty      => "000000000000000000000000000",  --0
+    output    => zero_per
+  );
+
 uut1: lab2_2  
   port map(
     clk       => clk,
     reset     => reset,
     enable    => enable_sig,
     period    => "000000000000000001111101000",  --1000
-    duty      => "000000000000000000000001010",  --100
-    output    => sync
+    duty      => "000000000000000000000001010",  --1
+    output    => one_per
+  );
+
+uut2: lab2_2  
+  port map(
+    clk       => clk,
+    reset     => reset,
+    enable    => enable_sig,
+    period    => "000000000000000001111101000",  --1000
+    duty      => "000000000000000000001100100",  --100
+    output    => ten_per
+  );
+
+uut3: lab2_2  
+  port map(
+    clk       => clk,
+    reset     => reset,
+    enable    => enable_sig,
+    period    => "000000000000000001111101000",  --1000
+    duty      => "000000000000000000011111010",  --250
+    output    => twentyfive_per
+  );
+
+uut4: lab2_2  
+  port map(
+    clk       => clk,
+    reset     => reset,
+    enable    => enable_sig,
+    period    => "000000000000000001111101000",  --1000
+    duty      => "000000000000000000111110100",  --500
+    output    => fifty_per
+  ); 
+
+  uut5: lab2_2  
+  port map(
+    clk       => clk,
+    reset     => reset,
+    enable    => enable_sig,
+    period    => "000000000000000001111101000",  --1000
+    duty      => "000000000000000001011101110",  --750
+    output    => seventyfive_per
+  );
+  uut6: lab2_2  
+  port map(
+    clk       => clk,
+    reset     => reset,
+    enable    => enable_sig,
+    period    => "000000000000000001111101000",  --1000
+    duty      => "000000000000000001111011110",  --990
+    output    => ninetynine_per
+  );
+  uut7: lab2_2  
+  port map(
+    clk       => clk,
+    reset     => reset,
+    enable    => enable_sig,
+    period    => "000000000000000001111101000",  --1000
+    duty      => "000000000000000001111101000",  --1000
+    output    => hundred_per
   );
 end arch;

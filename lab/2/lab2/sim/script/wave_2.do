@@ -1,6 +1,13 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /lab2_2_tb/sync
+add wave -noupdate /lab2_2_tb/zero_per
+add wave -noupdate /lab2_2_tb/one_per
+add wave -noupdate /lab2_2_tb/ten_per
+add wave -noupdate /lab2_2_tb/twentyfive_per
+add wave -noupdate /lab2_2_tb/fifty_per
+add wave -noupdate /lab2_2_tb/seventyfive_per
+add wave -noupdate /lab2_2_tb/ninetynine_per
+add wave -noupdate /lab2_2_tb/hundred_per
 add wave -noupdate /lab2_2_tb/clk
 add wave -noupdate /lab2_2_tb/enable_sig
 add wave -noupdate /lab2_2_tb/reset
