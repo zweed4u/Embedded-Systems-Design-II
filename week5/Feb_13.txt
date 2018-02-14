@@ -1,0 +1,2 @@
+Set compile project to 1 in tcl delete journal files and in src folder just have constraints and bd
+then run start script.bat generate bitstream and bin file

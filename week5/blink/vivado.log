@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Feb 13 17:06:16 2018
+# Process ID: 11480
+# Current directory: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink
+# Command line: vivado.exe -notrace -mode batch -source project.tcl
+# Log file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/vivado.log
+# Journal file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink\vivado.jou
+#-----------------------------------------------------------
+source project.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+INFO: [BD 41-434] Could not find an IP with XCI file by name: design_1_processing_system7_0_0 
+Adding cell -- craftdrones:user:blink:1.0 - blink_0
+INFO: [BD 41-434] Could not find an IP with XCI file by name: design_1_blink_0_0 
+Successfully read diagram <design_1> from BD file <C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/src/design_1.bd>
+INFO: [BD 41-433] 
+Design successfully migrated to use XCI files...
+Wrote  : <C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/src/design_1.bd> 
+VHDL Output written to : C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/src/hdl/design_1.vhd
+VHDL Output written to : C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/src/hdl/design_1_wrapper.vhd
+INFO: [Common 17-206] Exiting Vivado at Tue Feb 13 17:06:25 2018...
