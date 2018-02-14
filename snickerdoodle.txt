@@ -1,0 +1,20 @@
+JAO1
+jump pin 1 and 3 for power - 3.3V out out pin1 to pin 3 allows all power rail to power rest of fpga and allow pins to be read/write accessed
+gnd on pin 10
+oscope on pin 6 for vivado blink example
+page 94 in snickerdoodle book pdf
+
+cat /snickerdoodle/system.bin > /dev/xdevcfg
+
+fetch contents of address
+./rwmem 0x41200004 
+
+push value into address
+./rwmem 0x41200004 1
+
+fetch contents of address - see pushed value
+./rwmem 0x41200004 
+
+lab2: 
+test 1khz period 
+1% test
