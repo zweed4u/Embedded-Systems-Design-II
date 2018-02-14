@@ -7,10 +7,10 @@
 
 set projectName blink
 
-# 0: setup project, 1: setup and compile project
-set compileProject 1
+# 0: setup project DO NOT COMPILE, 1: setup and compile project
+set compileProject 0
 
-# 0: plain,  1: black,  2: blue
+# snickerdoodle types 0: plain,  1: black,  2: blue
 set target 0
 
 # 0: leave messy, 1: blow away everything but sources and .bit file

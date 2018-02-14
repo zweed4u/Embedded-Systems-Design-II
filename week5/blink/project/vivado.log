@@ -1,0 +1,51 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Feb 13 17:06:54 2018
+# Process ID: 14672
+# Current directory: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16128 C:\Users\zdw7287\Downloads\Embedded-Systems-Design-II\week5\blink\project\blink.xpr
+# Log file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/project/vivado.log
+# Journal file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/project/blink.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/src/design_1.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- craftdrones:user:blink:1.0 - blink_0
+Successfully read diagram <design_1> from BD file <C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/src/design_1.bd>
+ipx::package_project -root_dir C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/ip/res -vendor rit.edu -library user -taxonomy /UserIP -import_files -set_current false
+WARNING: [IP_Flow 19-1834] The constraints file "constraints.xdc" is added to the synthesis file group only, but will be used for both synthesis and implementation in the IP generation.
+WARNING: [IP_Flow 19-4963] design_1_processing_system7_0_0 has board value specified. The packaged IP will be restricted to usage with board 'krtkl.com:snickerdoodle:part0:1.0'
+INFO: [IP_Flow 19-4753] Inferred signal 'clock' from port 'FIXED_IO_ps_clk' as interface 'FIXED_IO_ps_clk'.
+ipx::unload_core c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/ip/res/component.xml
+ipx::edit_ip_in_project -upgrade true -name tmp_edit_project -directory C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/ip/res c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/ip/res/component.xml
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/week5/blink/ip'.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+INFO: [IP_Flow 19-793] Syncing display name meta-data
+INFO: [IP_Flow 19-798] Syncing taxonomy meta-data
+ipx::edit_ip_in_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 998.512 ; gain = 56.801
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'processing_system7_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blink_0'...
+[Tue Feb 13 17:08:48 2018] Launched synth_1...
+Run output will be captured here: c:/users/zdw7287/downloads/embedded-systems-design-ii/week5/blink/ip/res/tmp_edit_project.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 1007.172 ; gain = 8.660
+set_property core_revision 2 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+close_project -delete
+ERROR: [Project 1-161] Failed to remove the directory 'c:/users/zdw7287/downloads/embedded-systems-design-ii/week5/blink/ip/res/tmp_edit_project.runs'. The directory might be in use by some other process.
