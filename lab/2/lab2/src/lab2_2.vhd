@@ -42,6 +42,7 @@ process(clk,reset)
           output_sig <= '0';
         else
           -- Set output high while within the duty
+          -- 100000 / (1000 / 750) rounding issue? for 75%
           if (count_sig <= (period_ticks/(to_integer(unsigned(period))/to_integer(unsigned(duty))))) then  -- ticks are within the number of ticks for the duty (duty_ticks)
             output_sig <= '1';
           else
