@@ -14,7 +14,3 @@ push value into address
 
 fetch contents of address - see pushed value
 ./rwmem 0x41200004 
-
-lab2: 
-test 1khz period 
-1% test
