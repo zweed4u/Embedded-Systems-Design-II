@@ -55,8 +55,11 @@ end process;
 -- enable process
 enable: process
   begin
-    wait for tb_period/2;
+    wait for 1ms;
     enable_sig <= '1';
+    -- disable
+    wait for 4ms;
+    enable_sig <= '0';
 end process; 
 
 -- port map the unit under test

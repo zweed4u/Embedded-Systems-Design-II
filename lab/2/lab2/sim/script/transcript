@@ -2,7 +2,7 @@
 # do /home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script/sim_2.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
-# Start time: 16:24:30 on Feb 15,2018
+# Start time: 18:13:16 on Feb 15,2018
 # vcom -reportprogress 300 -93 -work work ../../src/lab2_2.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -11,10 +11,10 @@
 # -- Compiling entity lab2_2
 # -- Compiling architecture beh of lab2_2
 # ** Warning: ../../src/lab2_2.vhd(32): (vcom-1013) Initial value of "period_ticks" depends on value of signal "period".
-# End time: 16:24:30 on Feb 15,2018, Elapsed time: 0:00:00
+# End time: 18:13:16 on Feb 15,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
-# Start time: 16:24:30 on Feb 15,2018
+# Start time: 18:13:16 on Feb 15,2018
 # vcom -reportprogress 300 -93 -work work ../src/lab2_2_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -22,13 +22,209 @@
 # -- Compiling entity lab2_2_tb
 # -- Compiling architecture arch of lab2_2_tb
 # ** Warning: ../src/lab2_2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 16:24:30 on Feb 15,2018, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
+# ** Warning: ../src/lab2_2_tb.vhd(58): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:13:17 on Feb 15,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 3
 # vsim -novopt lab2_2_tb 
-# Start time: 16:24:30 on Feb 15,2018
+# Start time: 18:13:17 on Feb 15,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading work.lab2_2_tb(arch)
 # Loading ieee.numeric_std(body)
 # Loading work.lab2_2(beh)
+do /home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script/sim_2.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:14:31 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../../src/lab2_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lab2_2
+# -- Compiling architecture beh of lab2_2
+# ** Warning: ../../src/lab2_2.vhd(32): (vcom-1013) Initial value of "period_ticks" depends on value of signal "period".
+# End time: 18:14:31 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:14:31 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../src/lab2_2_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lab2_2_tb
+# -- Compiling architecture arch of lab2_2_tb
+# ** Warning: ../src/lab2_2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(58): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:14:31 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 18:14:32 on Feb 15,2018, Elapsed time: 0:01:15
+# Errors: 0, Warnings: 4
+# vsim -novopt lab2_2_tb 
+# Start time: 18:14:32 on Feb 15,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.lab2_2_tb(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.lab2_2(beh)
+# WARNING: No extended dataflow license exists
+do /home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script/sim_2.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:16:28 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../../src/lab2_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lab2_2
+# -- Compiling architecture beh of lab2_2
+# ** Warning: ../../src/lab2_2.vhd(32): (vcom-1013) Initial value of "period_ticks" depends on value of signal "period".
+# End time: 18:16:28 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:16:28 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../src/lab2_2_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lab2_2_tb
+# -- Compiling architecture arch of lab2_2_tb
+# ** Warning: ../src/lab2_2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(58): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:16:28 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 18:16:29 on Feb 15,2018, Elapsed time: 0:01:57
+# Errors: 0, Warnings: 5
+# vsim -novopt lab2_2_tb 
+# Start time: 18:16:29 on Feb 15,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.lab2_2_tb(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.lab2_2(beh)
+# WARNING: No extended dataflow license exists
+do /home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script/sim_2.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:17:05 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../../src/lab2_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lab2_2
+# -- Compiling architecture beh of lab2_2
+# ** Warning: ../../src/lab2_2.vhd(32): (vcom-1013) Initial value of "period_ticks" depends on value of signal "period".
+# End time: 18:17:05 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:17:05 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../src/lab2_2_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lab2_2_tb
+# -- Compiling architecture arch of lab2_2_tb
+# ** Warning: ../src/lab2_2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(58): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:17:05 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 18:17:05 on Feb 15,2018, Elapsed time: 0:00:36
+# Errors: 0, Warnings: 5
+# vsim -novopt lab2_2_tb 
+# Start time: 18:17:05 on Feb 15,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.lab2_2_tb(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.lab2_2(beh)
+# WARNING: No extended dataflow license exists
+do /home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script/sim_2.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:17:47 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../../src/lab2_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lab2_2
+# -- Compiling architecture beh of lab2_2
+# ** Warning: ../../src/lab2_2.vhd(32): (vcom-1013) Initial value of "period_ticks" depends on value of signal "period".
+# End time: 18:17:47 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:17:47 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../src/lab2_2_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lab2_2_tb
+# -- Compiling architecture arch of lab2_2_tb
+# ** Warning: ../src/lab2_2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(58): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:17:47 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 18:17:47 on Feb 15,2018, Elapsed time: 0:00:42
+# Errors: 0, Warnings: 5
+# vsim -novopt lab2_2_tb 
+# Start time: 18:17:47 on Feb 15,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.lab2_2_tb(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.lab2_2(beh)
+# WARNING: No extended dataflow license exists
+do /home/zweeden/Desktop/Embedded-Systems-Design-II/lab/2/lab2/sim/script/sim_2.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:21:50 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../../src/lab2_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lab2_2
+# -- Compiling architecture beh of lab2_2
+# ** Warning: ../../src/lab2_2.vhd(32): (vcom-1013) Initial value of "period_ticks" depends on value of signal "period".
+# End time: 18:21:50 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 18:21:50 on Feb 15,2018
+# vcom -reportprogress 300 -93 -work work ../src/lab2_2_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lab2_2_tb
+# -- Compiling architecture arch of lab2_2_tb
+# ** Warning: ../src/lab2_2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(58): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/lab2_2_tb.vhd(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:21:50 on Feb 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# End time: 18:21:50 on Feb 15,2018, Elapsed time: 0:04:03
+# Errors: 0, Warnings: 5
+# vsim -novopt lab2_2_tb 
+# Start time: 18:21:50 on Feb 15,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.lab2_2_tb(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.lab2_2(beh)
+# WARNING: No extended dataflow license exists
+# Break key hit
+# Break in Process line__30 at ../../src/lab2_2.vhd line 30
+# End time: 18:25:20 on Feb 15,2018, Elapsed time: 0:03:30
+# Errors: 0, Warnings: 1
