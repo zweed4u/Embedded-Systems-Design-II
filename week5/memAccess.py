@@ -20,7 +20,7 @@ time.sleep(.5)
 mem.seek(reg)  
 fromMem = struct.unpack('l', mem.read(4))[0] 
   
-print reg + " = " + fromMem 
+print str(reg) + " = " + str(fromMem) 
   
 mem.close()
 f.close()
