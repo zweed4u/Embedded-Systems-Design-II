@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Feb 15 17:28:23 2018
+# Process ID: 12564
+# Current directory: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/vivado test/axitest
+# Command line: vivado.exe -notrace -mode batch -source project.tcl
+# Log file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/vivado test/axitest/vivado.log
+# Journal file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/vivado test/axitest\vivado.jou
+#-----------------------------------------------------------
+source project.tcl -notrace
