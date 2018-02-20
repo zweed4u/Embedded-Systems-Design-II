@@ -1,0 +1,18 @@
+MPU9250 - encoders - i2c (vhdl)
+HC-SR04 - ultrasonic
+OV5642 - camera driver
+DRV8871 - pwm driver for camera
+encoders - 3.3 volts coming in as pulse
+
+JTAG is a debugging tool (similar to altera signaltap)
+
+Ultrasonics (hint: trigger is is stimulating with radiation - not passive - LIDAR active) - interferrence???
+4 PWMs driven with duty cycle
+
+Lab3 - blink led in python on snickerdoodle - see on scope
+
+FPGA receives all pins but can be fed right to processor
+
+March 8th is PDR - preliminary design review - 1/2 hour slide presentation
+Focus on Design!!!
+
