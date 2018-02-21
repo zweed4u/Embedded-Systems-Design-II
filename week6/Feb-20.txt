@@ -16,3 +16,4 @@ FPGA receives all pins but can be fed right to processor
 March 8th is PDR - preliminary design review - 1/2 hour slide presentation
 Focus on Design!!!
 
+Don't couple!!! Isolate enables!!
