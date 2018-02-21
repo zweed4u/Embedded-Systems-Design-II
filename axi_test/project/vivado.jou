@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Feb 20 19:01:41 2018
+# Process ID: 3548
+# Current directory: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3900 C:\Users\zdw7287\Downloads\Embedded-Systems-Design-II\axi_test\project\custom_axi.xpr
+# Log file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project/vivado.log
+# Journal file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project/custom_axi.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/src/design_1.bd}
+ipx::edit_ip_in_project -upgrade true -name myip_v1_0_project -directory C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project/custom_axi.tmp/myip_v1_0_project c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/ip/myip_1.0/component.xml
+update_compile_order -fileset sources_1
+close_project

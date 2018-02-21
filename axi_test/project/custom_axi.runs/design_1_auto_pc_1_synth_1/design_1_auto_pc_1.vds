@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Feb 20 18:58:38 2018
+# Process ID: 17060
+# Current directory: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project/custom_axi.runs/design_1_auto_pc_1_synth_1
+# Command line: vivado.exe -log design_1_auto_pc_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_auto_pc_1.tcl
+# Log file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project/custom_axi.runs/design_1_auto_pc_1_synth_1/design_1_auto_pc_1.vds
+# Journal file: C:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/project/custom_axi.runs/design_1_auto_pc_1_synth_1\vivado.jou
+#-----------------------------------------------------------
+source design_1_auto_pc_1.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 349.238 ; gain = 81.836
+INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_1' [c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/src/ip/design_1_auto_pc_1/synth/design_1_auto_pc_1.v:58]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_13_axi_protocol_converter' [c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/src/ipshared/f0ae/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4811]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_13_axi_protocol_converter' (1#1) [c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/src/ipshared/f0ae/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4811]
+INFO: [Synth 8-256] done synthesizing module 'design_1_auto_pc_1' (2#1) [c:/Users/zdw7287/Downloads/Embedded-Systems-Design-II/axi_test/src/ip/design_1_auto_pc_1/synth/design_1_auto_pc_1.v:58]
+Finished RTL Elaboration : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 468.719 ; gain = 201.316
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 468.719 ; gain = 201.316
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 593.184 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 593.184 ; gain = 325.781
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 593.184 ; gain = 325.781
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 593.184 ; gain = 325.781
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 593.184 ; gain = 325.781
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 593.184 ; gain = 325.781
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 631.785 ; gain = 364.383
+Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 631.785 ; gain = 364.383
+Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+
+Report Cell Usage: 
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 640.926 ; gain = 373.523
+synth_design: Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 658.516 ; gain = 396.742

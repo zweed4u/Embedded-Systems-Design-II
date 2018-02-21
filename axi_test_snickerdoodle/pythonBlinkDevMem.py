@@ -22,7 +22,8 @@ class MyWidget(QtGui.QWidget):
     
     # open dev mem and see to base address
     f = open("/dev/mem", "r+b")
-    self.mem = mmap.mmap(f.fileno(), 32, offset=0x41200000)
+	# ensure that the offset is the same address as the offset address in the address editor of vivado
+    self.mem = mmap.mmap(f.fileno(), 32, offset=0x43C00000)
     
     #slots
     button1.clicked.connect(lambda: self.someoneClicked(1))  
