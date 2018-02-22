@@ -1,0 +1,20 @@
+characteristics
+functional - can it function
+performance - performance of functionality
+
+
+processor slack
+eg. 1khz process - tic-toc delta
+fetch time before process, run process and then fetch time after process
+
+execution jitter due to multiple threads fighting for resources and interupts
+~20% slack satisfactoy for real time system
+
+cache miss can also affect this
+
+AIDT:
+analysis
+inspection
+demonstration
+test
+
