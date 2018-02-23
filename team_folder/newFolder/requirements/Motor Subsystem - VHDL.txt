@@ -1,0 +1,10 @@
+Motor Subsystem - VHDL
+* Assumes 100MHz clock
+* Assumes TBD (20 ms) period for PWM pulse
+- 4 duty cycle inputs as input registers
+- 1 enable pulse input
+- 4 direction bits in a register
+- drive 4 PWM outputs and 4 direction outputs
+- output 4 encoder outputs registers; with writable bit for clearing registers
+- 8 encoder inputs (2 for each motor) - uses process for adding ticjs in the count registers
+- Accelerate up and down to new duty cycles (acceleration curve) eg. currently 10% duty - need to update to 20%
