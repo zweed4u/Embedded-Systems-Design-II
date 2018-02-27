@@ -1,0 +1,10 @@
+open_system('pwm');
+open_system('gm_pwm');
+cs.HiliteType = 'user2';
+cs.ForegroundColor = 'black';
+cs.BackgroundColor = 'gray';
+set_param(0, 'HiliteAncestorsData', cs);
+hilite_system('gm_pwm/timesTwo/Gain', 'user2');
+annotate_port('gm_pwm/timesTwo/Gain', 1, 1, 'Type not supported');
+hilite_system('pwm/timesTwo/Gain', 'user2');
+annotate_port('pwm/timesTwo/Gain', 1, 1, 'Type not supported');
