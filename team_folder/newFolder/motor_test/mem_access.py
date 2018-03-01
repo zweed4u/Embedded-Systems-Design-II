@@ -28,7 +28,6 @@ class MemAccess():
         self.reg = reg
         mem.seek(self.reg)
         mem.write(struct.pack('l', toMem))
-        time.sleep(.5)
         mem.close()
         f.close()
 

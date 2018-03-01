@@ -3,8 +3,6 @@
 
 from mem_access import MemAccess
 
-forward_movement = 1
-
 # adjust accordingly
 front_left_encoder_address = 0x41200000
 front_right_encoder_address = 0x41200004
@@ -91,4 +89,4 @@ class RoverMovement():
         self.rear_right = -1
 
     def fetch(self, reg, address):
-        MemAccess(reg=reg, address_offset=address).fetch()
+        return MemAccess(reg=reg, address_offset=address).fetch()
