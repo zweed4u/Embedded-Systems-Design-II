@@ -1,6 +1,10 @@
 Motor Subsystem - Python
-- have 3 movement functions at the minimum (foward, left, right) - maybe implement reverse function in the future as well as parameterization
-- have a calibration function where rover smoke tests the movement functions (1 ft movement and user supplies actual movement, also use to determine ticks in rotation - could be used in hardcoding?)
+- 
+have 3 movement functions at the minimum (foward, left, right) - 
+maybe implement reverse function in the future as well as parameterization
+
+have a calibration function where rover smoke tests the movement functions (1 ft movement and user supplies actual movement, also use to determine ticks in rotation - could be used in hardcoding?)
+
 
 For each movement function:
 - calculate duty cycles for intended movement while factoring in calibration data from initial calibrate function/user supplied data

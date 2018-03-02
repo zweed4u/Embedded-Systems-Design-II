@@ -1,0 +1,30 @@
+Notes:
+==============
+measure ticks of encoder a inputs - when they go high - count ticks
+
+Encoder input B not needed:
+but direction can be determined by phase shift of encoder input A with respect encoder input B (ie. +/- 90degree phase shift)
+
+Use rising edge syncronizer and counter for encoder input A and count number of ticks between two pulses. This tick count is the representation
+of encoder rotation speed. 
+take ticks and multiply by clk speed (100MHz), gear ratio (87:1) and wheel diameter
+
+- in "setup" push values for the multiply factors to memory - parameterization 
+
+functional tests for each hardware component to test subsystems
+IMU does not measure rotation it measures rotation velocity (need integation)
+
+
+PDR contains:
+======================
+team introduction
+highlevel blockdiagram (label parts - m1, m2) - nomenclature
+hw/sw - terms/architecture - register map and how they communicate
+subsystem slides
+ - eg. encoder processor subsystem - function call - register
+Cost and scheduling
+CDR estimates
+Our advantage - "why pick us?" - sompetitive advantage - eg. optimization
+
+Camera:
+OV5462 camera 640 resolution
