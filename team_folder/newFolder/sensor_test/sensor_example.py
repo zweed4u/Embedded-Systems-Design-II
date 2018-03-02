@@ -15,13 +15,13 @@ speed_of_sound_centimeters_per_second = 34000
 
 class Sensor:
     def __init__(self):
-        self.time_delta = 0
         self.sensor_thread = threading.Thread(target=self.trigger, args=(0,))
+        self.trigger = 1
         self.sensor_thread.daemon = True
         self.sensor_thread.start()
 
     def trigger(self, reg=0):
-        while 1:
+        while self.trigger:
             MemAccess(reg=reg, data_to_mem=1,
                       address_offset=sensor_trigger_pin).write()
             time.sleep(sensor_trigger_hold_microseconds / 1000000)
@@ -39,3 +39,6 @@ class Sensor:
 
     def fetch(self, address, reg=0):
         return MemAccess(reg=reg, address_offset=address).fetch()
+
+    def halt(self):
+        self.trigger = 0
