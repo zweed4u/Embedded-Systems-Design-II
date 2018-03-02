@@ -77,6 +77,13 @@ class Sensor:
         """
         return MemAccess(reg=reg, address_offset=address).fetch()
 
+    def start(self):
+        """
+        Sets thread's looping flag to active state
+        :return:
+        """
+        self.active = 1
+
     def halt(self):
         """
         Sets thread's looping flag to inactive state
