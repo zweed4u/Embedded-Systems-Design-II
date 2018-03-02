@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # Zachary Weeden 2018
 
+import sys
 import time
 import threading
 from mem_access import MemAccess
@@ -60,12 +61,14 @@ class Sensor:
         Main control of the sensor class
         :return:
         """
-        while self.active:
-            self.trigger()
-            pulse_time = self.get_echo_pulse()
-            pulse_cm_distance = pulse_time * (
-                    speed_of_sound_centimeters_per_second / 2)
-            # logic on pulse_cm_distance here
+        while 1:
+            while self.active:
+                self.trigger()
+                pulse_time = self.get_echo_pulse()
+                pulse_cm_distance = pulse_time * (
+                        speed_of_sound_centimeters_per_second / 2)
+                # logic on pulse_cm_distance here
+                time.sleep(sensor_cycle_time_milliseconds / 1000)
             time.sleep(sensor_cycle_time_milliseconds / 1000)
 
     def fetch(self, address, reg=0):
@@ -90,6 +93,15 @@ class Sensor:
         :return:
         """
         self.active = 0
+
+    def exit(self):
+        """
+        Exits sensor's monitor thread, ensures trigger is low and closes system
+        """
+        self.halt()
+        MemAccess(reg=0, data_to_mem=0,
+                  address_offset=self.trigger_pin).write()
+        sys.exit()
 
 
 FrontSensor = Sensor(front_sensor_trigger_pin, front_sensor_echo_pin)
