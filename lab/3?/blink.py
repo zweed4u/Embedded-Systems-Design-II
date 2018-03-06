@@ -93,6 +93,8 @@ class MyWidget(QtGui.QWidget):
         else:
             self.state = 0
             self.mem.write(struct.pack('l', 0))
+        if self.blink == 0:
+            print 'State: Toggle'
 
 
 def main():
