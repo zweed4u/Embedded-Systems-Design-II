@@ -9,6 +9,7 @@ from forms import GUIForm
 from flask import flash
 from flask import redirect
 from flask import session
+from lab3_logic import Lab3Logic
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'i-really-dont-care'
@@ -30,6 +31,7 @@ def submitted():
     print(session['pwm_period'])
     print(session['duty_cycle'])
     print(session['enable'])
+    Lab3Logic(int(session['pwm_period']), int(session['duty_cycle']), session['enable'])
     return "Your update request has been submitted"
 
 @app.route('/submit', methods=['POST'])
