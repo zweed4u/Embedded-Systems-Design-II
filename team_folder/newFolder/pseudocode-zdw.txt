@@ -1,21 +1,42 @@
-function check_obstacles(){
-	// Trigger/fetch readings from ultrasonic sensors
-	// Return direction/device with furthest object/greatest distance between object
+function check_obstacles() {
+	
+// Trigger/fetch readings from ultrasonic sensors
+	
+// Return direction/device with furthest object/greatest distance between object
+
 }
 
-function rotate(direction){
-	// Resolve/process direction in which should be turned (90 degree increments)
+
+
+function rotate(direction) {
+	
+// Resolve/process direction in which should be turned (90 degree increments)
+
 }
 
-function move(){
-	// Just move foward for now - send PWM to encoders
-}
 
-function main(){
+
+function move() {
+	
+// Just move foward for now - send PWM to encoders
+
+} 
+
+
+
+function main( ) {
+
 	while (True){
+		
 		direction_to_turn = check_obstacles();
+		
 		rotate(direction_to_turn);
+		
 		move();
+	
 	}
+
 }
+
+
 main();

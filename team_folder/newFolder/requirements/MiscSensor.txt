@@ -1,2 +1,0 @@
-https://www.robotshop.com/letsmakerobots/hc-sr04-ultrasonic-sensor
-https://create.arduino.cc/projecthub/jrance/arduino-obstacle-avoidance-robot-with-ultrasonic-hc-sr04-23035d
