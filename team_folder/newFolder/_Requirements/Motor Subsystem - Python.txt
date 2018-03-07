@@ -1,0 +1,18 @@
+Motor Subsystem - Python
+- 
+have 3 movement functions at the minimum (foward, left, right) - 
+maybe implement reverse function in the future as well as parameterization
+
+have a calibration function where rover smoke tests the movement functions (1 ft movement and user supplies actual movement, also use to determine ticks in rotation - could be used in hardcoding?)
+
+
+For each movement function:
+- calculate duty cycles for intended movement while factoring in calibration data from initial calibrate function/user supplied data
+- record initial gyro sensor values
+- account for sonic readings (eg. "am I already close to a wall in front of me?")
+- write duty cycles and directions to firmware registers 
+- fire enable pulse to begin and continue movement
+- monitor encoder ticks, gyro and sonic data to decide if rover must slow or stop
+- compare gyro readings to initial and counteract drift if needed
+- force slowdown in various scenarios: last 15 degrees of turn, after 8 inches of max foot long movement, if something is approaching front sensor, if openings on sides are detected
+- report sensor/encoder data/readings to GUI
