@@ -1,0 +1,16 @@
+<h1>Lab 3 Web GUI</h1>
+<br>
+<script src="../static/js/jquery-3.3.1.min.js"></script>
+<script src="../static/js/submit.js"></script>
+<form class="form-submit">
+    <label for="pwm_period" class="sr-only">PWM Period</label>
+    <input type="number" name="pwm_period" id="pwm_period" class="form-control" placeholder="PWM Period" required autofocus><br>
+    
+    <label for="duty_cycle" class="sr-only">Duty Cycle</label>
+    <input type="number" name="duty_cycle" id="duty_cycle" class="form-control" placeholder="Duty Cycle" required autofocus><br>
+    Enable<br>
+    <input type="radio" name="enable" value="enable" checked> True<br>
+    <input type="radio" name="disable" value="disable"> False<br>
+    <button id="btnSubmit" class="btn btn-lg btn-primary btn-block" type="button">Submit</button>
+</form>
+
