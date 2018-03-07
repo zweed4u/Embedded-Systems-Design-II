@@ -16,7 +16,11 @@ def submit():
     pwm_period = request.form['pwm_period']
     duty_cycle = request.form['duty_cycle']
     enable = request.form['enable']
-    print(f"PWM Period: {pwm_period}\nDuty Cycle: {duty_cycle}\nEnable: {enable}")
+    print(f"PWM Period: {pwm_period}ns\nDuty Cycle: {duty_cycle}ns\nEnable: {enable}")
+    print(f"Duty Cycle %: {(float(duty_cycle)/float(pwm_period))*100.0}%")
+    duty_sleep = float(duty_cycle)/float(1000000000)  # seconds
+    period_sleep = float(pwm_period)/float(1000000000) - duty_sleep  # seconds
+    print(f"Write pin high and sleep for {duty_sleep} seconds, toggle the pin low as duty cycle has bee fufilled and now sleep remainder of period {period_sleep} seconds")
     if pwm_period and duty_cycle:
         return json.dumps({'html':'<span>PWM Period and Duty cycle fields good !!</span>'})
     else:
