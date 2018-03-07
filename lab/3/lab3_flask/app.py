@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# Zachary Weeden 2018
 
 from flask import Flask
 from flask import render_template
@@ -7,6 +8,7 @@ import json
 from forms import GUIForm
 from flask import flash
 from flask import redirect
+from flask import session
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'i-really-dont-care'
@@ -15,6 +17,9 @@ app.config['SECRET_KEY'] = 'i-really-dont-care'
 def gui():
     form = GUIForm()
     if form.validate_on_submit():
+        session['pwm_period'] = form.pwm_period.data
+        session['duty_cycle'] = form.duty_cycle.data
+        session['enable'] = form.enable.data
         flash('PWM period: {}, Duty Cycle: {}, Enable: {}'.format(form.pwm_period.data, form.duty_cycle.data, form.enable.data))
         return redirect('/submitted')
     return render_template('gui.html', title='Submit', form=form)
@@ -22,6 +27,9 @@ def gui():
 
 @app.route("/submitted")
 def submitted():
+    print(session['pwm_period'])
+    print(session['duty_cycle'])
+    print(session['enable'])
     return "Your update request has been submitted"
 
 @app.route('/submit', methods=['POST'])
