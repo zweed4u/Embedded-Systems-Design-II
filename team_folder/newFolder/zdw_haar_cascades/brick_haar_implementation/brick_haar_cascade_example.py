@@ -38,8 +38,23 @@ while 1:
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     # Detect object
-    front_middle_bricks = front_mid_crop_cascade.detectMultiScale(gray, 100,
-                                                                  100)
+    front_middle_bricks = front_mid_crop_cascade.detectMultiScale(gray, 2, 10)
+    front_left_bricks = front_left_crop_cascade.detectMultiScale(gray, 2, 10)
+    front_right_bricks = front_right_crop_cascade.detectMultiScale(gray, 2, 10)
+
+    """
+    front_inverted_left_bricks = front_inverted_left_crop_cascade.detectMultiScale(gray, 2, 20)
+    front_inverted_mid_bricks = front_inverted_mid_crop_cascade.detectMultiScale(gray, 2, 20)
+    front_inverted_right_bricks = front_inverted_right_crop_cascade.detectMultiScale(gray, 2, 20)
+
+    back_left_bricks = back_left_crop_cascade.detectMultiScale(gray, 2, 20)
+    back_mid_bricks = back_mid_crop_cascade.detectMultiScale(gray, 2, 20)
+    back_right_bricks = back_right_crop_cascade.detectMultiScale(gray, 2, 20)
+
+    back_inverted_left_bricks = back_inverted_left_crop_cascade.detectMultiScale(gray, 2, 20)
+    back_inverted_mid_bricks = back_inverted_mid_crop_cascade.detectMultiScale(gray, 2, 20)
+    back_inverted_right_bricks = back_inverted_right_crop_cascade.detectMultiScale(gray, 2, 20)
+    """
 
     # Find brick and mark with cyan square and yellow text
     for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
@@ -53,6 +68,139 @@ while 1:
                       (front_middle_brick_x + front_middle_brick_w,
                        front_middle_brick_y + front_middle_brick_h),
                       (255, 255, 0), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in front_left_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front left)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (255, 0, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in front_right_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+    """
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in front_inverted_left_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in front_inverted_mid_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in front_inverted_right_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in back_left_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in back_mid_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in back_right_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in back_inverted_left_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in back_inverted_mid_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+
+    for (front_middle_brick_x, front_middle_brick_y, front_middle_brick_w,
+         front_middle_brick_h) in back_inverted_right_bricks:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, 'Detected brick (front right)',
+                    (front_middle_brick_x - front_middle_brick_w,
+                     front_middle_brick_y - front_middle_brick_h), font, .5,
+                    (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.rectangle(frame, (front_middle_brick_x, front_middle_brick_y),
+                      (front_middle_brick_x + front_middle_brick_w,
+                       front_middle_brick_y + front_middle_brick_h),
+                      (0, 255, 255), 2)
+    """
 
     # Show video
     cv2.imshow('Video feed', frame)

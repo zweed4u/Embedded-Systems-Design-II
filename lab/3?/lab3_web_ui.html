@@ -1,0 +1,63 @@
+<div class="c-forms-form-body">
+    <div class="c-forms-heading">
+        <div class="c-forms-logo" style="display:none;"></div>
+        <div class="c-forms-form-title">
+            <h2>Lab 3: Web Based GUI</h2>
+        </div>
+    </div>
+    <div class="c-forms-template" sys:attach="dataview" dataview:data="{binding entry, source={{ Cognito.Forms.model }} }">
+        <div class="c-forms-form-main c-span-24 c-sml-span-12">
+            <div class="c-text-singleline c-field c-col-1 c-sml-col-1 c-span-12 c-sml-span-12" data-field="PWMPeriod">
+                <div class="c-label  ">
+                    <label for="pwm_period">PWM Period</label>
+                </div>
+                <div class="c-editor">
+                    <input type="text" id="pwm_period" placeholder="">
+                </div>
+                <div class="c-validation"></div>
+            </div>
+            <div class="c-text-singleline c-field c-col-1 c-sml-col-1 c-span-12 c-sml-span-12" data-field="DutyCycle">
+                <div class="c-label  ">
+                    <label for="duty_cycle">Duty Cycle</label>
+                </div>
+                <div class="c-editor">
+                    <input type="text" id="duty_cycle" placeholder="">
+                </div>
+                <div class="c-validation"></div>
+            </div>
+            <div class="c-yesno-radiobuttons c-field c-col-1 c-sml-col-1 c-span-12 c-sml-span-12" data-field="Enable">
+                <legend class="c-label  ">Enable</legend>
+                <div class="c-editor c-columns-0">
+                    <label class="c-yesno-radio" for="c-2-3">
+                        <input type="radio" name="group2" id="c-2-3">
+                        <span>Yes</span>
+                    </label>
+                    <label class="c-yesno-radio" for="c-2-4">
+                        <input type="radio" name="group2" id="c-2-4" checked="checked">
+                        <span>No</span>
+                    </label>
+                </div>
+                <div class="c-validation"></div>
+            </div>
+        </div>
+    </div>
+    <div id="c-recaptcha-div"></div>
+    <div class="c-forms-error">
+        <div class="c-validation"></div>
+    </div>
+    <script>
+        function testButton (form){
+            if ((document.getElementById('pwm_period').value) && (document.getElementById('duty_cycle').value)){
+                alert ("PWM Period: "+document.getElementById('pwm_period').value+'\nDuty Cycle: '+document.getElementById('duty_cycle').value);
+            }
+            else{
+                alert('Please supply PWM period and duty cycle in text fields');
+            }
+        }
+    </script>
+    <div class="c-button-section">
+        <div class="c-action">
+            <button class="c-button" id="c-submit-button" onClick="testButton(this.form)">Submit</button>
+        </div>
+    </div>
+</div>
