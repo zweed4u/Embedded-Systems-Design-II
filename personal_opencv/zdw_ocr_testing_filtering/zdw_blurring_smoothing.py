@@ -27,7 +27,7 @@ print cv2.cvtColor(light_red, cv2.COLOR_BGR2HSV)
 light_red = np.uint8([[[160, 150, 240]]])
 print cv2.cvtColor(light_red, cv2.COLOR_BGR2HSV)
 
-img = cv2.imread('front.JPG')
+img = cv2.imread('brick_images/front.JPG')
 
 # read colors in hsv for range purposes
 hue_saturation_value = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -51,14 +51,6 @@ blur = cv2.GaussianBlur(result, (15, 15), 0)
 median = cv2.medianBlur(result, 15)
 bilateral = cv2.bilateralFilter(result, 15, 75, 75)
 
-# Save all results
-cv2.imwrite('output/mask.png', mask)
-cv2.imwrite('output/result.png', result)
-cv2.imwrite('output/smooth.png', smooth)
-cv2.imwrite('output/gauss.png', blur)
-cv2.imwrite('output/median.png', median)
-cv2.imwrite('output/bilateral.png', bilateral)
-
 # Show windows
 cv2.imshow('Original Image', img)
 cv2.imshow('Filtered Image Mask', mask)
@@ -67,6 +59,14 @@ cv2.imshow('Filtering and Smoothing', smooth)
 cv2.imshow('Filtering and Gauss Blur', blur)
 cv2.imshow('Filtering and Median Blur', median)
 cv2.imshow('Filtering and Bilateral Blur', bilateral)
+
+# Save all results
+cv2.imwrite('output/mask.png', mask)
+cv2.imwrite('output/result.png', result)
+cv2.imwrite('output/smooth.png', smooth)
+cv2.imwrite('output/gauss.png', blur)
+cv2.imwrite('output/median.png', median)
+cv2.imwrite('output/bilateral.png', bilateral)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
