@@ -2,6 +2,7 @@
 # Zachary Weeden
 # Lab 3 Desktop GUI
 
+import os
 import time
 import mmap
 import struct
@@ -138,6 +139,7 @@ class MyWidget(QtGui.QWidget):
 
 
 def main():
+	os.system('cat system.bin > /dev/xdevcfg')
     app = QtGui.QApplication(sys.argv)
     myWidget = MyWidget()
     sys.exit(app.exec_())
