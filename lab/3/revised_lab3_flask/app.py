@@ -41,4 +41,5 @@ def main():
 
 
 if __name__ == "__main__":
+    os.system('cat system.bin > /dev/xdevcfg')
     app.run(host='0.0.0.0')
