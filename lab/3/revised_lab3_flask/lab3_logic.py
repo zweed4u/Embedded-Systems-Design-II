@@ -27,15 +27,20 @@ class Lab3Logic:
         self.mem = mmap.mmap(f.fileno(), 32, offset=0x43C00000)
 
         # Clear to get in known state on subsequent web submissions
-        #time.sleep(1)
         self.stop()
-        time.sleep(10)
 
         # Blink thread init - just a wrapped toggle
         self.blink_thread = Thread(target=self.blink_me)
         self.blink = 1
         self.blink_thread.daemon = True
         self.blink_thread.start()
+
+    def set_all(self, pwm_period_ms, duty_cycle_ms, enable):
+        self.pwm_period_ms = pwm_period_ms
+        self.duty_cycle_ms = duty_cycle_ms
+        self.duty_sleep = float(self.duty_cycle_ms)/float(1000)
+        self.pwm_period_sleep = float(self.pwm_period_ms)/float(1000) - self.duty_sleep
+        self.enable = enable
 
     def blink_me(self):
         while 1:
@@ -45,8 +50,6 @@ class Lab3Logic:
                     time.sleep(self.duty_sleep)
                     self.toggle()
                     time.sleep(self.pwm_period_sleep)
-            # 1 microsecond - so cpu isn't pegged - setting daemon attribute may mitigate this all together - RESEARCH
-            #time.sleep(.000001)
 
     def stop(self):
         self.blink = 0

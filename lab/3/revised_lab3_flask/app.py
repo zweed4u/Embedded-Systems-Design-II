@@ -31,7 +31,7 @@ def submitted():
     print session['pwm_period'] 
     print session['duty_cycle']
     print session['enable']
-    Lab3Logic(int(session['pwm_period']), int(session['duty_cycle']), session['enable'])
+    Lab3_Backend.set_all(int(session['pwm_period']), int(session['duty_cycle']), session['enable'])
     return "Your update request has been submitted"
 
 
@@ -42,4 +42,5 @@ def main():
 
 if __name__ == "__main__":
     os.system('cat system.bin > /dev/xdevcfg')
+    Lab3_Backend = Lab3Logic(0, 0, False)
     app.run(host='0.0.0.0')
