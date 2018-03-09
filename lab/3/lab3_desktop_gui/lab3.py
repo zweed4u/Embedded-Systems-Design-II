@@ -139,7 +139,7 @@ class MyWidget(QtGui.QWidget):
 
 
 def main():
-	os.system('cat system.bin > /dev/xdevcfg')
+    os.system('cat system.bin > /dev/xdevcfg')
     app = QtGui.QApplication(sys.argv)
     myWidget = MyWidget()
     sys.exit(app.exec_())
