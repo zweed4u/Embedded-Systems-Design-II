@@ -1,10 +1,11 @@
 #!/usr/bin/python
 # Zachary Weeden 2018
 
+import os
+import json
 from flask import Flask
 from flask import render_template
 from flask import request
-import json
 from forms import GUIForm
 from flask import flash
 from flask import redirect
@@ -24,11 +25,10 @@ def gui():
         flash('PWM period: {}, Duty Cycle: {}, Enable: {}'.format(form.pwm_period.data, form.duty_cycle.data, form.enable.data))
         return redirect('/submitted')
     return render_template('gui.html', title='Submit', form=form)
-    #return render_template('gui.html')
 
 @app.route("/submitted")
 def submitted():
-    print session['pwm_period'] 
+    print session['pwm_period']
     print session['duty_cycle']
     print session['enable']
     Lab3_Backend.set_all(int(session['pwm_period']), int(session['duty_cycle']), session['enable'])
