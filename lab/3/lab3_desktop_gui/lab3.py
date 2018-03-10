@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Zachary Weeden
+# Zachary Weeden 2018
 # Lab 3 Desktop GUI
 
 import os
@@ -8,11 +8,14 @@ import mmap
 import struct
 from threading import Thread
 import sys
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtGui
 
 
 class MyWidget(QtGui.QWidget):
     def __init__(self):
+        """
+        Constructor for GUI widget
+        """
         super(MyWidget, self).__init__()
 
         # Initialize in idle state
@@ -42,10 +45,6 @@ class MyWidget(QtGui.QWidget):
 
         self.submit_button = QtGui.QPushButton("Submit")
         self.exit_button = QtGui.QPushButton("Exit")
-        # toggle_button = QtGui.QPushButton("Toggle Me")
-        # blink_button = QtGui.QPushButton("Blink Me")
-        # clear_button = QtGui.QPushButton("Clear")
-        # high_button = QtGui.QPushButton("Go High")
 
         vLayout = QtGui.QVBoxLayout()
         vLayout.addWidget(self.pwm_label)
@@ -55,17 +54,13 @@ class MyWidget(QtGui.QWidget):
         vLayout.addWidget(self.enable_label)
         vLayout.addWidget(self.enable_box)
         vLayout.addWidget(self.submit_button)
-        # vLayout.addWidget(toggle_button)
-        # vLayout.addWidget(blink_button)
-        # vLayout.addWidget(high_button)
-        # vLayout.addWidget(clear_button)
         vLayout.addWidget(self.exit_button)
         self.setLayout(vLayout)
 
-        # open dev mem and see to base address
+        # Open dev mem and see to base address
         f = open("/dev/mem", "r+b")
 
-        # ensure that the offset address matches the offset address in the address editor in vivado
+        # Ensure that the offset address matches the offset address in the address editor in vivado
         self.mem = mmap.mmap(f.fileno(), 32, offset=0x43C00000)
 
         # Clear to get in known state on subsequent web submissions
@@ -79,14 +74,15 @@ class MyWidget(QtGui.QWidget):
 
         # slots
         self.submit_button.clicked.connect(lambda: self.set_all())
-        # toggle_button.clicked.connect(lambda: self.toggle())
-        # blink_button.clicked.connect(lambda: self.blink_switch())
-        # high_button.clicked.connect(lambda: self.set_high())
-        # clear_button.clicked.connect(lambda: self.stop())
         self.exit_button.clicked.connect(lambda: self.exit())
         self.show()
 
     def set_all(self):
+        """
+        Setter method invoked on submit gui button press
+        Sets class attributes used in pwm signal generation
+        :return:
+        """
         self.pwm_period_ms = int(self.pwm_period_int_field.text())
         self.duty_cycle_ms = int(self.duty_cycle_int_field.text())
         self.duty_sleep = float(self.duty_cycle_ms) / float(1000)
@@ -95,6 +91,10 @@ class MyWidget(QtGui.QWidget):
         self.enable = self.enable_box.isChecked()
 
     def blink_me(self):
+        """
+        Function that handles pwm logic/timing
+        :return:
+        """
         while 1:
             if self.enable:
                 if self.blink:
@@ -104,29 +104,32 @@ class MyWidget(QtGui.QWidget):
                     time.sleep(self.pwm_period_sleep)
 
     def exit(self):
+        """
+        Exit logic used when exit button pressed on gui
+        :return:
+        """
         print 'State: Exitting'
         self.stop()
         sys.exit()
 
-    def blink_switch(self):
-        print 'State: Blink'
-        self.blink = 1
-
     def stop(self):
+        """
+        Clear function that sets signal low and does housekeeping on status
+        variables
+        :return:
+        """
         print 'State: Low'
         self.blink = 0
         self.state = 0
         self.mem.seek(0)
         self.mem.write(struct.pack('l', 0))
 
-    def set_high(self):
-        print 'State: High'
-        self.blink = 0
-        self.mem.seek(0)
-        self.state = 1
-        self.mem.write(struct.pack('l', 1))
-
     def toggle(self):
+        """
+        The toggle functionality of an address defined in the constructor that
+        considers current state
+        :return:
+        """
         self.mem.seek(0)
         if self.state == 0:
             self.state = 1
@@ -139,6 +142,10 @@ class MyWidget(QtGui.QWidget):
 
 
 def main():
+    """
+    Main of lab 3 desktop gui
+    :return:
+    """
     os.system('cat system.bin > /dev/xdevcfg')
     app = QtGui.QApplication(sys.argv)
     myWidget = MyWidget()
