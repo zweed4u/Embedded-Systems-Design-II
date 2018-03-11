@@ -1,0 +1,16 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
+| Date         : Sat Mar 10 18:31:42 2018
+| Host         : ECTET-1360-02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_my_pwm_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_my_pwm_0_0 (rit.edu:user:my_pwm:1.0) from (Rev. 1) to (Rev. 2)
+

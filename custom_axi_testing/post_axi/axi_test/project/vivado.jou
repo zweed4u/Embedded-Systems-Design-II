@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sat Mar 10 18:30:38 2018
+# Process ID: 18660
+# Current directory: C:/Users/zdw7287/Downloads/custom/axi_test/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11704 C:\Users\zdw7287\Downloads\custom\axi_test\project\axi_test.xpr
+# Log file: C:/Users/zdw7287/Downloads/custom/axi_test/project/vivado.log
+# Journal file: C:/Users/zdw7287/Downloads/custom/axi_test/project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/zdw7287/Downloads/custom/axi_test/src/design_1.bd}
+report_ip_status -name ip_status 
+upgrade_ip -vlnv rit.edu:user:my_pwm:1.0 [get_ips  design_1_my_pwm_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips design_1_my_pwm_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/zdw7287/Downloads/custom/axi_test/src/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/Users/zdw7287/Downloads/custom/axi_test/src/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/zdw7287/Downloads/custom/axi_test/src/design_1.bd]
+launch_runs -jobs 4 {design_1_processing_system7_0_0_synth_1 design_1_rst_ps7_0_50M_0_synth_1 design_1_my_pwm_0_0_synth_1 design_1_auto_pc_0_synth_1}
+export_simulation -of_objects [get_files C:/Users/zdw7287/Downloads/custom/axi_test/src/design_1.bd] -directory C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.ip_user_files -ipstatic_source_dir C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.cache/compile_simlib/modelsim} {questa=C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.cache/compile_simlib/questa} {riviera=C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.cache/compile_simlib/riviera} {activehdl=C:/Users/zdw7287/Downloads/custom/axi_test/project/axi_test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+report_ip_status -name ip_status 
+delete_bd_objs [get_bd_intf_nets ps7_0_axi_periph_M00_AXI] [get_bd_cells my_pwm_0]
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:my_pwm:1.0 my_pwm_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" intc_ip "/ps7_0_axi_periph" Clk_xbar "Auto" Clk_master "Auto" Clk_slave "Auto" }  [get_bd_intf_pins my_pwm_0/S00_AXI]
+report_ip_status -name ip_status 
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+delete_bd_objs [get_bd_ports led]
+open_run impl_1
+open_bd_design {C:/Users/zdw7287/Downloads/custom/axi_test/src/design_1.bd}
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
