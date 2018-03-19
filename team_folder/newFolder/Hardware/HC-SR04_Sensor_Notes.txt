@@ -1,0 +1,36 @@
+HC-SR04 Info
+
+:=================
+
+Max range = 4 meters
+
+Max time = 23.5294118 milliseconds (using formula below solving for width)
+Min time = 117.6470588 microseconds
+*** suggested to use over 60ms measurement cycle
+
+ speed of sound = 340 meters/second 
+divide by 2 because signal goes and comes back 
+- need half 
+
+Formula:
+Using the speed of sound ~340 meters/second
+(distance in meters) = (width of pulse in seconds) * (speed of sound) / 2 
+
+or simply:
+
+170 * (time in seconds) = (distance in meters)
+
+(distance in cm) = (width of pulse in MICROseconds) / 58
+(distance in inches) = (width of pulse in MICROseconds) / 148
+
+
+
+Sensor Process:
+
+1. set trigger pin high for 10 microseconds (sleep) and then set low
+
+2. wait to receive echo pulse on echo pin
+
+3. start counter to count until pulse on echo pin goes low
+
+4. get counter and convert into usable measurement

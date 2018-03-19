@@ -1,0 +1,54 @@
+# do sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
+# Start time: 19:29:32 on Feb 27,2018
+# vcom -reportprogress 300 -93 -work work ../../src/pwm_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pwm_top
+# -- Compiling architecture arch of pwm_top
+# End time: 19:29:32 on Feb 27,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
+# Start time: 19:29:32 on Feb 27,2018
+# vcom -reportprogress 300 -93 -work work ../src/pwm_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pwm_tb
+# -- Compiling architecture arch of pwm_tb
+# ** Warning: ../src/pwm_tb.vhd(33): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 19:29:32 on Feb 27,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vsim -novopt pwm_tb 
+# Start time: 19:29:32 on Feb 27,2018
+# //  ModelSim DE-64 10.6c Jul 26 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim DE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.pwm_tb(arch)
+# Loading work.pwm_top(arch)
+# End time: 19:33:12 on Feb 27,2018, Elapsed time: 0:03:40
+# Errors: 0, Warnings: 0

@@ -1,0 +1,3 @@
+http://playground.arduino.cc/Main/MPU-6050
+
+http://webcache.googleusercontent.com/search?q=cache:5f-MxdEhi28J:wiki.jmoon.co/mpu6050/+&cd=5&hl=en&ct=clnk&gl=us&client=firefox-b-1
