@@ -1,0 +1,4 @@
+camera		ov5642
+motor driver	drv7781
+ultrasonic	hc-sr04
+imu		mpu9250

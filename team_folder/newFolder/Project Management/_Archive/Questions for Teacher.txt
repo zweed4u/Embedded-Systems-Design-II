@@ -1,0 +1,7 @@
+3/20/18
+---------
+Are we getting an audio speaker?
+Are the LEDs integrated in the board?
+What exactly is expected in the slides?
+Configuration Management?
+Cost/Schedule Requirement Drivers??
