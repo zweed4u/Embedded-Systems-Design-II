@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 # A star - heuristic function
 # Zachary Weeden 2018
 grid = [[1, 1, 1, 0, 1],

@@ -31,10 +31,10 @@ def search(grid, start, goal, cost):
     found = False # flag for when search/expansion complete
     resign = False # flag if we cant expand for failing case
     
-    # print 'initial open list:')
+    # print 'initial open list:'
     # for i in range(len(open)):
-    #     print '   ', open[i])
-    # print '----')
+    #     print '   ', open[i]
+    # print '----'
 
     while found is False and resign is False:
         # check is we still have elements in the open list - nothing left to expand
@@ -47,8 +47,8 @@ def search(grid, start, goal, cost):
             open.sort()
             open.reverse()
             next = open.pop()
-            # print 'take list item')
-            # print next)
+            # print 'take list item'
+            # print next
             x = next[1]
             y = next[2]
             g = next[0]
@@ -56,7 +56,7 @@ def search(grid, start, goal, cost):
             # check if we are done
             if x == goal[0] and y == goal[1]:
                 found = True
-                # print next)
+                # print next
                 print '##### Search successful'
                 return 'Gvalue (actions needed): {} to coordinates {},{}'.format(next[0], next[1], next[2])
             else:
@@ -73,8 +73,8 @@ def search(grid, start, goal, cost):
                         if closed[x2][y2] == 0 and grid[x2][y2] == 0:
                             g2 = g + cost
                             open.append([g2, x2, y2])
-                            # print 'append list item')
-                            # print [g2, x2, y2])
+                            # print 'append list item'
+                            # print [g2, x2, y2]
                             closed[x2][y2] = 1
 for i in range(len(grid)):
     print grid[i]
