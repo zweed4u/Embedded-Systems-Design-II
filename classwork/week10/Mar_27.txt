@@ -1,0 +1,46 @@
+PDR Review
+
+PDR - preliminary design review (dollars)
+TIM - technical interchange meeting (tech)
+CDR (dollars)
+
+PDR tips:
+know your room - washed out powerpoints - room's lighting
+text size - oldest person in room / 2
+word process equations - not handwritten
+public speaking - toastmasters - international public speaking group
+stay away from - "I think", "I might", "it should", "maybe"- INSTEAD use "we'll get back to you on that"
+introductions - have slide with name while introducing
+not too much low level detail - opening yourself up to higher level of scrutiny from tech savvy persons in audience and half of the audience phases out anyways
+know your audience
+always do a double check (eg. hours needed to completion)
+
+New Folder 12k and spend another 7k => each member only needs 2hrs a week
+Gremm 15k and spend another 55k => each member needs 18hrs a week
+HASHTAG  3k and spend another 10k => each member only needs 3hrs a week
+
+
+HASHTAG wins from best price
+
+people will pay a premium if an object will work - can't sacrifice tech
+
+CDR slide template - slides with headers/top text
+
+
+Hardware in Tuesday
+
+custom axi - tools create new peripher with 4 regs to 512 and modify two vhdl files
+axi gpio - right click add axo - up to 2 registers
+
+build bin file (bitstream) for each submodule - unit tests - then integrate all of them into 1 bin
+
+hardware tests
+
+DRV hardware has 2 pins
+01 run pwm on high pin (see what direction it goes)
+10 run pwm on high pin (see what direction it goes)
+00 stop/idle state
+11 - h brigge - DONT DO IT
+
+CDR presentstion (past tense)
+April 28th ImagineRIT, CDR week after
