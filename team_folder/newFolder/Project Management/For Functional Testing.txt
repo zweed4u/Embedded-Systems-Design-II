@@ -1,0 +1,11 @@
+1. Find Requirements
+2. Entities
+   - Block diagrams
+   - Inputs and Outputs
+3. Architecture
+4. ModelSim
+_______
+5. Custom AXI
+   AXI GPIO
+6. .bin
+7. HW Tests
