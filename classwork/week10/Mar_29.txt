@@ -1,0 +1,9 @@
+'V' process - systems engineering
+validating (are we making the right product), verification (are making the product right)
+
+JTAG - joint test action group
+framework 
+
+Snickerdoodle has jtag to usb converter (https://store.digilentinc.com/jtag-hs2-programming-cable/) or (https://store.digilentinc.com/jtag-smt2-surface-mount-programming-module/)
+
+with chipscope in vivado you can watch signal

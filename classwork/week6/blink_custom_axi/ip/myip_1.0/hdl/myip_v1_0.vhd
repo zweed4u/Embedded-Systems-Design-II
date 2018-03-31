@@ -89,7 +89,7 @@ myip_v1_0_S00_AXI_inst : myip_v1_0_S00_AXI
 		C_S_AXI_ADDR_WIDTH	=> C_S00_AXI_ADDR_WIDTH
 	)
 	port map (
-    blink_from_proc => blink_from_proc,
+		blink_from_proc => blink_from_proc,
 		S_AXI_ACLK	=> s00_axi_aclk,
 		S_AXI_ARESETN	=> s00_axi_aresetn,
 		S_AXI_AWADDR	=> s00_axi_awaddr,

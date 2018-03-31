@@ -20,7 +20,7 @@ entity myip_v1_0_S00_AXI is
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
-    blink_from_proc : out std_logic;
+		blink_from_proc : out std_logic;
 		-- Global Clock Signal
 		S_AXI_ACLK	: in std_logic;
 		-- Global Reset Signal. This Signal is Active LOW
