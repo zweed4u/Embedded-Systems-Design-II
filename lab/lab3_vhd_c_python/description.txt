@@ -1,0 +1,3 @@
+Custom AXI interface with PWM functionality baked in
+C functions to memory map offset address specified in vivado and write to addresses
+Compiled so from C and used in python with gui
