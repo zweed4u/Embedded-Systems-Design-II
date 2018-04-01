@@ -74,7 +74,6 @@ class MyWidget(QtGui.QWidget):
         sys.exit()
 
 
-
 def main():
     """
     Main of lab 3 desktop gui

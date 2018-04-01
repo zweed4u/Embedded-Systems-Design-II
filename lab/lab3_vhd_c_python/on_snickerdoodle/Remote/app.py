@@ -58,6 +58,6 @@ def main():
 
 
 if __name__ == "__main__":
-    os.system('cat system.bin > /dev/xdevcfg')
+    os.system('cat design_1_wrapper.bin > /dev/xdevcfg')
     Lab3_Backend = Lab3Logic(0, 0, False)
     app.run(host='0.0.0.0')
