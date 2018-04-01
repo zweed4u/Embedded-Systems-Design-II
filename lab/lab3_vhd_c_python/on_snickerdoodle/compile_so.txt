@@ -1,0 +1,1 @@
+gcc -shared -fPIC -o pwm_drv.so pwm_drv.c
