@@ -71,18 +71,8 @@ class MyWidget(QtGui.QWidget):
         :return:
         """
         print 'State: Exitting'
-        self.stop()
         sys.exit()
 
-    def stop(self):
-        """
-        Clear function that sets signal low and does housekeeping on status
-        variables
-        :return:
-        """
-        print 'State: Low'
-        self.blink = 0
-        self.state = 0
 
 
 def main():
