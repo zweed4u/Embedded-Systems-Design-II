@@ -569,3 +569,84 @@ INFO: [Common 17-83] Releasing license: Implementation
 write_bitstream completed successfully
 write_bitstream: Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1837.879 ; gain = 419.469 ; free physical = 455 ; free virtual = 2263
 INFO: [Common 17-206] Exiting Vivado at Fri Mar 30 23:30:09 2018...
+
+*** Running vivado
+    with args -log design_1_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+CRITICAL WARNING: [Common 17-741] No write access right to the local Tcl store at '/home/zweeden/.Xilinx/Vivado/2017.4/XilinxTclStore'. XilinxTclStore is reverted to the installation area. If you want to use local Tcl Store, please change the access right and relaunch Vivado.
+source design_1_wrapper.tcl -notrace
+Command: open_checkpoint design_1_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.13 . Memory (MB): peak = 1161.473 ; gain = 0.000 ; free physical = 134 ; free virtual = 3085
+INFO: [Netlist 29-17] Analyzing 474 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/zweeden/Desktop/lab3_v/lab3_v.runs/impl_1/.Xil/Vivado-3032-zweeden-Ubuntu/dcp1/design_1_wrapper_board.xdc]
+Finished Parsing XDC File [/home/zweeden/Desktop/lab3_v/lab3_v.runs/impl_1/.Xil/Vivado-3032-zweeden-Ubuntu/dcp1/design_1_wrapper_board.xdc]
+Parsing XDC File [/home/zweeden/Desktop/lab3_v/lab3_v.runs/impl_1/.Xil/Vivado-3032-zweeden-Ubuntu/dcp1/design_1_wrapper_early.xdc]
+Finished Parsing XDC File [/home/zweeden/Desktop/lab3_v/lab3_v.runs/impl_1/.Xil/Vivado-3032-zweeden-Ubuntu/dcp1/design_1_wrapper_early.xdc]
+Parsing XDC File [/home/zweeden/Desktop/lab3_v/lab3_v.runs/impl_1/.Xil/Vivado-3032-zweeden-Ubuntu/dcp1/design_1_wrapper.xdc]
+Finished Parsing XDC File [/home/zweeden/Desktop/lab3_v/lab3_v.runs/impl_1/.Xil/Vivado-3032-zweeden-Ubuntu/dcp1/design_1_wrapper.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.38 ; elapsed = 00:00:00.38 . Memory (MB): peak = 1418.418 ; gain = 3.000 ; free physical = 112 ; free virtual = 2802
+Restored from archive | CPU: 0.380000 secs | Memory: 3.490707 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.38 ; elapsed = 00:00:00.38 . Memory (MB): peak = 1418.418 ; gain = 3.000 ; free physical = 112 ; free virtual = 2802
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2017.4 (64-bit) build 2086221
+open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:37 . Memory (MB): peak = 1418.418 ; gain = 256.945 ; free physical = 118 ; free virtual = 2802
+Command: write_bitstream -force design_1_wrapper.bit -bin_file
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2017.4/data/ip'.
+INFO: [DRC 23-27] Running DRC with 4 threads
+WARNING: [DRC DPIP-1] Input pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1 input design_1_i/pwm_custom_axi_0/U0/output_sig1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1 input design_1_i/pwm_custom_axi_0/U0/output_sig1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__0 input design_1_i/pwm_custom_axi_0/U0/output_sig1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__0 input design_1_i/pwm_custom_axi_0/U0/output_sig1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__1 input design_1_i/pwm_custom_axi_0/U0/output_sig1__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__1 input design_1_i/pwm_custom_axi_0/U0/output_sig1__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1 output design_1_i/pwm_custom_axi_0/U0/output_sig1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__0 output design_1_i/pwm_custom_axi_0/U0/output_sig1__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__1 output design_1_i/pwm_custom_axi_0/U0/output_sig1__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1 multiplier stage design_1_i/pwm_custom_axi_0/U0/output_sig1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__0 multiplier stage design_1_i/pwm_custom_axi_0/U0/output_sig1__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP design_1_i/pwm_custom_axi_0/U0/output_sig1__1 multiplier stage design_1_i/pwm_custom_axi_0/U0/output_sig1__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 12 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
+INFO: [Designutils 20-2272] Running write_bitstream with 4 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./design_1_wrapper.bit...
+Writing bitstream ./design_1_wrapper.bin...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+CRITICAL WARNING: [Common 17-570] Unable to write the webtalk settings file.  Please check that the appropriate environment variable (APPDATA or HOME) is properly set.
+CRITICAL WARNING: [Common 17-570] Unable to write the webtalk settings file.  Please check that the appropriate environment variable (APPDATA or HOME) is properly set.
+INFO: [Common 17-186] '/home/zweeden/Desktop/lab3_v/lab3_v.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Sat Mar 31 22:52:32 2018. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2017.4/doc/webtalk_introduction.html.
+INFO: [Common 17-83] Releasing license: Implementation
+20 Infos, 12 Warnings, 2 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1837.887 ; gain = 419.469 ; free physical = 423 ; free virtual = 2759
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 31 22:52:32 2018...

@@ -69,7 +69,7 @@ set rc [catch {
   set_property webtalk.parent_dir /home/zweeden/Desktop/lab3_v/lab3_v.cache/wt [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
   catch { write_mem_info -force design_1_wrapper.mmi }
-  write_bitstream -force design_1_wrapper.bit 
+  write_bitstream -force design_1_wrapper.bit -bin_file
   catch { write_sysdef -hwdef design_1_wrapper.hwdef -bitfile design_1_wrapper.bit -meminfo design_1_wrapper.mmi -file design_1_wrapper.sysdef }
   catch {write_debug_probes -quiet -force design_1_wrapper}
   catch {file copy -force design_1_wrapper.ltx debug_nets.ltx}
