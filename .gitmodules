@@ -1,0 +1,3 @@
+[submodule "team_folder/newFolder/rover"]
+	path = team_folder/newFolder/rover
+	url = git@github.com:zweed4u/rover.git
