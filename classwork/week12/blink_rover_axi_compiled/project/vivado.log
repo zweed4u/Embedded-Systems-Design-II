@@ -1,0 +1,111 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Apr 10 17:02:57 2018
+# Process ID: 14640
+# Current directory: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7860 C:\Users\zdw7287\Downloads\week12\blink_rover_axi\project\blink.xpr
+# Log file: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/vivado.log
+# Journal file: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/zdw7287/Downloads/week12/blink_rover_axi/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 930.211 ; gain = 196.285
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/design_1.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- craftdrones:user:blink:1.0 - blink_0
+Adding cell -- xilinx.com:ip:ila:6.2 - ila_0
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_0: Xilinx recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_50M
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <design_1> from BD file <C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/design_1.bd>
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_1
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_1: Xilinx recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+endgroup
+delete_bd_objs [get_bd_cells ila_1]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_1
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_1: Xilinx recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+endgroup
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+delete_bd_objs [get_bd_cells ila_1]
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+save_bd_design
+Wrote  : <C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/design_1.bd> 
+Wrote  : <C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/ui/bd_1f5defd0.ui> 
+launch_runs synth_1 -jobs 4
+Wrote  : <C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/design_1.bd> 
+VHDL Output written to : C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/hdl/design_1.vhd
+VHDL Output written to : C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block blink_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/ip/design_1_ila_0_0_1/design_1_ila_0_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ila_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_50M .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/hw_handoff/design_1.hwh
+Generated Block Design Tcl file C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/hdl/design_1.hwdef
+[Tue Apr 10 17:05:34 2018] Launched design_1_processing_system7_0_0_synth_1, design_1_blink_0_0_synth_1, design_1_ila_0_0_synth_1, design_1_axi_gpio_0_0_synth_1, design_1_rst_ps7_0_50M_0_synth_1, design_1_auto_pc_0_synth_1...
+Run output will be captured here:
+design_1_processing_system7_0_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_processing_system7_0_0_synth_1/runme.log
+design_1_blink_0_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_blink_0_0_synth_1/runme.log
+design_1_ila_0_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_ila_0_0_synth_1/runme.log
+design_1_axi_gpio_0_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_axi_gpio_0_0_synth_1/runme.log
+design_1_rst_ps7_0_50M_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_rst_ps7_0_50M_0_synth_1/runme.log
+design_1_auto_pc_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_auto_pc_0_synth_1/runme.log
+[Tue Apr 10 17:05:34 2018] Launched synth_1...
+Run output will be captured here: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1181.148 ; gain = 80.875
+launch_runs impl_1 -jobs 4
+[Tue Apr 10 17:06:10 2018] Launched design_1_processing_system7_0_0_synth_1, design_1_ila_0_0_synth_1, design_1_rst_ps7_0_50M_0_synth_1, design_1_auto_pc_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_processing_system7_0_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_processing_system7_0_0_synth_1/runme.log
+design_1_ila_0_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_ila_0_0_synth_1/runme.log
+design_1_rst_ps7_0_50M_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_rst_ps7_0_50M_0_synth_1/runme.log
+design_1_auto_pc_0_synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/design_1_auto_pc_0_synth_1/runme.log
+synth_1: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/synth_1/runme.log
+[Tue Apr 10 17:06:11 2018] Launched impl_1...
+Run output will be captured here: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue Apr 10 17:18:35 2018] Launched impl_1...
+Run output will be captured here: C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 108 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.2
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/.Xil/Vivado-14640-ECTET-1360-01/dcp1/design_1_wrapper_board.xdc]
+Finished Parsing XDC File [C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/.Xil/Vivado-14640-ECTET-1360-01/dcp1/design_1_wrapper_board.xdc]
+Parsing XDC File [C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/.Xil/Vivado-14640-ECTET-1360-01/dcp1/design_1_wrapper_early.xdc]
+Finished Parsing XDC File [C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/.Xil/Vivado-14640-ECTET-1360-01/dcp1/design_1_wrapper_early.xdc]
+Parsing XDC File [C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/.Xil/Vivado-14640-ECTET-1360-01/dcp1/design_1_wrapper.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/blink.runs/impl_1/.Xil/Vivado-10016-ECTET-1360-01/dbg_hub_CV.0/out/xsdbm.xdc:11]
+get_clocks: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1857.297 ; gain = 484.234
+Finished Parsing XDC File [C:/Users/zdw7287/Downloads/week12/blink_rover_axi/project/.Xil/Vivado-14640-ECTET-1360-01/dcp1/design_1_wrapper.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.476 . Memory (MB): peak = 1862.305 ; gain = 5.008
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.476 . Memory (MB): peak = 1862.305 ; gain = 5.008
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 42 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 36 instances
+  RAM32M => RAM32M (RAMS32, RAMS32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32): 6 instances
+
+open_run: Time (s): cpu = 00:00:25 ; elapsed = 00:00:20 . Memory (MB): peak = 1957.578 ; gain = 721.500
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 10 18:08:05 2018...

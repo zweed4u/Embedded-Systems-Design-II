@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:C:/Users/zdw7287/Downloads/week12/blink_rover_axi/src/constraints.xdc rfile:../../../../src/constraints.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN G18  [get_ports LED1]
+set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN G19  [get_ports {LED2[0]}]

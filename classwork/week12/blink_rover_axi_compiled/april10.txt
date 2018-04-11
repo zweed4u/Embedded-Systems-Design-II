@@ -1,0 +1,8 @@
+blink rover axi
+
+blink and blink from axi (can be set)
+once compiled and rover plugged in open hardware manager in vivado
+
+1103 mmet - imagine rit training room
+april 28th imagine rit
+may 8th - cdr
