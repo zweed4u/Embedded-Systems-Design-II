@@ -1,0 +1,301 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Apr 12 17:24:42 2018
+# Process ID: 2628
+# Current directory: S:/echo/echo/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10432 S:\echo\echo\project\echo.xpr
+# Log file: S:/echo/echo/project/vivado.log
+# Journal file: S:/echo/echo/project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project S:/echo/echo/project/echo.xpr
+update_compile_order -fileset sources_1
+open_bd_design {S:/echo/echo/src/design_1.bd}
+report_ip_status -name ip_status 
+upgrade_ip -vlnv rit.edu:user:motor_axi:1.2 [get_ips  design_1_motor_axi_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips design_1_motor_axi_0_0] -no_script -sync -force -quiet
+ipx::infer_core -vendor rit.edu -library user -taxonomy /UserIP S:/echo/echo/ip/pwm_generator
+ipx::edit_ip_in_project -upgrade true -name pwm_gen_project -directory S:/echo/echo/project/echo.tmp s:/echo/echo/ip/pwm_generator/component.xml
+ipx::current_core s:/echo/echo/ip/pwm_generator/component.xml
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property core_revision 2 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path s:/echo/echo/ip
+report_ip_status -name ip_status 
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:pwm_generator:1.0 pwm_generator_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:pwm_generator:1.0 pwm_generator_1
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:pwm_generator:1.0 pwm_generator_2
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:pwm_generator:1.0 pwm_generator_3
+endgroup
+set_property location {2 616 -1020} [get_bd_cells pwm_generator_0]
+set_property location {2 618 -811} [get_bd_cells pwm_generator_1]
+set_property location {2 619 -622} [get_bd_cells pwm_generator_2]
+set_property location {2 622 -416} [get_bd_cells pwm_generator_3]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins pwm_generator_0/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins pwm_generator_1/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins pwm_generator_2/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins pwm_generator_3/clk]
+endgroup
+connect_bd_net [get_bd_pins motor_axi_0/enable] [get_bd_pins pwm_generator_1/enable]
+connect_bd_net [get_bd_pins motor_axi_0/enable] [get_bd_pins pwm_generator_2/enable]
+connect_bd_net [get_bd_pins motor_axi_0/enable] [get_bd_pins pwm_generator_3/enable]
+connect_bd_net [get_bd_pins motor_axi_0/enable] [get_bd_pins pwm_generator_0/enable]
+connect_bd_net [get_bd_pins motor_axi_0/period_a] [get_bd_pins pwm_generator_0/period]
+connect_bd_net [get_bd_pins motor_axi_0/period_b] [get_bd_pins pwm_generator_1/period]
+connect_bd_net [get_bd_pins motor_axi_0/period_c] [get_bd_pins pwm_generator_2/period]
+connect_bd_net [get_bd_pins motor_axi_0/period_d] [get_bd_pins pwm_generator_3/period]
+connect_bd_net [get_bd_pins motor_axi_0/duty_a] [get_bd_pins pwm_generator_0/duty]
+connect_bd_net [get_bd_pins motor_axi_0/duty_b] [get_bd_pins pwm_generator_1/duty]
+connect_bd_net [get_bd_pins motor_axi_0/duty_c] [get_bd_pins pwm_generator_2/duty]
+connect_bd_net [get_bd_pins motor_axi_0/duty_d] [get_bd_pins pwm_generator_3/duty]
+create_bd_port -dir O MOTOR_A_DIR
+connect_bd_net [get_bd_ports MOTOR_A_DIR] [get_bd_pins motor_axi_0/dir_a]
+create_bd_port -dir O MOTOR_A_PWM
+connect_bd_net [get_bd_ports MOTOR_A_PWM] [get_bd_pins pwm_generator_0/output]
+create_bd_port -dir O MOTOR_B_DIR
+connect_bd_net [get_bd_ports MOTOR_B_DIR] [get_bd_pins motor_axi_0/dir_b]
+create_bd_port -dir O MOTOR_B_PWM
+connect_bd_net [get_bd_ports MOTOR_B_PWM] [get_bd_pins pwm_generator_1/output]
+create_bd_port -dir O MOTOR_C_DIR
+connect_bd_net [get_bd_ports MOTOR_C_DIR] [get_bd_pins motor_axi_0/dir_c]
+create_bd_port -dir O MOTOR_C_PWM
+connect_bd_net [get_bd_ports MOTOR_C_PWM] [get_bd_pins pwm_generator_2/output]
+create_bd_port -dir O MOTOR_D_DIR
+connect_bd_net [get_bd_ports MOTOR_D_DIR] [get_bd_pins motor_axi_0/dir_d]
+create_bd_port -dir O MOTOR_D_PWM
+connect_bd_net [get_bd_ports MOTOR_D_PWM] [get_bd_pins pwm_generator_3/output]
+save_bd_design
+report_ip_status -name ip_status 
+ipx::infer_core -vendor rit.edu -library user -taxonomy /UserIP S:/echo/echo/ip/encoder_reader
+ipx::edit_ip_in_project -upgrade true -name encoder_reader_project -directory S:/echo/echo/project/echo.tmp s:/echo/echo/ip/encoder_reader/component.xml
+ipx::current_core s:/echo/echo/ip/encoder_reader/component.xml
+update_compile_order -fileset sources_1
+add_files -norecurse -copy_to s:/echo/echo/ip/encoder_reader/src S:/echo/echo/ip/encoder_reader/edge_detector.vhd
+update_compile_order -fileset sources_1
+move_files -fileset sim_1 [get_files  s:/echo/echo/ip/encoder_reader/src/edge_detector.vhd]
+move_files [get_files  s:/echo/echo/ip/encoder_reader/src/edge_detector.vhd]
+remove_files  s:/echo/echo/ip/encoder_reader/src/edge_detector.vhd
+remove_files  s:/echo/echo/ip/encoder_reader/encoder_reader_top.vhd
+remove_files  s:/echo/echo/ip/encoder_reader/encoder_pulse_counter.vhd
+set_property source_mgmt_mode DisplayOnly [current_project]
+add_files -norecurse -copy_to s:/echo/echo/ip/encoder_reader/src {S:/echo/echo/ip/encoder_reader/encoder_pulse_counter.vhd S:/echo/echo/ip/encoder_reader/encoder_reader_top.vhd S:/echo/echo/ip/encoder_reader/edge_detector.vhd}
+add_files -norecurse {S:/echo/echo/ip/encoder_reader/src/encoder_pulse_counter.vhd S:/echo/echo/ip/encoder_reader/src/edge_detector.vhd S:/echo/echo/ip/encoder_reader/src/encoder_reader_top.vhd}
+set_property top encoder_reader_top [current_fileset]
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+ipx::merge_project_changes files [ipx::current_core]
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+ipx::merge_project_changes files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property core_revision 2 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path s:/echo/echo/ip
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:encoder_reader_top:1.0 encoder_reader_top_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:encoder_reader_top:1.0 encoder_reader_top_1
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:encoder_reader_top:1.0 encoder_reader_top_2
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv rit.edu:user:encoder_reader_top:1.0 encoder_reader_top_3
+endgroup
+connect_bd_net [get_bd_pins encoder_reader_top_0/encoder_pulse_count_o] [get_bd_pins motor_axi_0/enc_a]
+connect_bd_net [get_bd_pins encoder_reader_top_1/encoder_pulse_count_o] [get_bd_pins motor_axi_0/enc_b]
+connect_bd_net [get_bd_pins encoder_reader_top_2/encoder_pulse_count_o] [get_bd_pins motor_axi_0/enc_c]
+connect_bd_net [get_bd_pins encoder_reader_top_3/encoder_pulse_count_o] [get_bd_pins motor_axi_0/enc_d]
+connect_bd_net [get_bd_pins encoder_reader_top_0/enable_i] [get_bd_pins motor_axi_0/enable]
+connect_bd_net [get_bd_pins encoder_reader_top_1/enable_i] [get_bd_pins motor_axi_0/enable]
+connect_bd_net [get_bd_pins encoder_reader_top_2/enable_i] [get_bd_pins motor_axi_0/enable]
+connect_bd_net [get_bd_pins encoder_reader_top_3/enable_i] [get_bd_pins motor_axi_0/enable]
+connect_bd_net [get_bd_pins encoder_reader_top_0/reset_pulse_count_i] [get_bd_pins motor_axi_0/clr_enc_a]
+connect_bd_net [get_bd_pins encoder_reader_top_1/reset_pulse_count_i] [get_bd_pins motor_axi_0/clr_enc_b]
+connect_bd_net [get_bd_pins encoder_reader_top_2/reset_pulse_count_i] [get_bd_pins motor_axi_0/clr_enc_c]
+connect_bd_net [get_bd_pins encoder_reader_top_3/reset_pulse_count_i] [get_bd_pins motor_axi_0/clr_enc_d]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins encoder_reader_top_0/clock_i]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins encoder_reader_top_1/clock_i]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins encoder_reader_top_2/clock_i]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins encoder_reader_top_3/clock_i]
+endgroup
+create_bd_port -dir I ENC_A
+create_bd_port -dir I ENC_B
+create_bd_port -dir I ENC_C
+create_bd_port -dir I ENC_D
+connect_bd_net [get_bd_ports ENC_A] [get_bd_pins encoder_reader_top_0/encoder_i]
+connect_bd_net [get_bd_ports ENC_B] [get_bd_pins encoder_reader_top_1/encoder_i]
+connect_bd_net [get_bd_ports ENC_C] [get_bd_pins encoder_reader_top_2/encoder_i]
+connect_bd_net [get_bd_ports ENC_D] [get_bd_pins encoder_reader_top_3/encoder_i]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+ipx::edit_ip_in_project -upgrade true -name pwm_generator_v1_0_project -directory S:/echo/echo/project/echo.tmp/pwm_generator_v1_0_project s:/echo/echo/ip/pwm_generator/component.xml
+update_compile_order -fileset sources_1
+set_property display_name pwm_generator_v1_1 [ipx::current_core]
+set_property description pwm_generator_v1_1 [ipx::current_core]
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property core_revision 3 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path s:/echo/echo/ip
+validate_bd_design -force
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  {design_1_pwm_generator_0_0 design_1_pwm_generator_3_0 design_1_pwm_generator_2_0 design_1_pwm_generator_1_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {design_1_pwm_generator_0_0 design_1_pwm_generator_3_0 design_1_pwm_generator_2_0 design_1_pwm_generator_1_0}] -no_script -sync -force -quiet
+connect_bd_net [get_bd_ports MOTOR_A_PWM] [get_bd_pins pwm_generator_0/pwm_o]
+connect_bd_net [get_bd_ports MOTOR_B_PWM] [get_bd_pins pwm_generator_1/pwm_o]
+connect_bd_net [get_bd_ports MOTOR_C_PWM] [get_bd_pins pwm_generator_2/pwm_o]
+connect_bd_net [get_bd_ports MOTOR_D_PWM] [get_bd_pins pwm_generator_3/pwm_o]
+save_bd_design
+report_ip_status -name ip_status 
+delete_bd_objs [get_bd_nets motor_axi_0_dir_a]
+delete_bd_objs [get_bd_nets motor_axi_0_dir_b]
+delete_bd_objs [get_bd_nets motor_axi_0_dir_c]
+delete_bd_objs [get_bd_nets motor_axi_0_dir_d]
+delete_bd_objs [get_bd_nets pwm_generator_0_output]
+delete_bd_objs [get_bd_nets pwm_generator_1_output]
+delete_bd_objs [get_bd_nets pwm_generator_2_output]
+delete_bd_objs [get_bd_nets pwm_generator_3_output]
+ipx::edit_ip_in_project -upgrade true -name pwm_generator_v1_0_project -directory S:/echo/echo/project/echo.tmp/pwm_generator_v1_0_project s:/echo/echo/ip/pwm_generator/component.xml
+update_compile_order -fileset sources_1
+set_property display_name pwm_generator_v2_1 [ipx::current_core]
+set_property description pwm_generator_v2_0 [ipx::current_core]
+set_property display_name pwm_generator_v2_0 [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property version 2.0 [ipx::current_core]
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+open_run impl_1
+close_design
+set_property previous_version_for_upgrade rit.edu:user:pwm_generator:1.0 [ipx::current_core]
+set_property core_revision 1 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path s:/echo/echo/ip
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  {design_1_pwm_generator_0_0 design_1_pwm_generator_3_0 design_1_pwm_generator_2_0 design_1_pwm_generator_1_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {design_1_pwm_generator_0_0 design_1_pwm_generator_3_0 design_1_pwm_generator_2_0 design_1_pwm_generator_1_0}] -no_script -sync -force -quiet
+connect_bd_net [get_bd_pins motor_axi_0/dir_a] [get_bd_pins pwm_generator_0/dir]
+connect_bd_net [get_bd_pins motor_axi_0/dir_b] [get_bd_pins pwm_generator_1/dir]
+connect_bd_net [get_bd_pins motor_axi_0/dir_c] [get_bd_pins pwm_generator_2/dir]
+connect_bd_net [get_bd_pins motor_axi_0/dir_d] [get_bd_pins pwm_generator_3/dir]
+set_property name M1_IN1 [get_bd_ports MOTOR_A_DIR]
+set_property name M1_IN2 [get_bd_ports MOTOR_A_PWM]
+set_property name M2_IN1 [get_bd_ports MOTOR_B_DIR]
+set_property name M2_IN2 [get_bd_ports MOTOR_B_PWM]
+set_property name M3_IN1 [get_bd_ports MOTOR_C_DIR]
+set_property name M3_IN2 [get_bd_ports MOTOR_C_PWM]
+set_property name M4_IN1 [get_bd_ports MOTOR_D_DIR]
+set_property name M4_IN2 [get_bd_ports MOTOR_D_PWM]
+ipx::edit_ip_in_project -upgrade true -name pwm_generator_v2_0_project -directory S:/echo/echo/project/echo.tmp/pwm_generator_v2_0_project s:/echo/echo/ip/pwm_generator/component.xml
+update_compile_order -fileset sources_1
+set_property version 3.0 [ipx::current_core]
+set_property display_name pwm_generator_v3_0 [ipx::current_core]
+set_property description pwm_generator_v3_0 [ipx::current_core]
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property previous_version_for_upgrade {rit.edu:user:pwm_generator:1.0 rit.edu:user:pwm_generator:2.0} [ipx::current_core]
+set_property core_revision 1 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path s:/echo/echo/ip
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  {design_1_pwm_generator_0_0 design_1_pwm_generator_3_0 design_1_pwm_generator_2_0 design_1_pwm_generator_1_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {design_1_pwm_generator_0_0 design_1_pwm_generator_3_0 design_1_pwm_generator_2_0 design_1_pwm_generator_1_0}] -no_script -sync -force -quiet
+connect_bd_net [get_bd_ports M1_IN1] [get_bd_pins pwm_generator_0/dir_o]
+connect_bd_net [get_bd_ports M1_IN2] [get_bd_pins pwm_generator_0/pwm_o]
+connect_bd_net [get_bd_ports M2_IN1] [get_bd_pins pwm_generator_1/dir_o]
+connect_bd_net [get_bd_ports M2_IN2] [get_bd_pins pwm_generator_1/pwm_o]
+connect_bd_net [get_bd_ports M3_IN1] [get_bd_pins pwm_generator_2/dir_o]
+connect_bd_net [get_bd_ports M3_IN2] [get_bd_pins pwm_generator_2/pwm_o]
+connect_bd_net [get_bd_ports M4_IN1] [get_bd_pins pwm_generator_3/dir_o]
+connect_bd_net [get_bd_ports M4_IN2] [get_bd_pins pwm_generator_3/pwm_o]
+report_ip_status -name ip_status 
+ipx::edit_ip_in_project -upgrade true -name ultrasonic_sensor_axi_v1_1_project -directory S:/echo/echo/project/echo.tmp/ultrasonic_sensor_axi_v1_1_project s:/echo/echo/ip/ultrasonic_sensor_axi_1.0/component.xml
+update_compile_order -fileset sources_1
+close_project
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+report_ip_status -name ip_status 

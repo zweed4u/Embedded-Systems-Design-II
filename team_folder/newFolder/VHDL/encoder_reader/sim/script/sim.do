@@ -3,4 +3,4 @@ vcom -93 -work work ../../src/encoder_reader_top.vhd
 vcom -93 -work work ../src/encoder_reader_tb.vhd
 vsim -novopt encoder_reader_tb
 do wave.do
-run 100 ms
+run 6 ms

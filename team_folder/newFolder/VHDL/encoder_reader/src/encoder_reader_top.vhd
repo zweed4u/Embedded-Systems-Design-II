@@ -4,7 +4,7 @@
 -- Maze Rover Project
 -- encoder_reader_top.vhd
 -- Created Tues 10 Apr 2018
--- Last modified Tues 10 Apr 2018
+-- Last modified Thus 12 Apr 2018
 
 -- Top level design file. Reads incoming signal from encoder, counts the
 -- number of pulses, and output this value until a reset signal is received,
@@ -56,7 +56,7 @@ signal encoder_pulse : std_logic;
 
 begin
 
-  edge_detector : edge_detector
+  edge_detector_c : edge_detector
   port map (
     reset_n_i      => reset_n_i,
     clock_i        => clock_i,
@@ -66,7 +66,7 @@ begin
     falling_edge_o => open
   );
   
-  encoder_pulse_counter : encoder_pulse_counter
+  encoder_pulse_counter_c : encoder_pulse_counter
   port map (
     reset_n_i             => reset_n_i,
     clock_i               => clock_i,

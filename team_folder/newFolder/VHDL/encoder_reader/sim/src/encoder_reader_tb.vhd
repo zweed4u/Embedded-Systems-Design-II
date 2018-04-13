@@ -4,7 +4,7 @@
 -- Maze Rover Project
 -- encoder_reader_tb.vhd
 -- Created Tues 10 Apr 2018
--- Last modified Tues 10 Apr 2018
+-- Last modified Thurs 12 Apr 2018
 
 -- Test bench for encoder_reader_top.vhd.
 
@@ -29,154 +29,86 @@ component encoder_reader_top is
   );
 end component;
 
--- Designed for 100 MHz clock (period = 10 ns).
-constant period     : time := 10ns;
+-- Designed for 100 MHz clock (clock period = 10 ns).
+constant CLOCK_PERIOD      : time := 10ns;
 
--- Period goes from 10 us to 1,000 us (1 ms) in 10 us increments and decrements.
--- The unsigned value in period_i goes from 1 to 100.
--- Period in us = period_i * 10.
--- Period in seconds = period_i / 100,000.
--- Clocks per min period = 10 us / 10 ns = 1,000 (designed for 100 MHz clock).
--- Duty cycle goes from 0% - 100.0% with 0.1% increments and decrements.
--- The unsigned value in duty_cycle_i goes from 0 to 1,000.
--- Duty cycle in percent = duty_cycle_i / 10.
--- Duty cycle as decimal = duty_cycle_i / 1,000.
-constant MAX_PERIOD            : integer := 100;
-constant MIN_PERIOD            : integer := 1;
-constant CLOCKS_PER_MIN_PERIOD : integer := 1000;
-constant MIN_DUTY_CYCLE        : integer := 0;
-constant MAX_DUTY_CYCLE        : integer := 1000;
+constant NUM_OF_ENCODER_PERIODS : integer := 8;
+type period_array is array (0 to (NUM_OF_ENCODER_PERIODS - 1)) of time;
+constant ENCODER_PERIODS : period_array := (250ns, 830ns, 1us, 4us, 10us, 36us, 50us, 80us);
 
-signal pwm_period     : std_logic_vector(6 downto 0) := std_logic_vector(to_unsigned(25, 7));
-signal pwm_duty_cycle : std_logic_vector(9 downto 0) := std_logic_vector(to_unsigned(327, 10));
+constant ENCODER_PERIOD_SWITCH_TIME : time := 500us;
 
-signal reset_n      : std_logic := '0';
-signal clock        : std_logic := '0';
-signal enable       : std_logic := '1';                                            
+signal reset_n             : std_logic := '0';
+signal clock               : std_logic := '0';
+signal enable              : std_logic := '1';
+signal reset_pulse_count   : std_logic := '0';
+signal encoder             : std_logic := '0';
 
-signal pwm : std_logic;
+signal encoder_pulse_count : std_logic_vector(30 downto 0) := (others => '0');
 
 begin
 
-  -- Clock generation process.
+  -- Generate clock signal.
   generate_clock : process
   begin
     clock <= not clock;
-    wait for period/2;
+    wait for CLOCK_PERIOD/2;
   end process; 
  
-  -- Reset generation process.
-  generate_async_reset_n : process
+  -- Generate reset_n signal.
+  generate_reset_n : process
   begin
-    wait for 2 * period;
+    wait for 2 * CLOCK_PERIOD;
     reset_n <= '1';
     wait;
   end process;
-
-  -- Period value generation process.
-  generate_pwm_period : process
-  begin
   
-    -- Period = 250 us, duty cycle = 32.7%.
-    wait for (((CLOCKS_PER_MIN_PERIOD * 25) * 4) + 4) * period;
-
-    -- Period = 860 us, duty cycle = 94.5%.
-    pwm_period <= std_logic_vector(to_unsigned(86, pwm_period'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 86) * 4) * period;
-    
-    -- Period = 10 us, duty cycle = 50.0%.
-    pwm_period <= std_logic_vector(to_unsigned(1, pwm_period'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 1) * 4) * period;
-    
-    -- Period = 1,000 us (1 ms), duty cycle = 50.0%.
-    pwm_period <= std_logic_vector(to_unsigned(100, pwm_period'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 100) * 4) * period;
-    
-    -- Period = 50 us, duty cycle = 0%.
-    -- Period = 50 us, duty cycle = 0.1%.
-    -- Period = 50 us, duty cycle = 99.9%.
-    -- Period = 50 us, duty cycle = 100.0%.
-    pwm_period <= std_logic_vector(to_unsigned(5, pwm_period'length));
-    wait for (((CLOCKS_PER_MIN_PERIOD * 50) * 4) * 4) * period;
-    
-    -- Period = 1,200 us (1.2 ms) (INVALID PERIOD), duty cycle = 50.0%.
-    pwm_period <= std_logic_vector(to_unsigned(120, pwm_period'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 1200) * 4) * period;
-    
-    -- Period = 0 us (INVALID PERIOD), duty cycle = 50.0%.
-    pwm_period <= std_logic_vector(to_unsigned(0, pwm_period'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 10) * 4) * period;
-    
-    -- Period = 50 us, duty cycle = 102.1% (INVALID DUTY CYCLE).
-    pwm_period <= std_logic_vector(to_unsigned(5, pwm_period'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 50) * 4) * period;
-    
-    -- Period = 140 us, duty cycle = 22.1%.
-    pwm_period <= std_logic_vector(to_unsigned(14, pwm_period'length));
-    wait;
-    
-  end process;
-
-  -- Duty cycle value generation process.
-  generate_pwm_duty_cycle : process
+  -- Generate reset_pulse_count signal.
+  generate_reset_pulse_count : process
   begin
-  
-    -- Period = 250 us, duty cycle = 32.7%.
-    wait for (((CLOCKS_PER_MIN_PERIOD * 25) * 4) + 4) * period;
-    
-    -- Period = 860 us, duty cycle = 94.5%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(945, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 86) * 4) * period;
-    
-    -- Period = 10 us, duty cycle = 50.0%.
-    -- Period = 1,000 us (1 ms), duty cycle = 50.0%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(500, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * (1 + 100)) * 4) * period;
-    
-    -- Period = 50 us, duty cycle = 0%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(0, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 50) * 4) * period;
-    
-    -- Period = 50 us, duty cycle = 0.1%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(1, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 50) * 4) * period;
-    
-    -- Period = 50 us, duty cycle = 99.9%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(999, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 50) * 4) * period;
-    
-    -- Period = 50 us, duty cycle = 100.0%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(1000, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 50) * 4) * period;
-    
-    -- Period = 1,200 us (1.2 ms) (INVALID PERIOD), duty cycle = 50.0%.
-    -- Period = 0 us (INVALID PERIOD), duty cycle = 50.0%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(500, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * (1200 + 10)) * 4) * period;
-    
-    -- Period = 50 us, duty cycle = 102.1% (INVALID DUTY CYCLE).
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(1021, pwm_duty_cycle'length));
-    wait for ((CLOCKS_PER_MIN_PERIOD * 50) * 4) * period;
-    
-    -- Period = 140 us, duty cycle = 22.1%.
-    pwm_duty_cycle <= std_logic_vector(to_unsigned(221, pwm_duty_cycle'length));
-    wait;
-    
+    -- Reset 4 times per encoder period value.
+    wait for ((ENCODER_PERIOD_SWITCH_TIME / 4) - (CLOCK_PERIOD * 4));
+    reset_pulse_count <= '1';
+    wait for (CLOCK_PERIOD * 4);
+    reset_pulse_count <= '0';
   end process;
   
-  -- Generate enable signal (always on until last test)
+  -- Generate enable signal.
   generate_enable : process
   begin
-    wait for (((CLOCKS_PER_MIN_PERIOD * 25) * 4) + 2) * period;
-    wait for ((CLOCKS_PER_MIN_PERIOD * 86) * 4) * period;
-    wait for ((CLOCKS_PER_MIN_PERIOD * (1 + 100)) * 4) * period;
-    wait for (((CLOCKS_PER_MIN_PERIOD * 50) * 4) * 4) * period;
-    wait for ((CLOCKS_PER_MIN_PERIOD * (1200 + 10)) * 4) * period;
-    wait for ((CLOCKS_PER_MIN_PERIOD * 50) * 4) * period;
-    wait for ((CLOCKS_PER_MIN_PERIOD * 140) * 3) * period;
+    -- Disable during third encoder period value approx. halfway between third
+    -- and fourth pulse count resets.
+    wait for ((ENCODER_PERIOD_SWITCH_TIME * (2 + 0.625)) - (CLOCK_PERIOD * 4));
     enable <= '0';
-    wait for (CLOCKS_PER_MIN_PERIOD * 140) * period;
+    wait for (CLOCK_PERIOD * 4);
     enable <= '1';
+    wait for (ENCODER_PERIOD_SWITCH_TIME * 0.375);
+    
+    -- Disable during seventh encoder period value approx. halfway between
+    -- first and second pulse count resets.
+    wait for ((ENCODER_PERIOD_SWITCH_TIME * (3 + 0.625)) - (CLOCK_PERIOD * 4));
+    enable <= '0';
+    wait for (CLOCK_PERIOD * 4);
+    enable <= '1';
+    wait;
+    
+  end process;
+  
+  -- Generate encoder signal while setting the period of the encoder signal to
+  -- different values over time by iterating through an array of constant
+  -- periods.
+  generate_encoder : process
+  
+  variable now_snapshot : time := now;
+  
+  begin
+    for i in 0 to (NUM_OF_ENCODER_PERIODS - 1) loop
+      now_snapshot := now;
+      while now < (now_snapshot + ENCODER_PERIOD_SWITCH_TIME) loop
+        encoder <= not encoder;
+        wait for ENCODER_PERIODS(i)/2;
+      end loop;
+    end loop;
     wait;
   end process;
   

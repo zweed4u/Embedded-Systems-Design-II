@@ -1,0 +1,79 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dS:/CPET 563-01/Rover Project/VHDL/encoder_reader/sim/script
+Eencoder_reader_tb
+w1523572423
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+8../src/encoder_reader_tb.vhd
+F../src/encoder_reader_tb.vhd
+l0
+L16
+V9Q7Nc3?U5`cd6eOV?>>>O1
+!s100 I_j:NH>]@cJnoYchl?SS:0
+Z6 OP;C;10.6c;65
+31
+Z7 !s110 1523572436
+!i10b 1
+Z8 !s108 1523572436.000000
+!s90 -reportprogress|300|-93|-work|work|../src/encoder_reader_tb.vhd|
+!s107 ../src/encoder_reader_tb.vhd|
+!i113 1
+Z9 o-93 -work work
+Z10 tExplicit 1 CvgOpt 0
+Eencoder_reader_top
+Z11 w1523572255
+R1
+R2
+R3
+R4
+R5
+R0
+Z12 8../../src/encoder_reader_top.vhd
+Z13 F../../src/encoder_reader_top.vhd
+l0
+L18
+V8hB@lOdD@>MJec[e@79[?0
+!s100 WiT0=X[84R?g@g1PfJn:j2
+R6
+31
+R7
+!i10b 1
+R8
+Z14 !s90 -reportprogress|300|-93|-work|work|../../src/encoder_reader_top.vhd|
+Z15 !s107 ../../src/encoder_reader_top.vhd|
+!i113 1
+R9
+R10
+Aarch
+R1
+R2
+R3
+R4
+R5
+DEx4 work 18 encoder_reader_top 0 22 8hB@lOdD@>MJec[e@79[?0
+l57
+L29
+VHlho6]>lgF`6GYkHl8K_z3
+!s100 V>AL>JF>^mK3JPe[F_k@l1
+R6
+31
+R7
+!i10b 1
+R8
+R14
+R15
+!i113 1
+R9
+R10
