@@ -2,7 +2,7 @@
 # Zachary Weeden 2018
 # Lab 3 backend
 
-from ctypes import cdll
+from ctypes import cdll, c_int
 
 class Lab3Logic:
     def __init__(self, pwm_period_ms, duty_cycle_ms, enable):
@@ -20,6 +20,9 @@ class Lab3Logic:
 
         # C wrapper 
         self.pwm_lib = cdll.LoadLibrary('./pwm_drv.so')
+        self.pwm_lib.set_duty.argtypes = [c_int]
+        self.pwm_lib.set_period.argtypes = [c_int]
+        self.pwm_lib.set_enable.argtypes = [c_int]
 
 
     def set_all(self, pwm_period_ms, duty_cycle_ms, enable):

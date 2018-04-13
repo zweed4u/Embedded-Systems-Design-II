@@ -5,7 +5,7 @@
 import os
 import sys
 from PyQt4 import QtGui
-from ctypes import cdll
+from ctypes import cdll, c_int
 
 class MyWidget(QtGui.QWidget):
     def __init__(self):
@@ -49,6 +49,9 @@ class MyWidget(QtGui.QWidget):
 
         # C wrapper 
         self.pwm_lib = cdll.LoadLibrary('./pwm_drv.so')
+        self.pwm_lib.set_duty.argtypes = [c_int]
+        self.pwm_lib.set_period.argtypes = [c_int]
+        self.pwm_lib.set_enable.argtypes = [c_int]
 
         # slots
         self.submit_button.clicked.connect(lambda: self.set_all())
