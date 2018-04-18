@@ -1,0 +1,54 @@
+$date
+        2018-Apr-17 16:58:46
+$end
+$version
+        Vivado v2017.2 (64-bit)
+$end
+$timescale
+        1ps
+$end
+$scope module dut $end
+$var reg 1 " design_1_i/blink_0_blink_out $end
+$var reg 1 # design_1_i/axi_gpio_0_gpio_io_o $end
+$var reg 1 $ _TRIGGER $end
+$var reg 1 % _WINDOW $end
+$var reg 1 & _GAP $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1"
+1#
+0$
+1%
+0&
+$end
+#3456
+0"
+#8457
+1"
+#10000
+0#
+1$
+#13458
+0"
+#18459
+1"
+#23460
+0"
+#28461
+1"
+#33462
+0"
+#38463
+1"
+#43464
+0"
+#48465
+1"
+#53466
+0"
+#58467
+1"
+#63468
+0"

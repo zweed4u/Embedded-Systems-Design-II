@@ -4,7 +4,7 @@
 -- Maze Rover Project
 -- encoder_reader_tb.vhd
 -- Created Tues 10 Apr 2018
--- Last modified Thurs 12 Apr 2018
+-- Last modified Tues 17 Apr 2018
 
 -- Test bench for encoder_reader_top.vhd.
 
@@ -32,10 +32,13 @@ end component;
 -- Designed for 100 MHz clock (clock period = 10 ns).
 constant CLOCK_PERIOD      : time := 10ns;
 
+-- Create array of different periods of the incoming encoder signal.
 constant NUM_OF_ENCODER_PERIODS : integer := 8;
 type period_array is array (0 to (NUM_OF_ENCODER_PERIODS - 1)) of time;
-constant ENCODER_PERIODS : period_array := (250ns, 830ns, 1us, 4us, 10us, 36us, 50us, 80us);
+constant ENCODER_PERIODS : period_array := (250ns, 830ns, 1us, 4us, 10us, 36us,
+                                            50us, 80us);
 
+-- Time that elapses between instances of different encoder signal periods.
 constant ENCODER_PERIOD_SWITCH_TIME : time := 500us;
 
 signal reset_n             : std_logic := '0';
@@ -78,7 +81,7 @@ begin
   begin
     -- Disable during third encoder period value approx. halfway between third
     -- and fourth pulse count resets.
-    wait for ((ENCODER_PERIOD_SWITCH_TIME * (2 + 0.625)) - (CLOCK_PERIOD * 4));
+    wait for ((ENCODER_PERIOD_SWITCH_TIME * (2.0 + 0.625)) - (CLOCK_PERIOD * 4.0));
     enable <= '0';
     wait for (CLOCK_PERIOD * 4);
     enable <= '1';
@@ -86,7 +89,7 @@ begin
     
     -- Disable during seventh encoder period value approx. halfway between
     -- first and second pulse count resets.
-    wait for ((ENCODER_PERIOD_SWITCH_TIME * (3 + 0.625)) - (CLOCK_PERIOD * 4));
+    wait for ((ENCODER_PERIOD_SWITCH_TIME * (3.0 + 0.625)) - (CLOCK_PERIOD * 4.0));
     enable <= '0';
     wait for (CLOCK_PERIOD * 4);
     enable <= '1';

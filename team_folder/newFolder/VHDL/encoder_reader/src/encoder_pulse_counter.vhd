@@ -4,7 +4,7 @@
 -- Maze Rover Project
 -- encoder_pulse_counter.vhd
 -- Created Tues 10 Apr 2018
--- Last modified Tues 10 Apr 2018
+-- Last modified Tues 17 Apr 2018
 
 -- Reads the pulses from the rising-edge synchronizer (which converts the
 -- rising edges from the encoder output signal) and counts the amount of those
@@ -48,7 +48,7 @@ begin
   end process;
   
   -- Synchronize reset_pulse_count_i input signal to clock.
-  register_reset_pulse_count : process (clock_i, reset_n_i)
+  register_reset_pulse_count : process (clock_i)
   begin
     if (rising_edge(clock_i)) then
       reset_pulse_count <= reset_pulse_count_i;
@@ -56,7 +56,7 @@ begin
   end process;
   
   -- Synchronize encoder_pulse_i input signal to clock.
-  register_encoder_pulse : process (clock_i, reset_n_i)
+  register_encoder_pulse : process (clock_i)
   begin
     if (rising_edge(clock_i)) then
       encoder_pulse <= encoder_pulse_i;

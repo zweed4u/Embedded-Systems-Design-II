@@ -1,7 +1,7 @@
 # do sim.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
-# Start time: 18:33:56 on Apr 12,2018
+# Start time: 18:12:02 on Apr 17,2018
 # vcom -reportprogress 300 -93 -work work ../../src/encoder_reader_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -11,10 +11,36 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity encoder_reader_top
 # -- Compiling architecture arch of encoder_reader_top
-# End time: 18:33:56 on Apr 12,2018, Elapsed time: 0:00:00
+# End time: 18:12:02 on Apr 17,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
-# Start time: 18:33:56 on Apr 12,2018
+# Start time: 18:12:02 on Apr 17,2018
+# vcom -reportprogress 300 -93 -work work ../../src/edge_detector.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity edge_detector
+# -- Compiling architecture arch of edge_detector
+# End time: 18:12:02 on Apr 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
+# Start time: 18:12:02 on Apr 17,2018
+# vcom -reportprogress 300 -93 -work work ../../src/encoder_pulse_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity encoder_pulse_counter
+# -- Compiling architecture arch of encoder_pulse_counter
+# End time: 18:12:03 on Apr 17,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
+# Start time: 18:12:03 on Apr 17,2018
 # vcom -reportprogress 300 -93 -work work ../src/encoder_reader_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -25,28 +51,41 @@
 # -- Compiling entity encoder_reader_tb
 # -- Compiling architecture arch of encoder_reader_tb
 # ** Warning: ../src/encoder_reader_tb.vhd(33): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: ../src/encoder_reader_tb.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/encoder_reader_tb.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/encoder_reader_tb.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/encoder_reader_tb.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/encoder_reader_tb.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/encoder_reader_tb.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/encoder_reader_tb.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 # ** Warning: ../src/encoder_reader_tb.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Error: ../src/encoder_reader_tb.vhd(81): (vcom-1581) No feasible entries for infix operator '+'.
-# ** Error: ../src/encoder_reader_tb.vhd(81): ** Error: (vcom-1590) Bad expression in right operand of infix expression '*'.
-# ** Error: ../src/encoder_reader_tb.vhd(81): ** Error: (vcom-1590) Bad expression in left operand of infix expression '-'.
-# ** Error: ../src/encoder_reader_tb.vhd(81): Type error resolving infix expression "-" as type std.STANDARD.TIME.
-# ** Error: ../src/encoder_reader_tb.vhd(89): (vcom-1581) No feasible entries for infix operator '+'.
-# ** Error: ../src/encoder_reader_tb.vhd(89): ** Error: (vcom-1590) Bad expression in right operand of infix expression '*'.
-# ** Error: ../src/encoder_reader_tb.vhd(89): ** Error: (vcom-1590) Bad expression in left operand of infix expression '-'.
-# ** Error: ../src/encoder_reader_tb.vhd(89): Type error resolving infix expression "-" as type std.STANDARD.TIME.
-# ** Error: ../src/encoder_reader_tb.vhd(126): VHDL Compiler exiting
-# End time: 18:33:56 on Apr 12,2018, Elapsed time: 0:00:00
-# Errors: 9, Warnings: 10
-# ** Error: c:/software/Modelsim/10.6c/win64pe/vcom failed.
-# Error in macro ./sim.do line 3
-# c:/software/Modelsim/10.6c/win64pe/vcom failed.
-#     while executing
-# "vcom -93 -work work ../src/encoder_reader_tb.vhd"
+# ** Warning: ../src/encoder_reader_tb.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: ../src/encoder_reader_tb.vhd(42): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:12:03 on Apr 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 10
+# vsim -novopt encoder_reader_tb 
+# Start time: 18:12:03 on Apr 17,2018
+# //  ModelSim DE-64 10.6c Jul 26 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim DE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.encoder_reader_tb(arch)
+# Loading work.encoder_reader_top(arch)
+# Loading work.edge_detector(arch)
+# Loading work.encoder_pulse_counter(arch)
+# End time: 18:47:19 on Apr 17,2018, Elapsed time: 0:35:16
+# Errors: 0, Warnings: 0

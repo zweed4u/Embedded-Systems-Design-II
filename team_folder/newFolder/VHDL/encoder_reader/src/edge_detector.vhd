@@ -4,7 +4,7 @@
 -- Maze Rover Project
 -- edge_detector.vhd
 -- Created Tues 10 Apr 2018
--- Last modified Tues 10 Apr 2018
+-- Last modified Tues 17 Apr 2018
 
 -- Detects rising- and falling-edges on a signal. One output signal goes high
 -- for one clock cycle when a rising-edge is detected while a second output
@@ -22,7 +22,7 @@ entity edge_detector is
     enable_i       : in  std_logic;
     pulse_i        : in  std_logic;
     rising_edge_o  : out std_logic;
-    falling_edge_o : out std_logic;
+    falling_edge_o : out std_logic
   );
 end edge_detector;
 
@@ -33,8 +33,8 @@ signal enable        : std_logic;
 signal pulse_z       : std_logic;
 signal pulse_zz      : std_logic;
 
-signal rising_edge_  : std_logic;
-signal falling_edge_ : std_logic;
+signal rising_edge_s  : std_logic;
+signal falling_edge_s : std_logic;
 
 begin
 
@@ -57,27 +57,30 @@ begin
       pulse_z  <= '0';
       pulse_zz <= '0';
       
-      rising_edge_  <= '0';
-      falling_edge_ <= '0';
+      rising_edge_s  <= '0';
+      falling_edge_s <= '0';
       
     elsif (rising_edge(clock_i)) then
       if (enable <= '1') then
         pulse_z  <= pulse_i;
         pulse_zz <= pulse_z;
         
-        rising_edge_  <= pulse_z and (not pulse_zz);
-        falling_edge_ <= (not pulse_z) and pulse_zz;
+        rising_edge_s  <= pulse_z and (not pulse_zz);
+        falling_edge_s <= (not pulse_z) and pulse_zz;
       
       else
         pulse_z  <= '0';
         pulse_zz <= '0';
         
-        rising_edge_  <= '0';
-        falling_edge_ <= '0';
+        rising_edge_s  <= '0';
+        falling_edge_s <= '0';
       
       end if;
       
     end if;
   end process;
+  
+  rising_edge_o <= rising_edge_s;
+  falling_edge_o <= falling_edge_s;
   
 end arch;
