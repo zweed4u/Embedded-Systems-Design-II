@@ -1,0 +1,4 @@
+h = zynq('linux','192.168.0.18','root','snickerdoodle','/mathworks')
+h.checkConnection
+ln -s /lib/ld-linux-armhf.so.3 /lib/ld-linux.so.3
+https://forums.xilinx.com/t5/Embedded-Processor-System-Design/lib-ld-linux-armhf-so-3-vs-lib-ld-linux-so-3/td-p/775332
