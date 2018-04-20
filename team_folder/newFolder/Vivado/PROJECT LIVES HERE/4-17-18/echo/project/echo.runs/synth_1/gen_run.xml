@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1524000758">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1524090322">
   <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="RDS-RDS" Name="design_1_wrapper.vds"/>
@@ -20,7 +20,7 @@
     <File Path="$PSRCDIR/sources_1/imports/hdl/design_1_wrapper.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../src/hdl/design_1_wrapper.vhd"/>
-        <Attr Name="ImportTime" Val="1522952944"/>
+        <Attr Name="ImportTime" Val="1524000747"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -44,25 +44,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_pwm_generator_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_echo_pulse_measurer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_ultrasonic_sensor_axi_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_pwm_generator_2_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_blink_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_encoder_reader_top_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_rst_ps7_0_50M_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_echo_pulse_measurer_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_echo_pulse_measurer_2_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_motor_axi_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_encoder_reader_top_3_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_encoder_reader_top_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_encoder_reader_top_2_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_pwm_generator_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_pwm_generator_3_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_imu_wrapper_0_0"/>
 </GenRun>

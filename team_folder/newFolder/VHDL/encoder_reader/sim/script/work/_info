@@ -7,15 +7,15 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dS:/CPET 563-01/Rover Project/VHDL/encoder_reader/sim/script
+Z0 dS:/CPET 563-01/Rover Project/VHDL/encoder_reader/sim/script
 Eedge_detector
-Z0 w1524002680
-Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z6 dZ:/groups/newFolder/VHDL/encoder_reader/sim/script
+Z1 w1524002682
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
 Z7 8../../src/edge_detector.vhd
 Z8 F../../src/edge_detector.vhd
 l0
@@ -24,20 +24,20 @@ V6g_FGOLchd;kdmOn<QcL_2
 !s100 `ngUNITaAO5edN0Bh_oLB3
 Z9 OP;C;10.6c;65
 31
-Z10 !s110 1524003122
+Z10 !s110 1524178054
 !i10b 1
-Z11 !s108 1524003122.000000
+Z11 !s108 1524178054.000000
 Z12 !s90 -reportprogress|300|-93|-work|work|../../src/edge_detector.vhd|
 Z13 !s107 ../../src/edge_detector.vhd|
 !i113 1
 Z14 o-93 -work work
 Z15 tExplicit 1 CvgOpt 0
 Aarch
-R1
 R2
 R3
 R4
 R5
+R6
 DEx4 work 13 edge_detector 0 22 6g_FGOLchd;kdmOn<QcL_2
 l39
 L29
@@ -54,13 +54,13 @@ R13
 R14
 R15
 Eencoder_pulse_counter
-Z16 w1524000312
-R1
+Z16 w1524000314
 R2
 R3
 R4
 R5
 R6
+R0
 Z17 8../../src/encoder_pulse_counter.vhd
 Z18 F../../src/encoder_pulse_counter.vhd
 l0
@@ -69,20 +69,20 @@ VQEKFaj79lTWJjBanJZBCY2
 !s100 N4FkRUBg<DF_`6L_DF6I72
 R9
 31
-Z19 !s110 1524003123
+R10
 !i10b 1
 R11
-Z20 !s90 -reportprogress|300|-93|-work|work|../../src/encoder_pulse_counter.vhd|
-Z21 !s107 ../../src/encoder_pulse_counter.vhd|
+Z19 !s90 -reportprogress|300|-93|-work|work|../../src/encoder_pulse_counter.vhd|
+Z20 !s107 ../../src/encoder_pulse_counter.vhd|
 !i113 1
 R14
 R15
 Aarch
-R1
 R2
 R3
 R4
 R5
+R6
 DEx4 work 21 encoder_pulse_counter 0 22 QEKFaj79lTWJjBanJZBCY2
 l36
 L30
@@ -90,69 +90,69 @@ VmDACSjg5`EF5OOIfI9n3T3
 !s100 [e5b3CT`Zi9U2R9z27J]M1
 R9
 31
-R19
+R10
 !i10b 1
 R11
+R19
 R20
-R21
 !i113 1
 R14
 R15
 Eencoder_reader_tb
 R16
-R1
 R2
 R3
 R4
 R5
 R6
-Z22 8../src/encoder_reader_tb.vhd
-Z23 F../src/encoder_reader_tb.vhd
+R0
+Z21 8../src/encoder_reader_tb.vhd
+Z22 F../src/encoder_reader_tb.vhd
 l0
 L16
 V9Q7Nc3?U5`cd6eOV?>>>O1
 !s100 I_j:NH>]@cJnoYchl?SS:0
 R9
 31
-R19
+R10
 !i10b 1
-Z24 !s108 1524003123.000000
-Z25 !s90 -reportprogress|300|-93|-work|work|../src/encoder_reader_tb.vhd|
-Z26 !s107 ../src/encoder_reader_tb.vhd|
+R11
+Z23 !s90 -reportprogress|300|-93|-work|work|../src/encoder_reader_tb.vhd|
+Z24 !s107 ../src/encoder_reader_tb.vhd|
 !i113 1
 R14
 R15
 Aarch
-R1
-R2
-R3
-R4
-R5
-Z27 DEx4 work 17 encoder_reader_tb 0 22 9Q7Nc3?U5`cd6eOV?>>>O1
-l52
-L19
-Z28 V:d9d6^f59kA<m6cGXcjF_3
-Z29 !s100 GZ8e^]8A_5H9SM<LzLJYS2
-R9
-31
-R19
-!i10b 1
-R24
-R25
-R26
-!i113 1
-R14
-R15
-Eencoder_reader_top
-Z30 w1524001772
-R1
 R2
 R3
 R4
 R5
 R6
-Z31 8../../src/encoder_reader_top.vhd
-Z32 F../../src/encoder_reader_top.vhd
+Z25 DEx4 work 17 encoder_reader_tb 0 22 9Q7Nc3?U5`cd6eOV?>>>O1
+l52
+L19
+Z26 V:d9d6^f59kA<m6cGXcjF_3
+Z27 !s100 GZ8e^]8A_5H9SM<LzLJYS2
+R9
+31
+R10
+!i10b 1
+R11
+R23
+R24
+!i113 1
+R14
+R15
+Eencoder_reader_top
+Z28 w1524001774
+R2
+R3
+R4
+R5
+R6
+R0
+Z29 8../../src/encoder_reader_top.vhd
+Z30 F../../src/encoder_reader_top.vhd
 l0
 L18
 V8hB@lOdD@>MJec[e@79[?0
@@ -162,17 +162,17 @@ R9
 R10
 !i10b 1
 R11
-Z33 !s90 -reportprogress|300|-93|-work|work|../../src/encoder_reader_top.vhd|
-Z34 !s107 ../../src/encoder_reader_top.vhd|
+Z31 !s90 -reportprogress|300|-93|-work|work|../../src/encoder_reader_top.vhd|
+Z32 !s107 ../../src/encoder_reader_top.vhd|
 !i113 1
 R14
 R15
 Aarch
-R1
 R2
 R3
 R4
 R5
+R6
 DEx4 work 18 encoder_reader_top 0 22 8hB@lOdD@>MJec[e@79[?0
 l57
 L29
@@ -183,8 +183,8 @@ R9
 R10
 !i10b 1
 R11
-R33
-R34
+R31
+R32
 !i113 1
 R14
 R15

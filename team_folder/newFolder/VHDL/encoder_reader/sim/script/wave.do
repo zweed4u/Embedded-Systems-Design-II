@@ -8,7 +8,7 @@ add wave -noupdate /encoder_reader_tb/encoder
 add wave -noupdate /encoder_reader_tb/uut/encoder_pulse
 add wave -noupdate -radix unsigned /encoder_reader_tb/encoder_pulse_count
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Period Start} {0 ns} 0} {{Period End} {99250970 ns} 0} {{Duty Cycle} {99360030 ns} 0}
+WaveRestoreCursors {Cursor {0 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 177
 configure wave -valuecolwidth 81

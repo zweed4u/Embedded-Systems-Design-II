@@ -9,7 +9,7 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Compiling entity ultrasonic_test
 -- Compiling architecture behavioral of ultrasonic_test
 
-} {} {}} S:/echo/sim/src/uut.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/echo/sim/src/uut.vhd
+} {} {}} S:/echo/sim/src/echo_pulse_measurer.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/echo/sim/src/echo_pulse_measurer.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -17,19 +17,8 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
--- Compiling entity uut
--- Compiling architecture test of uut
-
-} {} {}} S:/echo/sim/src/trigger_pulse_generator.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/echo/sim/src/trigger_pulse_generator.vhd
-Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Compiling entity trigger_pulse_generator
--- Compiling architecture arch of trigger_pulse_generator
+-- Compiling entity echo_pulse_measurer
+-- Compiling architecture arch of echo_pulse_measurer
 
 } {} {}} S:/echo/sim/src/sensor_reader_top.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/echo/sim/src/sensor_reader_top.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
@@ -42,7 +31,7 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Compiling entity sensor_reader_top
 -- Compiling architecture arch of sensor_reader_top
 
-} {} {}} S:/echo/sim/src/echo_pulse_measurer.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/echo/sim/src/echo_pulse_measurer.vhd
+} {} {}} S:/echo/sim/src/trigger_pulse_generator.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/echo/sim/src/trigger_pulse_generator.vhd
 Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -50,7 +39,18 @@ Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
--- Compiling entity echo_pulse_measurer
--- Compiling architecture arch of echo_pulse_measurer
+-- Compiling entity trigger_pulse_generator
+-- Compiling architecture arch of trigger_pulse_generator
+
+} {} {}} S:/echo/sim/src/uut.vhd {1 {vcom -work work -2002 -explicit -stats=none S:/echo/sim/src/uut.vhd
+Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity uut
+-- Compiling architecture test of uut
 
 } {} {}}

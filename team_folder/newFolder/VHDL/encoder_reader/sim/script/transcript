@@ -1,7 +1,7 @@
 # do sim.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
-# Start time: 18:12:02 on Apr 17,2018
+# Start time: 18:47:34 on Apr 19,2018
 # vcom -reportprogress 300 -93 -work work ../../src/encoder_reader_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -11,10 +11,10 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity encoder_reader_top
 # -- Compiling architecture arch of encoder_reader_top
-# End time: 18:12:02 on Apr 17,2018, Elapsed time: 0:00:00
+# End time: 18:47:34 on Apr 19,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
-# Start time: 18:12:02 on Apr 17,2018
+# Start time: 18:47:34 on Apr 19,2018
 # vcom -reportprogress 300 -93 -work work ../../src/edge_detector.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -24,10 +24,10 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity edge_detector
 # -- Compiling architecture arch of edge_detector
-# End time: 18:12:02 on Apr 17,2018, Elapsed time: 0:00:00
+# End time: 18:47:34 on Apr 19,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
-# Start time: 18:12:02 on Apr 17,2018
+# Start time: 18:47:34 on Apr 19,2018
 # vcom -reportprogress 300 -93 -work work ../../src/encoder_pulse_counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -37,10 +37,10 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity encoder_pulse_counter
 # -- Compiling architecture arch of encoder_pulse_counter
-# End time: 18:12:03 on Apr 17,2018, Elapsed time: 0:00:01
+# End time: 18:47:34 on Apr 19,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim DE-64 vcom 10.6c Compiler 2017.07 Jul 26 2017
-# Start time: 18:12:03 on Apr 17,2018
+# Start time: 18:47:34 on Apr 19,2018
 # vcom -reportprogress 300 -93 -work work ../src/encoder_reader_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -60,10 +60,10 @@
 # ** Warning: ../src/encoder_reader_tb.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 # ** Warning: ../src/encoder_reader_tb.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 # ** Warning: ../src/encoder_reader_tb.vhd(42): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 18:12:03 on Apr 17,2018, Elapsed time: 0:00:00
+# End time: 18:47:34 on Apr 19,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 10
 # vsim -novopt encoder_reader_tb 
-# Start time: 18:12:03 on Apr 17,2018
+# Start time: 18:47:34 on Apr 19,2018
 # //  ModelSim DE-64 10.6c Jul 26 2017
 # //
 # //  Copyright 1991-2017 Mentor Graphics Corporation
@@ -87,5 +87,5 @@
 # Loading work.encoder_reader_top(arch)
 # Loading work.edge_detector(arch)
 # Loading work.encoder_pulse_counter(arch)
-# End time: 18:47:19 on Apr 17,2018, Elapsed time: 0:35:16
+# End time: 19:07:40 on Apr 19,2018, Elapsed time: 0:20:06
 # Errors: 0, Warnings: 0

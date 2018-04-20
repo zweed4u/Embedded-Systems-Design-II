@@ -2,25 +2,24 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Tue Apr 17 17:11:52 2018
-# Process ID: 14480
-# Current directory: S:/echo/echo/project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14768 S:\echo\echo\project\echo.xpr
-# Log file: S:/echo/echo/project/vivado.log
-# Journal file: S:/echo/echo/project\vivado.jou
+# Start of session at: Wed Apr 18 20:28:07 2018
+# Process ID: 8512
+# Current directory: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1436 R:\CPET-563\groups\newFolder\Vivado\PROJECT LIVES HERE\4-17-18\echo\project\echo.xpr
+# Log file: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/vivado.log
+# Journal file: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project S:/echo/echo/project/echo.xpr
+open_project {R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/echo.xpr}
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-WARNING: [IP_Flow 19-3685] Ignored loading user repository 's:/echo/echo/ip/motor_axi_1.0'. The path is contained within another repository.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 's:/echo/echo/ip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
-WARNING: [IP_Flow 19-3664] IP 'design_1_auto_pc_0' generated file not found 's:/echo/echo/src/ip/design_1_auto_pc_0/stats.txt'. Please regenerate to continue.
-open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:22 . Memory (MB): peak = 912.730 ; gain = 178.727
+WARNING: [IP_Flow 19-3664] IP 'design_1_auto_pc_0' generated file not found 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/src/ip/design_1_auto_pc_0/stats.txt'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 890.207 ; gain = 163.121
 update_compile_order -fileset sources_1
-open_bd_design {S:/echo/echo/src/design_1.bd}
+open_bd_design {R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/src/design_1.bd}
 Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
 Adding cell -- craftdrones:user:blink:1.0 - blink_0
 Adding cell -- rit.edu:user:ultrasonic_sensor_axi:1.1 - ultrasonic_sensor_axi_0
@@ -37,128 +36,59 @@ Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_0
 Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_1
 Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_2
 Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_3
+Adding cell -- xilinx.com:user:imu_wrapper:1.0 - imu_wrapper_0
 WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_a(undef) and /encoder_reader_top_0/reset_pulse_count_i(rst)
 WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_b(undef) and /encoder_reader_top_1/reset_pulse_count_i(rst)
 WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_c(undef) and /encoder_reader_top_2/reset_pulse_count_i(rst)
 WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_d(undef) and /encoder_reader_top_3/reset_pulse_count_i(rst)
 Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
 Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
-Successfully read diagram <design_1> from BD file <S:/echo/echo/src/design_1.bd>
-open_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 929.852 ; gain = 17.121
-ipx::open_ipxact_file {S:\echo\echo\ip\imu_wrapper\component.xml}
-open_bd_design {S:/echo/echo/src/design_1.bd}
-close_bd_design [get_bd_designs design_1]
-set_property core_revision 3 [ipx::current_core]
-ipx::create_xgui_files [ipx::current_core]
-ipx::update_checksums [ipx::current_core]
-ipx::save_core [ipx::current_core]
-update_ip_catalog -rebuild -repo_path s:/echo/echo/ip
-INFO: [IP_Flow 19-725] Reloaded user IP repository 's:/echo/echo/ip'
-open_bd_design {S:/echo/echo/src/design_1.bd}
-Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
-Adding cell -- craftdrones:user:blink:1.0 - blink_0
-Adding cell -- rit.edu:user:ultrasonic_sensor_axi:1.1 - ultrasonic_sensor_axi_0
-Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_50M
-Adding cell -- rit.edu:user:echo_pulse_measurer:1.1 - echo_pulse_measurer_0
-Adding cell -- rit.edu:user:echo_pulse_measurer:1.1 - echo_pulse_measurer_1
-Adding cell -- rit.edu:user:echo_pulse_measurer:1.1 - echo_pulse_measurer_2
-Adding cell -- rit.edu:user:motor_axi:1.2 - motor_axi_0
-Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_0
-Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_1
-Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_2
-Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_3
-Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_0
-Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_1
-Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_2
-Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_3
-WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_a(undef) and /encoder_reader_top_0/reset_pulse_count_i(rst)
-WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_b(undef) and /encoder_reader_top_1/reset_pulse_count_i(rst)
-WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_c(undef) and /encoder_reader_top_2/reset_pulse_count_i(rst)
-WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_d(undef) and /encoder_reader_top_3/reset_pulse_count_i(rst)
-Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
-Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
-Successfully read diagram <design_1> from BD file <S:/echo/echo/src/design_1.bd>
-startgroup
-create_bd_cell -type ip -vlnv xilinx.com:user:imu_wrapper:1.0 imu_wrapper_0
-endgroup
-apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" intc_ip "/ps7_0_axi_periph" Clk_xbar "Auto" Clk_master "Auto" Clk_slave "Auto" }  [get_bd_intf_pins imu_wrapper_0/s00_axi]
-</imu_wrapper_0/s00_axi/reg0> is being mapped into </processing_system7_0/Data> at <0x43C20000 [ 64K ]>
-create_bd_intf_port -mode Master -vlnv xilinx.com:interface:iic_rtl:1.0 MPU9250_2
-create_bd_port -dir I MPU9250_2_scl_i
-undo
-INFO: [Common 17-17] undo 'create_bd_port -dir I MPU9250_2_scl_i'
-create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 MPU9250_2_scl_i
-undo
-INFO: [Common 17-17] undo 'create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 MPU9250_2_scl_i'
-connect_bd_intf_net [get_bd_intf_ports MPU9250_2] [get_bd_intf_pins imu_wrapper_0/m00_iic]
-save_bd_design
-Wrote  : <S:/echo/echo/src/design_1.bd> 
-Wrote  : <S:/echo/echo/src/ui/bd_1f5defd0.ui> 
-reset_run design_1_xbar_0_synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 4
-Wrote  : <S:/echo/echo/src/design_1.bd> 
-VHDL Output written to : S:/echo/echo/src/hdl/design_1.vhd
-VHDL Output written to : S:/echo/echo/src/hdl/design_1_wrapper.vhd
-INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block blink_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block ultrasonic_sensor_axi_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_50M .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block echo_pulse_measurer_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block echo_pulse_measurer_1 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block echo_pulse_measurer_2 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block motor_axi_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block pwm_generator_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block pwm_generator_1 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block pwm_generator_2 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block pwm_generator_3 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block encoder_reader_top_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block encoder_reader_top_1 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block encoder_reader_top_2 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block encoder_reader_top_3 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block imu_wrapper_0 .
-WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 's:/echo/echo/src/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
-INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
-Exporting to file S:/echo/echo/src/hw_handoff/design_1.hwh
-Generated Block Design Tcl file S:/echo/echo/src/hw_handoff/design_1_bd.tcl
-Generated Hardware Definition File S:/echo/echo/src/hdl/design_1.hwdef
-INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = c2c51aa8b79b216d; cache size = 4.190 MB.
-[Tue Apr 17 17:32:39 2018] Launched design_1_xbar_0_synth_1, design_1_imu_wrapper_0_0_synth_1...
-Run output will be captured here:
-design_1_xbar_0_synth_1: S:/echo/echo/project/echo.runs/design_1_xbar_0_synth_1/runme.log
-design_1_imu_wrapper_0_0_synth_1: S:/echo/echo/project/echo.runs/design_1_imu_wrapper_0_0_synth_1/runme.log
-[Tue Apr 17 17:32:39 2018] Launched synth_1...
-Run output will be captured here: S:/echo/echo/project/echo.runs/synth_1/runme.log
-launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1130.340 ; gain = 26.305
-launch_runs impl_1 -jobs 4
-[Tue Apr 17 17:34:26 2018] Launched impl_1...
-Run output will be captured here: S:/echo/echo/project/echo.runs/impl_1/runme.log
-open_run impl_1
-INFO: [Netlist 29-17] Analyzing 69 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2017.2
-INFO: [Device 21-403] Loading part xc7z010clg400-1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [S:/echo/echo/project/.Xil/Vivado-14480-ECTET-1360-04/dcp41/design_1_wrapper_board.xdc]
-Finished Parsing XDC File [S:/echo/echo/project/.Xil/Vivado-14480-ECTET-1360-04/dcp41/design_1_wrapper_board.xdc]
-Parsing XDC File [S:/echo/echo/project/.Xil/Vivado-14480-ECTET-1360-04/dcp41/design_1_wrapper_early.xdc]
-Finished Parsing XDC File [S:/echo/echo/project/.Xil/Vivado-14480-ECTET-1360-04/dcp41/design_1_wrapper_early.xdc]
-Parsing XDC File [S:/echo/echo/project/.Xil/Vivado-14480-ECTET-1360-04/dcp41/design_1_wrapper.xdc]
-Finished Parsing XDC File [S:/echo/echo/project/.Xil/Vivado-14480-ECTET-1360-04/dcp41/design_1_wrapper.xdc]
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.385 . Memory (MB): peak = 1326.391 ; gain = 0.000
-Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.386 . Memory (MB): peak = 1326.391 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 1436.410 ; gain = 301.465
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-[Tue Apr 17 17:38:09 2018] Launched impl_1...
-Run output will be captured here: S:/echo/echo/project/echo.runs/impl_1/runme.log
-open_bd_design {S:/echo/echo/src/design_1.bd}
+Successfully read diagram <design_1> from BD file <R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/src/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 937.926 ; gain = 47.719
+ipx::edit_ip_in_project -upgrade true -name motor_axi_v1_2_project -directory {R:/CPET-563/groups/newFolder/Vivado/PROJECT\ LIVES\ HERE/4-17-18/echo/project/echo.tmp/motor_axi_v1_2_project} {r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/motor_axi_1.0/component.xml}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'r:/cpet-563/groups/newfolder/vivado/project lives here/4-17-18/echo/project/echo.tmp/motor_axi_v1_2_project'
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip'.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+INFO: [IP_Flow 19-793] Syncing display name meta-data
+INFO: [IP_Flow 19-798] Syncing taxonomy meta-data
+INFO: [IP_Flow 19-799] Syncing upgrade version meta-data
+update_compile_order -fileset sources_1
+ipx::unload_core {r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/motor_axi_1.0/component.xml}
+close_project
+ipx::edit_ip_in_project -upgrade true -name ultrasonic_sensor_axi_v1_1_project -directory {R:/CPET-563/groups/newFolder/Vivado/PROJECT\ LIVES\ HERE/4-17-18/echo/project/echo.tmp/ultrasonic_sensor_axi_v1_1_project} {r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/ultrasonic_sensor_axi_1.0/component.xml}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'r:/cpet-563/groups/newfolder/vivado/project lives here/4-17-18/echo/project/echo.tmp/ultrasonic_sensor_axi_v1_1_project'
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip'.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+INFO: [IP_Flow 19-793] Syncing display name meta-data
+INFO: [IP_Flow 19-798] Syncing taxonomy meta-data
+INFO: [IP_Flow 19-799] Syncing upgrade version meta-data
+ipx::edit_ip_in_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1134.570 ; gain = 15.977
+update_compile_order -fileset sources_1
+close_project
+ipx::edit_ip_in_project -upgrade true -name imu_wrapper_v1_0_project -directory {R:/CPET-563/groups/newFolder/Vivado/PROJECT\ LIVES\ HERE/4-17-18/echo/project/echo.tmp/imu_wrapper_v1_0_project} {r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/imu_wrapper/component.xml}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'r:/cpet-563/groups/newfolder/vivado/project lives here/4-17-18/echo/project/echo.tmp/imu_wrapper_v1_0_project'
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip'.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+INFO: [IP_Flow 19-793] Syncing display name meta-data
+INFO: [IP_Flow 19-798] Syncing taxonomy meta-data
+update_compile_order -fileset sources_1
+close_project
+set_property range 4K [get_bd_addr_segs {processing_system7_0/Data/SEG_imu_wrapper_0_reg0}]
+set_property range 64K [get_bd_addr_segs {processing_system7_0/Data/SEG_imu_wrapper_0_reg0}]
 exit
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 17 19:19:27 2018...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 18 20:36:51 2018...

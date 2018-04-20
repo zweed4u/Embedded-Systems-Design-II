@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Apr 18 19:29:52 2018
+# Process ID: 14076
+# Current directory: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10404 R:\CPET-563\groups\newFolder\Vivado\PROJECT LIVES HERE\4-17-18\echo\project\echo.xpr
+# Log file: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/vivado.log
+# Journal file: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/echo.xpr}
+update_compile_order -fileset sources_1
+open_bd_design {R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/src/design_1.bd}
+ipx::edit_ip_in_project -upgrade true -name motor_axi_v1_2_project -directory {R:/CPET-563/groups/newFolder/Vivado/PROJECT\ LIVES\ HERE/4-17-18/echo/project/echo.tmp/motor_axi_v1_2_project} {r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/motor_axi_1.0/component.xml}
+update_compile_order -fileset sources_1
+close_project

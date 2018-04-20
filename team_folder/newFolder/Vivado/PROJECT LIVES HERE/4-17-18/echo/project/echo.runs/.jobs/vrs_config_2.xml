@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
-	<Run Id="design_1_auto_pc_0_synth_1" LaunchDir="S:/echo/echo/project/echo.runs/design_1_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="synth_1" LaunchDir="S:/echo/echo/project/echo.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
-		<Parent Id="design_1_auto_pc_0_synth_1"/>
-	</Run>
+	<Run Id="impl_1" LaunchDir="R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/echo.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream"/>
 </Runs>
 

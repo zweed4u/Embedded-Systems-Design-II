@@ -1,0 +1,63 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Apr 18 19:29:52 2018
+# Process ID: 14076
+# Current directory: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10404 R:\CPET-563\groups\newFolder\Vivado\PROJECT LIVES HERE\4-17-18\echo\project\echo.xpr
+# Log file: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/vivado.log
+# Journal file: R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/echo.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'design_1_auto_pc_0' generated file not found 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/src/ip/design_1_auto_pc_0/stats.txt'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 849.730 ; gain = 91.113
+update_compile_order -fileset sources_1
+open_bd_design {R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/src/design_1.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- craftdrones:user:blink:1.0 - blink_0
+Adding cell -- rit.edu:user:ultrasonic_sensor_axi:1.1 - ultrasonic_sensor_axi_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_50M
+Adding cell -- rit.edu:user:echo_pulse_measurer:1.1 - echo_pulse_measurer_0
+Adding cell -- rit.edu:user:echo_pulse_measurer:1.1 - echo_pulse_measurer_1
+Adding cell -- rit.edu:user:echo_pulse_measurer:1.1 - echo_pulse_measurer_2
+Adding cell -- rit.edu:user:motor_axi:1.2 - motor_axi_0
+Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_0
+Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_1
+Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_2
+Adding cell -- rit.edu:user:encoder_reader_top:1.0 - encoder_reader_top_3
+Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_0
+Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_1
+Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_2
+Adding cell -- rit.edu:user:pwm_generator:3.0 - pwm_generator_3
+Adding cell -- xilinx.com:user:imu_wrapper:1.0 - imu_wrapper_0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_a(undef) and /encoder_reader_top_0/reset_pulse_count_i(rst)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_b(undef) and /encoder_reader_top_1/reset_pulse_count_i(rst)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_c(undef) and /encoder_reader_top_2/reset_pulse_count_i(rst)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /motor_axi_0/clr_enc_d(undef) and /encoder_reader_top_3/reset_pulse_count_i(rst)
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <design_1> from BD file <R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/src/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 917.473 ; gain = 49.883
+ipx::edit_ip_in_project -upgrade true -name motor_axi_v1_2_project -directory {R:/CPET-563/groups/newFolder/Vivado/PROJECT\ LIVES\ HERE/4-17-18/echo/project/echo.tmp/motor_axi_v1_2_project} {r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/motor_axi_1.0/component.xml}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'r:/cpet-563/groups/newfolder/vivado/project lives here/4-17-18/echo/project/echo.tmp/motor_axi_v1_2_project'
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'r:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip'.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+INFO: [IP_Flow 19-793] Syncing display name meta-data
+INFO: [IP_Flow 19-798] Syncing taxonomy meta-data
+INFO: [IP_Flow 19-799] Syncing upgrade version meta-data
+update_compile_order -fileset sources_1
+close_project
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 18 19:40:20 2018...

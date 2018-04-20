@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="20" Path="s:/echo/echo/project/echo.tmp/ultrasonic_sensor_axi_v1_1_project/ultrasonic_sensor_axi_v1_1_project.xpr">
+<Project Version="7" Minor="20" Path="r:/cpet-563/groups/newfolder/vivado/project lives here/4-17-18/echo/project/echo.tmp/ultrasonic_sensor_axi_v1_1_project/ultrasonic_sensor_axi_v1_1_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="a0ae3d59097445f9a5ef5c81668b3a37"/>
+    <Option Name="Id" Val="3f71e20894494543aaa473c6c19634e6"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -21,8 +21,7 @@
     <Option Name="BoardPart" Val="krtkl.com:snickerdoodle:part0:1.0"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../ip/motor_axi_1.0"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../ip"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../../../../../../CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
@@ -56,25 +55,25 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../../../ip/ultrasonic_sensor_axi_1.0/hdl/ultrasonic_sensor_axi_v1_0_S00_AXI.vhd">
+      <File Path="$PPRDIR/../../../../../../../../../../CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/ultrasonic_sensor_axi_1.0/hdl/ultrasonic_sensor_axi_v1_0_S00_AXI.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../ip/ultrasonic_sensor_axi_1.0/hdl/ultrasonic_sensor_axi_v1_0.vhd">
+      <File Path="$PPRDIR/../../../../../../../../../../CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/ultrasonic_sensor_axi_1.0/hdl/ultrasonic_sensor_axi_v1_0.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../ip/ultrasonic_sensor_axi_1.0/component.xml">
+      <File Path="$PPRDIR/../../../../../../../../../../CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/ultrasonic_sensor_axi_1.0/component.xml">
         <FileInfo SFType="IPXACT"/>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="ultrasonic_sensor_axi_v1_0"/>
-        <Option Name="TopRTLFile" Val="$PPRDIR/../../../ip/ultrasonic_sensor_axi_1.0/hdl/ultrasonic_sensor_axi_v1_0.vhd"/>
+        <Option Name="TopRTLFile" Val="$PPRDIR/../../../../../../../../../../CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/ip/ultrasonic_sensor_axi_1.0/hdl/ultrasonic_sensor_axi_v1_0.vhd"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

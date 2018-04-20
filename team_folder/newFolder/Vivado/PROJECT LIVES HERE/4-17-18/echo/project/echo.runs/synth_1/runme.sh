@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='S:/echo/echo/project/echo.runs/synth_1'
+HD_PWD='R:/CPET-563/groups/newFolder/Vivado/PROJECT LIVES HERE/4-17-18/echo/project/echo.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
